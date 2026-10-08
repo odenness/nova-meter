@@ -13,6 +13,11 @@ Installed copies update themselves.
 
 Hotkeys: **Ctrl+Shift+L** lock/unlock (click-through) · **Ctrl+Shift+H** hide/show.
 
+## Support
+Nova Meter is free. If it helps your raids, you can [buy me a coffee ☕](https://buymeacoffee.com/odenness).
+
+[![Buy me a coffee](https://img.shields.io/badge/Buy%20me%20a%20coffee-ffdd00?logo=buymeacoffee&logoColor=000&style=for-the-badge)](https://buymeacoffee.com/odenness)
+
 ## Privacy
 Nova Meter only reads a copy of the game's network traffic through Npcap. It never touches the game, its files or its memory,
 and never sends anything to the game servers. Fights and settings stay on your PC (`%APPDATA%\NovaMeter`). It looks up enemy
