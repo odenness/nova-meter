@@ -1,4 +1,8 @@
 # Nova Meter
+A read-only damage meter overlay for **Aion 2**: live party DPS, boss HP and time to kill, skill breakdowns, fight history and personal bests.
+
+![Nova Meter in a Vakron fight](docs/screenshot.png)
+
 **Download:** grab `Nova-Meter-Setup-x.y.z.exe` from the [latest release](https://github.com/odenness/nova-meter/releases/latest).
 Installed copies update themselves.
 
