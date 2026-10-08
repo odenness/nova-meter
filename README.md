@@ -1,12 +1,7 @@
 # Nova Meter
 
-Install
-Install Npcap from https://npcap.com/#download (defaults; leave "Restrict Npcap driver's access to Administrators only" unticked).
-Run the Nova Meter installer. If Windows says "Windows protected your PC", click More info → Run anyway (the installer isn't code-signed yet).
-Play Aion 2 in borderless windowed mode and start Nova Meter before you log in or change zone.
-
-A read-only damage meter overlay for **Aion 2**: live party DPS, healing, damage taken, boss HP and time to kill,
-per-skill breakdowns, fight history and personal bests.
+<img width="1280" height="722" alt="image" src="https://github.com/user-attachments/assets/e4e2e006-7c44-427f-8c7b-f86cb5d36dfd" />
+<img width="226" height="149" alt="image" src="https://github.com/user-attachments/assets/c38cd5e3-577f-441e-9948-8d407eb4488b" />
 
 **Download:** grab `Nova-Meter-Setup-x.y.z.exe` from the [latest release](https://github.com/odenness/nova-meter/releases/latest).
 Installed copies update themselves.
