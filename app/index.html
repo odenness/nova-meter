@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nova Meter</title>
+<link rel="stylesheet" href="style.css">
+<link rel="icon" href="img/nova.png">
+</head>
+<body>
+<div class="meter" id="meter">
+  <!-- title bar: drag anywhere that isn't a button -->
+  <div class="head" id="head">
+    <div class="brand" title="Nova Meter">
+      <svg class="logo" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1.5l2.3 8.2 8.2 2.3-8.2 2.3L12 22.5l-2.3-8.2L1.5 12l8.2-2.3z" style="fill:var(--accent)"/><circle cx="12" cy="12" r="2.2" fill="#fff7e0"/></svg>
+      <span class="brand-name">NOVA</span>
+      <span class="brand-sub" id="title">Damage</span>
+    </div>
+    <span class="timer" id="timer">0:00</span>
+    <div class="events" id="events"></div>
+    <div class="spacer"></div>
+    <button class="pill" id="segment" title="This fight, or every fight this session">Current</button>
+    <button class="pill strong" id="mode" title="Switch value: DPS, rDPS, nDPS, HPS, damage taken">DPS</button>
+    <button class="btn" id="reset" title="Reset fight"></button>
+    <button class="btn" id="sound" title="Event chime"></button>
+    <button class="btn" id="lock" title="Lock: clicks go through to the game (Ctrl+Shift+L)"></button>
+    <button class="btn" id="compact" title="Compact"></button>
+    <button class="btn" id="more" title="Menu"></button>
+    <button class="btn app-only" id="min" title="Minimise"></button>
+    <button class="btn app-only" id="quit" title="Close Nova Meter"></button>
+  </div>
+
+  <!-- boss / target -->
+  <div class="target" id="target">
+    <div class="target-row">
+      <div class="target-name"><span class="boss-badge" id="tboss" hidden>BOSS</span><span id="tname">Waiting for a fight…</span></div>
+      <div class="target-info" id="tinfo"></div>
+    </div>
+    <div class="hp"><div id="thp" style="width:0"></div></div>
+  </div>
+
+  <!-- totals: "Total Damage 45.7M ............ 238.1K DPS" -->
+  <div class="summary" id="summary">
+    <div class="sum-left" id="sumLeft"></div>
+    <div class="sum-right" id="sumRight"></div>
+  </div>
+
+  <div class="cols" id="cols"></div>
+  <div class="rows" id="rows"></div>
+
+  <div class="legend" id="legend">
+    <span><i style="background:#9ea1aa"></i>buffs for others</span>
+    <span><i style="background:var(--heal)"></i>healing on others</span>
+  </div>
+
+  <div class="foot">
+    <div class="dot" id="dot"></div><span id="status">Starting…</span>
+    <span class="chip" id="netchip" hidden></span>
+    <div class="spacer"></div>
+    <span class="perf" id="health"></span>
+    <span class="num perf" id="pps"></span>
+    <span class="num perf ping" id="ping"></span>
+    <button class="upd" id="upd" hidden title="Restart Nova Meter to install the update"></button>
+    <span class="ver" id="ver"></span>
+    <button class="bug" id="bug" title="Report a bug (opens GitHub)" aria-label="Report a bug"></button>
+    <button class="bug coffee-btn" id="coffee" title="Buy me a coffee" aria-label="Buy me a coffee"></button>
+  </div>
+
+  <div class="menu" id="menu" hidden>
+    <button class="narrow-only" data-act="mode">Switch value (DPS · HPS · …)</button>
+    <button class="narrow-only" data-act="segment">Current / Overall</button>
+    <button class="narrow-only" data-act="reset">Reset fight</button>
+    <button class="narrow-only" data-act="compact">Compact view</button>
+    <button class="narrow-only" data-act="sound">Event chime on/off</button>
+    <hr class="narrow-only">
+    <button data-open="details">Fight details</button>
+    <button data-open="history">History</button>
+    <hr>
+    <button data-open="settings">Settings</button>
+    <button data-open="help">Help & setup</button>
+    <button data-act="bug">Report a bug</button>
+    <button data-act="coffee" class="coffee">☕ Buy me a coffee</button>
+  </div>
+
+  <div class="panel" id="panel" hidden>
+    <div class="panel-head">
+      <span class="panel-title" id="panel-title"></span>
+      <div class="spacer"></div>
+      <button class="btn" id="panel-close" title="Close"></button>
+    </div>
+    <div class="panel-body" id="panel-body"></div>
+  </div>
+  <div class="grip app-only" id="grip" title="Drag to resize"></div>
+</div>
+<div class="tip" id="tip" hidden></div>
+<script type="module" src="app.js"></script>
+</body>
+</html>

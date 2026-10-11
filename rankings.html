@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rankings · Nova Meter</title>
+<link rel="icon" href="img/nova.png">
+<link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+<main class="wrap page">
+  <h1>Rankings</h1>
+  <p class="muted">Best DPS by class and fastest kills, boss by boss. Kills only, one entry per player.</p>
+  <div class="toolbar">
+    <select id="boss"></select>
+    <select id="cls"><option value="">All classes</option></select>
+  </div>
+  <div id="out"></div>
+</main>
+<footer><div class="wrap"><span>Nova Meter</span><a href="privacy.html">Privacy</a><span>Not affiliated with NCSOFT. Aion is a trademark of NCSOFT Corporation.</span></div></footer>
+<script type="module">
+  import { mountNav, db, configured, esc, fmt, fmtTime } from "./js/auth.js";
+  import { CLASSES, classIcon } from "./app/icons.js";
+  await mountNav("rankings");
+  const out = document.getElementById("out");
+  const bossSel = document.getElementById("boss"), clsSel = document.getElementById("cls");
+  clsSel.innerHTML += Object.entries(CLASSES).map(([k, c]) => `<option value="${k}">${c.label}</option>`).join("");
+
+  if (!configured) {
+    document.querySelector(".toolbar").hidden = true;
+    out.innerHTML = `<div class="notice"><p>Rankings are coming later. They fill in once Discord sign-in and fight uploads are switched on.</p>
+      <a class="btn" href="index.html">Back to Nova Meter</a></div>`;
+  } else {
+    const c = await db();
+    const { data: bosses } = await c.from("dps_rankings").select("boss").limit(1000);
+    const names = [...new Set((bosses || []).map(b => b.boss))].sort();
+    bossSel.innerHTML = names.length ? names.map(b => `<option>${esc(b)}</option>`).join("") : `<option value="">No kills yet</option>`;
+    async function draw() {
+      const boss = bossSel.value;
+      if (!boss) { out.innerHTML = `<div class="notice">No kills uploaded yet.</div>`; return; }
+      let q = c.from("dps_rankings").select("*").eq("boss", boss).order("dps", { ascending: false }).limit(100);
+      if (clsSel.value) q = q.eq("self_class", clsSel.value);
+      const [{ data: dps }, { data: fast }] = await Promise.all([
+        q, c.from("kill_rankings").select("*").eq("boss", boss).order("duration").limit(25)]);
+      out.innerHTML = `<div class="two">
+        <div><h3>Best DPS</h3><table class="t"><tr><th>#</th><th>Player</th><th>Class</th><th class="n">DPS</th><th class="n">Kill time</th></tr>
+          ${(dps || []).map((r, i) => `<tr class="click" data-id="${r.fight_id}"><td>${i + 1}</td><td>${esc(r.self_name)}</td>
+            <td><span class="cls">${classIcon(r.self_class)}${esc(CLASSES[r.self_class]?.label ?? "")}</span></td><td class="n">${fmt(r.dps)}</td><td class="n">${fmtTime(r.duration)}</td></tr>`).join("")}</table></div>
+        <div><h3>Fastest kills</h3><table class="t"><tr><th>#</th><th>Party</th><th class="n">Time</th><th class="n">Party DPS</th></tr>
+          ${(fast || []).map((r, i) => `<tr class="click" data-id="${r.fight_id}"><td>${i + 1}</td><td>${esc(r.party_names)}</td><td class="n">${fmtTime(r.duration)}</td><td class="n">${fmt(r.party_dps)}</td></tr>`).join("")}</table></div>
+      </div>`;
+    }
+    bossSel.onchange = clsSel.onchange = draw;
+    out.addEventListener("click", e => { const r = e.target.closest("[data-id]"); if (r) location.href = `fight.html?id=${r.dataset.id}`; });
+    draw();
+  }
+</script>
+</body>
+</html>

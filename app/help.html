@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nova Meter · Help & setup</title>
+<link rel="icon" href="img/nova.png">
+<style>
+  :root { --bg: #0d0f15; --card: #151821; --line: rgba(255,255,255,.08); --text: #eef0f5; --muted: #9aa0ad; --accent: #f3c25a; --ok: #3ccf8e; --bad: #e5574d; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: var(--bg); color: var(--text); font: 14px/1.55 "Segoe UI", system-ui, sans-serif; }
+  main { max-width: 760px; margin: 0 auto; padding: 26px 28px 40px; }
+  header { display: flex; align-items: center; gap: 12px; margin-bottom: 6px; }
+  header svg { width: 34px; height: 34px; filter: drop-shadow(0 0 8px rgba(243,194,90,.6)); }
+  h1 { margin: 0; font-size: 24px; letter-spacing: .12em; }
+  h1 small { font-size: 12px; letter-spacing: .14em; color: var(--accent); margin-left: 6px; }
+  .ver { color: var(--muted); font-size: 12px; margin-left: auto; }
+  .lead { color: var(--muted); margin: 0 0 22px; }
+  h2 { font-size: 13px; text-transform: uppercase; letter-spacing: .12em; color: var(--accent); margin: 28px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px; margin-bottom: 10px; }
+  ol { margin: 0; padding-left: 20px; } li { margin: 6px 0; }
+  .alert { border-color: rgba(229,87,77,.6); background: linear-gradient(135deg, rgba(229,87,77,.16), rgba(229,87,77,.04)); }
+  .alert h3 { margin: 0 0 6px; font-size: 16px; }
+  .ok { border-color: rgba(60,207,142,.5); background: rgba(60,207,142,.08); }
+  .btns { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 12px; }
+  button { font: inherit; font-weight: 600; border-radius: 8px; padding: 8px 16px; cursor: pointer; border: 1px solid var(--line); background: rgba(255,255,255,.06); color: var(--text); }
+  button.primary { background: var(--accent); color: #1b1404; border-color: var(--accent); }
+  button:hover { filter: brightness(1.1); }
+  kbd { font: 12px "Cascadia Mono", Consolas, monospace; background: #222634; border: 1px solid #343a4c; border-bottom-width: 2px; border-radius: 5px; padding: 1px 6px; }
+  table { width: 100%; border-collapse: collapse; }
+  td { padding: 7px 4px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  td:first-child { white-space: nowrap; width: 1%; padding-right: 16px; }
+  .muted { color: var(--muted); }
+  a { color: var(--accent); }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <svg viewBox="0 0 24 24"><path d="M12 1.5l2.3 8.2 8.2 2.3-8.2 2.3L12 22.5l-2.3-8.2L1.5 12l8.2-2.3z" fill="#f3c25a"/><circle cx="12" cy="12" r="2.2" fill="#fff7e0"/></svg>
+    <h1>NOVA<small>METER</small></h1>
+    <span class="ver" id="ver"></span>
+  </header>
+  <p class="lead">A read-only combat meter for Aion 2. It watches the game's network traffic and shows your party's damage, healing and boss fights. It never touches the game, its files or its memory.</p>
+
+  <div class="card alert" id="npcap" hidden>
+    <h3>One more step: install Npcap</h3>
+    Nova Meter reads game traffic through <b>Npcap</b>, a free, widely used Windows capture driver (Wireshark uses it too).
+    It can't be bundled, so please install it once:
+    <ol>
+      <li>Click <b>Download Npcap</b> and run the installer.</li>
+      <li>Keep the default options. Leave <b>"Restrict Npcap driver's access to Administrators only"</b> unticked.</li>
+      <li>Come back here and click <b>I've installed it</b>.</li>
+    </ol>
+    <div class="btns"><button class="primary" id="dl">Download Npcap</button><button id="retry">I've installed it</button></div>
+    <p class="muted" id="retryMsg" style="margin:10px 0 0"></p>
+  </div>
+  <div class="card ok" id="ready" hidden>✔ Npcap is installed. Nova Meter is capturing. You can close this window.</div>
+
+  <h2>Getting started</h2>
+  <div class="card"><ol>
+    <li><b>Start Nova Meter before you log in or change zone.</b> The game only says who everyone is when they first appear, so this is how party names and boss names show up straight away.</li>
+    <li>Play Aion 2 in <b>borderless windowed</b> mode (exclusive fullscreen hides overlays).</li>
+    <li>Drag the meter by its title bar, resize from the bottom-right corner. Position and size are remembered.</li>
+    <li>Click any player for their breakdown: skills, hits, defense and rotation.</li>
+  </ol></div>
+
+  <h2>Hotkeys</h2>
+  <div class="card"><table>
+    <tr><td><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>L</kbd></td><td>Lock / unlock. Locked = clicks go straight through to the game.</td></tr>
+    <tr><td><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>H</kbd></td><td>Hide / show the overlay.</td></tr>
+  </table></div>
+
+  <h2>What the numbers mean</h2>
+  <div class="card"><table>
+    <tr><td>DPS</td><td>Damage per second over the fight.</td></tr>
+    <tr><td>HPS</td><td>Healing on other players per second (self-heals and overhealing left out).</td></tr>
+    <tr><td>DTPS</td><td>Damage taken per second.</td></tr>
+    <tr><td>Share</td><td>Your part of the party's total.</td></tr>
+    <tr><td>Current / Overall</td><td>This fight, or every fight since Nova Meter started.</td></tr>
+    <tr><td>Boss bar</td><td>HP left and the time to kill at your party's current pace.</td></tr>
+    <tr><td>History</td><td>⋯ → History. Every fight is saved on your PC. Open one for the full report, or copy a summary for game chat.</td></tr>
+    <tr><td>Personal bests</td><td>Beat your best DPS on a boss and you get a celebration. Turn it off in Settings.</td></tr>
+  </table></div>
+
+  <h2>Troubleshooting</h2>
+  <div class="card"><table>
+    <tr><td>Meter stays empty</td><td>Check Npcap is installed (top of this page), then restart Nova Meter. VPNs or routing tools that tunnel game traffic can hide it.</td></tr>
+    <tr><td>Players show as #1234</td><td>Nova Meter started after they appeared. Change zone or re-enter the dungeon and names fill in.</td></tr>
+    <tr><td>"Unknown boss"</td><td>The boss was already there before Nova Meter started. Next time start it before zoning in. You can also click a boss name to name it yourself.</td></tr>
+    <tr><td>"Windows protected your PC"</td><td>The installer isn't code-signed yet. Click <b>More info → Run anyway</b>.</td></tr>
+    <tr><td>Can't click the meter</td><td>It's locked. Press <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>L</kbd>.</td></tr>
+  </table></div>
+
+  <h2>Privacy</h2>
+  <div class="card">Everything stays on your PC (<span class="muted">%APPDATA%\NovaMeter</span>). The only thing Nova Meter sends anywhere is an enemy's ID number, once, to the public
+    <a href="#" id="db">gamers4.life Aion 2 database</a> to look up its name. No account, no telemetry.</div>
+
+  <h2>Found a bug?</h2>
+  <div class="card">Click the bug icon in the meter's footer (or ⋯ → Report a bug), or
+    <a href="#" id="issues">open an issue on GitHub</a>. A screenshot and the boss/zone help a lot.</div>
+
+  <h2>Support Nova Meter</h2>
+  <div class="card">Nova Meter is free. If it helps your raids, you can
+    <a href="#" id="coffee">buy me a coffee ☕</a>.</div>
+</main>
+<script>
+  const q = new URLSearchParams(location.search), nova = window.nova;
+  document.getElementById("ver").textContent = q.get("v") ? "v" + q.get("v") : "";
+  const missing = q.get("npcap") === "missing";
+  document.getElementById("npcap").hidden = !missing;
+  document.getElementById("dl").onclick = () => nova?.openExternal("https://npcap.com/#download");
+  document.getElementById("issues").onclick = e => { e.preventDefault(); nova?.openExternal("https://github.com/odenness/nova-meter/issues/new?labels=bug"); };
+  document.getElementById("coffee").onclick = e => { e.preventDefault(); nova?.openExternal("https://buymeacoffee.com/odenness"); };
+  document.getElementById("db").onclick = e => { e.preventDefault(); nova?.openExternal("https://gamers4.life/aion-2/database/en/npcs/"); };
+  document.getElementById("retry").onclick = async () => {
+    const msg = document.getElementById("retryMsg");
+    msg.textContent = "Checking…";
+    const ok = await nova?.retryCapture();
+    if (ok) { document.getElementById("npcap").hidden = true; document.getElementById("ready").hidden = false; }
+    else msg.textContent = "Npcap still isn't found. Finish its installer, then try again (a restart of Windows is sometimes needed).";
+  };
+</script>
+</body>
+</html>

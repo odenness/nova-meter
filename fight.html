@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fight report · Nova Meter</title>
+<link rel="icon" href="img/nova.png">
+<link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+<main class="wrap page">
+  <div id="out"><p class="muted">Loading…</p></div>
+</main>
+<footer><div class="wrap"><span>Nova Meter</span><a href="privacy.html">Privacy</a><span>Not affiliated with NCSOFT. Aion is a trademark of NCSOFT Corporation.</span></div></footer>
+<script type="module">
+  import { mountNav, db, configured, esc, fmt, fmtTime } from "./js/auth.js";
+  import { CLASSES, classIcon } from "./app/icons.js";
+  await mountNav("");
+  const out = document.getElementById("out");
+  const id = new URLSearchParams(location.search).get("id");
+
+  const val = (p, m) => m === "DPS" ? p.dmg : m === "nDPS" ? p.dmg - p.taken : m === "rDPS" ? p.dmg - p.taken + p.given : p.heal;
+
+  function render(f) {
+    const s = f.data, t = Math.max(s.duration, 1);
+    let mode = "rDPS", pid = (s.players.find(p => p.self) || s.players[0])?.id;
+    const draw = () => {
+      const ps = [...s.players].sort((a, b) => val(b, mode) - val(a, mode));
+      const sum = ps.reduce((a, p) => a + Math.max(0, val(p, mode)), 0) || 1;
+      const p = s.players.find(x => x.id === pid);
+      out.innerHTML = `<h1>${esc(f.boss)}</h1>
+        <p class="muted">${new Date(f.fought_at).toLocaleString()} · uploaded by ${esc(f.self_name)}</p>
+        <div class="stat-row">
+          <div class="stat"><b class="${f.killed ? "ok" : "bad"}">${f.killed ? "Kill" : "Wipe"}</b><span>result</span></div>
+          <div class="stat"><b>${fmtTime(s.duration)}</b><span>duration</span></div>
+          <div class="stat"><b>${fmt(f.party_dps)}</b><span>party DPS</span></div>
+          <div class="stat"><b>${s.deaths.length}</b><span>deaths</span></div>
+        </div>
+        <div class="toolbar">${["DPS", "rDPS", "nDPS", "HPS"].map(m => `<button class="btn sm ${m === mode ? "primary" : ""}" data-mode="${m}">${m}</button>`).join("")}</div>
+        <table class="t"><tr><th>#</th><th>Player</th><th>Class</th><th class="n">${mode}</th><th class="n">Total</th><th class="n">Share</th><th class="n">Crit</th></tr>
+          ${ps.map((x, i) => `<tr class="click" data-pid="${x.id}"><td>${i + 1}</td><td>${esc(x.name)}${x.id === pid ? " ◂" : ""}</td>
+            <td><span class="cls">${classIcon(x.cls)}${esc(CLASSES[x.cls]?.label ?? "")}</span></td>
+            <td class="n">${fmt(val(x, mode) / t)}</td><td class="n">${fmt(val(x, mode))}</td><td class="n">${(Math.max(0, val(x, mode)) / sum * 100).toFixed(1)}%</td>
+            <td class="n">${x.hits ? (x.crits / x.hits * 100).toFixed(1) : 0}%</td></tr>`).join("")}</table>
+        ${p ? `<h3 style="margin-top:28px">${esc(p.name)}'s skills</h3>
+        <table class="t"><tr><th>Skill</th><th class="n">Hits</th><th class="n">Crit</th><th class="n">Total</th><th class="n">Max</th><th class="n">DPS</th></tr>
+          ${p.skills.map(k => `<tr><td>${esc(k.name)}</td><td class="n">${k.hits}</td><td class="n">${(k.crits / k.hits * 100).toFixed(0)}%</td><td class="n">${fmt(k.dmg)}</td><td class="n">${fmt(k.max)}</td><td class="n">${fmt(k.dmg / t)}</td></tr>`).join("")}</table>` : ""}
+        ${s.deaths.length ? `<h3 style="margin-top:28px">Deaths</h3><table class="t"><tr><th>Time</th><th>Player</th><th>Killing blow</th></tr>
+          ${s.deaths.map(d => { const h = d.hits[d.hits.length - 1]; return `<tr><td>${fmtTime(d.at)}</td><td>${esc(d.name)}</td><td>${h ? `${esc(h.skill)} · ${fmt(h.dmg)}` : "–"}</td></tr>`; }).join("")}</table>` : ""}`;
+    };
+    out.onclick = e => {
+      const m = e.target.closest("[data-mode]"), r = e.target.closest("[data-pid]");
+      if (m) { mode = m.dataset.mode; draw(); } else if (r) { pid = +r.dataset.pid; draw(); }
+    };
+    draw();
+  }
+
+  if (!configured) out.innerHTML = `<div class="notice">Shared fight reports work once fight uploads are switched on.</div>`;
+  else if (!id) out.innerHTML = `<div class="notice">No fight selected.</div>`;
+  else {
+    const c = await db();
+    const { data, error } = await c.from("fights").select("*").eq("id", id).maybeSingle();
+    if (error || !data) out.innerHTML = `<div class="notice">This fight doesn't exist, or it hasn't been shared.</div>`;
+    else render(data);
+  }
+</script>
+</body>
+</html>

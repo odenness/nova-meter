@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy · Nova Meter</title>
+<link rel="icon" href="img/nova.png">
+<link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+<main class="wrap page prose">
+  <h1>Privacy</h1>
+  <p class="muted">Last updated 11 October 2026</p>
+
+  <h2>What the meter reads</h2>
+  <p>Nova Meter reads a copy of the Aion 2 traffic your PC already receives, through Npcap. It ignores all other traffic. It never reads the game's memory or files, and it never sends anything to the game servers.</p>
+
+  <h2>What stays on your PC</h2>
+  <p>Your settings, fight history and personal bests are saved in <code>%APPDATA%\NovaMeter</code>. They never leave your PC. Delete that folder to remove them.</p>
+
+  <h2>What the meter downloads</h2>
+  <p>The meter makes a few requests of its own. None of them include anything about you or your fights:</p>
+  <ul>
+    <li><b>Updates:</b> it checks GitHub for new releases shortly after it starts and every few hours.</li>
+    <li><b>Skill names:</b> it fetches the shared skill name list from the Nova Meter GitHub repository.</li>
+    <li><b>Monster names:</b> when it meets a monster it hasn't seen before, it looks up the name by its game ID on gamers4.life, then keeps it in a local cache.</li>
+  </ul>
+  <p>There is no telemetry, no analytics and no crash reporting.</p>
+
+  <h2>This website</h2>
+  <p>This site has no cookies, analytics or trackers. The hosting provider keeps standard server logs, such as IP addresses and request times, for security. To link the Download buttons to the newest installer, your browser asks GitHub which release is newest. That request goes straight from your browser to GitHub.</p>
+
+  <h2>Discord sign-in (coming later)</h2>
+  <p>Discord sign-in, fight uploads and rankings are not switched on yet. When they are, they will be optional. If you sign in, the site will store your Discord name and avatar, plus the fights your meter uploads. Your fights will be private unless you share a link. Your best kills will appear in the public rankings, which show your in-game name, class, DPS and kill time. You will be able to delete any fight, or your whole account. This page will be updated before any of that goes live.</p>
+
+  <h2>Contact</h2>
+  <p>For questions or problems, <a href="https://github.com/odenness/nova-meter/issues/new" target="_blank" rel="noopener">open an issue on GitHub</a>.</p>
+</main>
+<footer><div class="wrap"><span>Nova Meter</span><a href="index.html">Home</a><span>Not affiliated with NCSOFT. Aion is a trademark of NCSOFT Corporation.</span></div></footer>
+<script type="module">
+  import { mountNav } from "./js/auth.js";
+  mountNav("");
+</script>
+</body>
+</html>

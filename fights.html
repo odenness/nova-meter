@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>My fights · Nova Meter</title>
+<link rel="icon" href="img/nova.png">
+<link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+<main class="wrap page">
+  <h1>My fights</h1>
+  <p class="muted">Every fight the meter uploads while you're signed in. Share one and your party can open the full report.</p>
+  <div id="out"></div>
+</main>
+<footer><div class="wrap"><span>Nova Meter</span><a href="privacy.html">Privacy</a><span>Not affiliated with NCSOFT. Aion is a trademark of NCSOFT Corporation.</span></div></footer>
+<script type="module">
+  import { mountNav, db, signIn, configured, esc, fmt, fmtTime, toast, DISCORD_ICON } from "./js/auth.js";
+  import { CLASSES, classIcon } from "./app/icons.js";
+  const out = document.getElementById("out");
+  const user = await mountNav("fights");
+
+  if (!configured) {
+    out.innerHTML = `<div class="notice"><p>Uploading fights to the website isn't switched on yet. Your fights are saved on your PC in the meter's History tab.</p>
+      <a class="btn" href="index.html">Back to Nova Meter</a></div>`;
+  } else if (!user) {
+    out.innerHTML = `<div class="notice"><p>Sign in with Discord to see the fights your meter has uploaded.</p>
+      <button class="btn discord" id="si">${DISCORD_ICON}Sign in with Discord</button>
+</div>`;
+    document.getElementById("si").onclick = signIn;
+  } else {
+    const c = await db();
+    const { data, error } = await c.from("fights")
+      .select("id, boss, killed, duration, fought_at, self_name, self_class, self_dps, party_dps, deaths, public")
+      .eq("user_id", user.id).order("fought_at", { ascending: false }).limit(200);
+    if (error) out.innerHTML = `<div class="notice">Couldn't load fights: ${esc(error.message)}</div>`;
+    else if (!data.length) out.innerHTML = `<div class="notice">No fights yet. Fight a boss or a training dummy with the meter running and signed in.</div>`;
+    else {
+      out.innerHTML = `<div class="toolbar"><select id="boss"><option value="">All bosses</option>${[...new Set(data.map(f => f.boss))].map(b => `<option>${esc(b)}</option>`).join("")}</select></div><div id="tbl"></div>`;
+      const draw = () => {
+        const b = document.getElementById("boss").value;
+        const rows = data.filter(f => !b || f.boss === b);
+        document.getElementById("tbl").innerHTML = `<table class="t"><tr><th>When</th><th>Boss</th><th>Class</th><th class="n">Time</th><th>Result</th><th class="n">Your DPS</th><th class="n">Party DPS</th><th>Deaths</th><th></th></tr>
+          ${rows.map(f => `<tr class="click" data-id="${f.id}">
+            <td>${new Date(f.fought_at).toLocaleString([], { month: "short", day: "numeric", hour: "2-digit", minute: "2-digit" })}</td>
+            <td>${esc(f.boss)}</td><td><span class="cls">${classIcon(f.self_class)}${esc(CLASSES[f.self_class]?.label ?? "")}</span></td>
+            <td class="n">${fmtTime(f.duration)}</td><td class="${f.killed ? "ok" : "bad"}">${f.killed ? "Kill" : "Wipe"}</td>
+            <td class="n">${fmt(f.self_dps)}</td><td class="n">${fmt(f.party_dps)}</td><td>${f.deaths || '<span class="muted">none</span>'}</td>
+            <td><button class="btn sm" data-share="${f.id}">${f.public ? "Copy link" : "Share"}</button></td></tr>`).join("")}</table>`;
+      };
+      document.getElementById("boss").onchange = draw;
+      out.addEventListener("click", async e => {
+        const s = e.target.closest("[data-share]");
+        if (s) {
+          e.stopPropagation();
+          const f = data.find(x => x.id === s.dataset.share);
+          if (!f.public) { const { error } = await c.from("fights").update({ public: true }).eq("id", f.id); if (error) return toast(error.message); f.public = true; draw(); }
+          const url = new URL(`fight.html?id=${f.id}`, location.href).href;
+          try { await navigator.clipboard.writeText(url); toast("Link copied. Anyone with it can open the report."); } catch { toast(url); }
+          return;
+        }
+        const r = e.target.closest("[data-id]");
+        if (r) location.href = `fight.html?id=${r.dataset.id}`;
+      });
+      draw();
+    }
+  }
+</script>
+</body>
+</html>

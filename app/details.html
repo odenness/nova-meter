@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nova Meter · Breakdown</title>
+<link rel="icon" href="img/nova.png">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="details.css">
+</head>
+<body class="details-page">
+<div class="dwin" id="dwin">
+  <div class="dhead" id="dhead">
+    <div class="demblem" id="demblem"></div>
+    <div class="dwho">
+      <div class="dname"><span id="dname">—</span><span class="me" id="dme" hidden>ME</span></div>
+      <div class="dsub" id="dsub"></div>
+    </div>
+    <div class="spacer"></div>
+    <select id="dplayer" title="Show another player"></select>
+    <button class="btn" id="dclose" title="Close"></button>
+  </div>
+
+  <div class="cards" id="cards"></div>
+
+  <div class="dtabs" id="dtabs">
+    <button data-tab="skills" class="on">Skills</button>
+    <button data-tab="hits">Hits</button>
+    <button data-tab="defense">Defense</button>
+    <button data-tab="rotation">Rotation</button>
+  </div>
+  <div class="dbody" id="dbody"></div>
+  <div class="grip" id="dgrip" title="Drag to resize"></div>
+</div>
+<div class="tip" id="tip" hidden></div>
+<script type="module" src="details.js"></script>
+</body>
+</html>

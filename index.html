@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nova Meter · Aion 2 combat meter</title>
+<meta name="description" content="A free, read-only combat meter for Aion 2: live DPS, healing, death recaps, boss HP and event timers.">
+<meta property="og:title" content="Nova Meter · Aion 2 combat meter">
+<meta property="og:description" content="Free, read-only combat meter for Aion 2: live party DPS, healing, death recaps, boss HP and event timers.">
+<meta property="og:image" content="img/nova.png">
+<meta name="theme-color" content="#0c0e13">
+<link rel="icon" href="img/nova.png">
+<link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+
+<main class="wrap">
+  <div class="hero">
+    <div>
+      <div class="eyebrow">Aion 2 combat meter</div>
+      <h1>Know who's really carrying the pull.</h1>
+      <p class="lead">Nova Meter watches the game's network traffic and turns it into a live party breakdown: who did the damage, who kept everyone alive, and what killed you.</p>
+      <div class="cta" id="download">
+        <a class="btn primary" id="dl" data-download="label" href="https://github.com/odenness/nova-meter/releases/latest">Download for Windows</a>
+        <a class="btn" href="#setup">How to set it up</a>
+        <p class="dl-note" id="dl-note"></p>
+      </div>
+      <div class="facts">
+        <div><span>reads</span><span>network traffic only, never game memory</span></div>
+        <div><span>needs</span><span>Windows 10/11 + Npcap</span></div>
+        <div><span>admin rights</span><span>not required</span></div>
+        <div><span>telemetry</span><span>none</span></div>
+        <div><span>price</span><span>free</span></div>
+      </div>
+    </div>
+    <div>
+      <div class="demo-box" id="demo-box"><iframe class="demo-frame" src="./app/?demo&amp;overlay" title="Live overlay demo" scrolling="no"></iframe></div>
+      <p class="caption">The real overlay running a simulated boss fight. Click rDPS to cycle DPS, rDPS, nDPS and HPS, or ⋯ for fight details, history and settings.</p>
+    </div>
+  </div>
+
+  <section>
+    <div class="split">
+      <div>
+        <div class="eyebrow">rDPS · in progress</div>
+        <h2>Support players will show up in the numbers</h2>
+        <p class="sub">When a Chanter's Blessing of Wind adds damage to your hit, rDPS moves that slice onto the Chanter's row. The party total stays the same, so everyone's share still adds up to 100%. Healing on other players is drawn after it in green, so a healer's bar shows everything they did.</p>
+        <p class="sub">The overlay already has the rDPS view. Buff credit fills in once the game's buff messages are decoded. Until then, rDPS matches DPS.</p>
+      </div>
+      <div>
+        <div class="bars">
+          <div class="bar-row"><span>Brannoc</span><div class="bar-track"><i style="width:44%;background:#a77f4c"></i><i style="width:20%;background:#9ea1aa"></i><i style="width:14%;background:#3a9a5f"></i></div><span class="muted">36.2%</span></div>
+          <div class="bar-row"><span>Kaelith</span><div class="bar-track"><i style="width:70%;background:#7d9a4a"></i></div><span class="muted">33.9%</span></div>
+          <div class="bar-row"><span>LastOlie</span><div class="bar-track"><i style="width:61%;background:#a0563a"></i></div><span class="muted">29.9%</span></div>
+        </div>
+        <div class="legend"><span><i style="background:#9ea1aa"></i>buffs for others</span><span><i style="background:#3a9a5f"></i>healing on others</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="eyebrow">Features</div>
+    <h2>Built for the middle of a pull</h2>
+    <p class="sub">The overlay keeps out of the way while you fight. Everything else is there afterwards, when you want to work out what went wrong.</p>
+    <div class="grid">
+      <div class="card"><span class="tag">in the fight</span><h3>Four ways to count</h3><p>DPS, rDPS, nDPS (your damage without other people's buffs) and HPS. One click switches. Buff credit for rDPS is still being decoded.</p></div>
+      <div class="card"><span class="tag">in the fight</span><h3>Boss HP and time to kill</h3><p>How much is left, and how long the kill takes at your party's current pace.</p></div>
+      <div class="card"><span class="tag">in the fight</span><h3>You against your best</h3><p>Your row shows how far ahead or behind your best kill on that boss you are, at the same point in the fight.</p></div>
+      <div class="card"><span class="tag">in the fight</span><h3>Death recaps</h3><p>Click the skull on anyone's row to see the last six seconds of hits before they died, with their HP after each one.</p></div>
+      <div class="card"><span class="tag">in the fight</span><h3>Event timers</h3><p>Spacetime Rift, Shugo Festival, Beritra Air Raid, Arena of Tactics and the daily reset sit in the header. They glow before opening, with an optional chime.</p></div>
+      <div class="card"><span class="tag">in the fight</span><h3>Connection warnings</h3><p>If ping, jitter or packet loss goes bad and stays bad, a small chip in the footer tells you in plain words.</p></div>
+      <div class="card"><span class="tag">your overlay</span><h3>Make it yours</h3><p>Text size, eight accent colours, background opacity and scale. Lock it and your clicks go straight through to the game.</p></div>
+      <div class="card"><span class="tag">after the pull</span><h3>Fight details</h3><p>Every skill with hits, crit rate and max hit, and a damage chart with your best pull behind it.</p></div>
+      <div class="card"><span class="tag">after the pull</span><h3>History</h3><p>Every fight saves itself on your PC, with the boss, whether you killed it and who died. Copy a summary straight into game chat.</p></div>
+      <div class="card soon"><span class="tag">coming later</span><h3>Rankings</h3><p>Your best DPS against your class and the fastest kills, boss by boss. Kills only.</p></div>
+      <div class="card soon"><span class="tag">coming later</span><h3>Share a fight</h3><p>Send your party a link to the full report instead of a screenshot.</p></div>
+      <div class="card soon"><span class="tag">coming later</span><h3>Player lookup</h3><p>Check someone's clears and how their rotation compares before you invite them.</p></div>
+    </div>
+  </section>
+
+  <section id="screens">
+    <div class="eyebrow">Screenshots</div>
+    <h2>In the game</h2>
+    <p class="sub">The overlay sits over Aion 2 with a see-through background. Everything else is one click away in the menu.</p>
+    <div class="shots">
+      <figure>
+        <a href="img/screens/overlay-menu.png" target="_blank"><img src="img/screens/overlay-menu.png" width="500" height="179" alt="The Nova Meter overlay over Aion 2, waiting for a fight, with its menu open: Fight details, History, Settings, Help &amp; setup, Report a bug." loading="lazy"></a>
+        <figcaption>Waiting for the next pull. The menu opens fight details, history, settings and help.</figcaption>
+      </figure>
+      <figure>
+        <a href="img/screens/settings.png" target="_blank"><img src="img/screens/settings.png" width="675" height="601" alt="Nova Meter settings: text size, accent colour, background, scale, who to show, personal best celebration and sound, event timer chime." loading="lazy"></a>
+        <figcaption>Settings: look, who to show, personal best celebrations and event chimes.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section>
+    <div class="split">
+      <div>
+        <div class="eyebrow">Accuracy</div>
+        <h2>Why the numbers agree</h2>
+        <p class="sub">Packets can arrive late, twice or out of order. A meter that counts them as they come will count a resent packet twice and miss a late one. Nova Meter puts the stream back in order before reading a single number, and the footer shows the capture health if you want to check.</p>
+      </div>
+      <div class="card">
+        <h3>Read-only, by design</h3>
+        <p>The meter only copies packets the game already sent to your PC. It never writes to the game, never touches its memory or files, and never sends anything to the game servers.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="setup">
+    <div class="eyebrow">Setup</div>
+    <h2>Up and running in a few minutes</h2>
+    <p class="sub">&nbsp;</p>
+    <div class="steps">
+      <div class="card"><h3>Install Npcap</h3><p>The free capture driver the meter reads through, from <a href="https://npcap.com" target="_blank" rel="noopener">npcap.com</a>. Leave the admin-only box unticked.</p></div>
+      <div class="card"><h3>Install Nova Meter</h3><p>Run the installer. Windows may warn that the app is unrecognised because it isn't code-signed yet: click <b>More info</b>, then <b>Run anyway</b>. Start the meter before you log in to the game, so everyone in your party shows up by name.</p></div>
+      <div class="card"><h3>Play</h3><p>The overlay fills in as you fight. <b>Ctrl+Shift+L</b> locks it so clicks go through to the game, and <b>Ctrl+Shift+H</b> hides it. Updates install themselves.</p></div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="eyebrow">Questions</div>
+    <h2>FAQ</h2>
+    <details><summary>What does it do to the game?</summary><p>Nothing. It reads a copy of the traffic your PC already receives. No injection, no memory reading, no changes to game files.</p></details>
+    <details><summary>Do I need administrator rights?</summary><p>No, as long as Npcap is installed without the admin-only option.</p></details>
+    <details><summary>Does it work with ExitLag or a VPN?</summary><p>Usually, yes. Some routing tools change how traffic reaches your PC. If the overlay stays empty, the footer explains what it's seeing.</p></details>
+    <details><summary>What gets uploaded, and who can see it?</summary><p>Nothing. Your fight history stays on your own PC. Discord sign-in for shared reports and rankings is coming later, and it will only upload anything if you sign in. See the <a href="privacy.html">privacy page</a>.</p></details>
+    <details><summary>Windows says it "protected your PC". Is that safe?</summary><p>That warning appears for any app that isn't code-signed yet. Click <b>More info</b>, then <b>Run anyway</b>. The installer is published on <a href="https://github.com/odenness/nova-meter/releases" target="_blank" rel="noopener">GitHub</a>.</p></details>
+    <details><summary>How do updates work?</summary><p>The meter checks for a new version shortly after it starts and every few hours. When one is ready, the footer shows <b>Update · restart</b>. Click it whenever you're out of combat.</p></details>
+    <details><summary>The overlay is empty. What now?</summary><p>Make sure Npcap is installed and that the meter was started before you logged in. The footer shows what the meter can see. If you still get nothing, ask in Discord.</p></details>
+    <details><summary>Is it free?</summary><p>Yes.</p></details>
+  </section>
+</main>
+
+<footer><div class="wrap"><span>Nova Meter</span><a href="privacy.html">Privacy</a><a href="https://github.com/odenness/nova-meter/releases" target="_blank" rel="noopener">Releases</a><a href="https://github.com/odenness/nova-meter/issues/new" target="_blank" rel="noopener">Report a problem</a><a href="https://buymeacoffee.com/odenness" target="_blank" rel="noopener">Support the project</a><span>Not affiliated with NCSOFT. Aion is a trademark of NCSOFT Corporation.</span></div></footer>
+
+<script type="module">
+  import { mountNav, latestInstaller } from "./js/auth.js";
+  mountNav("home");
+  latestInstaller().then(i => { if (i) document.getElementById("dl-note").textContent = `Nova-Meter-Setup-${i.version}.exe · Windows 10/11 · updates itself`; });
+  const box = document.getElementById("demo-box");
+  const fit = () => { const k = Math.min(1, box.clientWidth / 780); box.style.setProperty("--k", k); box.style.height = 300 * k + "px"; };
+  addEventListener("resize", fit); fit();
+</script>
+</body>
+</html>
