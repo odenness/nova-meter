@@ -1,15 +1,29 @@
 # Nova Meter
-A read-only damage meter overlay for **Aion 2**: live party DPS, boss HP and time to kill, skill breakdowns, fight history and personal bests.
+A read-only damage meter overlay for **Aion 2**: live party DPS, boss HP with time to kill and the enrage race,
+Expedition runs, Nova Ratings for every boss parse, skill breakdowns, fight history and personal bests.
 
-![Nova Meter in a Vakron fight](docs/screenshot.png)
+![Nova Meter in a boss fight](docs/screenshot.png)
 
 **Download:** grab `Nova-Meter-Setup-x.y.z.exe` from the [latest release](https://github.com/odenness/nova-meter/releases/latest).
 Installed copies update themselves.
 
+## What it does
+- **In the fight:** DPS, rDPS, nDPS and HPS per player. The boss bar shows HP left and time to kill, and on bosses that
+  enrage a ghost bar shows whether your party will beat the enrage timer and how much more DPS it needs (timers are
+  built in). It also shows death recaps, your pace against your best kill and connection warnings.
+- **Expeditions:** every dungeon visit becomes one run, with clear time, deaths and each boss. The difficulty is worked
+  out automatically (Conquest, Exploration, Transcendence stage, Nightmare level), and your fastest clear per difficulty
+  is marked.
+- **Nova Rating:** each boss parse is rated 0 to 100 against the same class on that boss version, adjusted to your Combat
+  Power. 50 is typical and 95 is the top 5%. The meter asks for your CP when it starts, and the rating is saved with the
+  fight so it never changes afterwards.
+- **Breakdowns:** skill names and icons for all nine classes (Brawler included), summons collected on one line, hits,
+  rotation and damage taken, plus a fight report for every saved fight.
+
 ## Install
 1. Install **Npcap** from https://npcap.com/#download (defaults; leave "Restrict Npcap driver's access to Administrators only" unticked).
 2. Run the Nova Meter installer. If Windows says "Windows protected your PC", click **More info → Run anyway** (the installer isn't code-signed yet).
-3. Play Aion 2 in **borderless windowed** mode and start Nova Meter before you log in or change zone.
+3. Play Aion 2 in **borderless windowed** mode. Nova Meter can be started before or after you log in.
 
 Hotkeys: **Ctrl+Shift+L** lock/unlock (click-through) · **Ctrl+Shift+H** hide/show.
 
@@ -20,7 +34,17 @@ Nova Meter is free. If it helps your raids, you can [buy me a coffee ☕](https:
 
 ## Privacy
 Nova Meter only reads a copy of the game's network traffic through Npcap. It never touches the game, its files or its memory,
-and never sends anything to the game servers. Fights and settings stay on your PC (`%APPDATA%\NovaMeter`). It looks up enemy
-names by ID from the public gamers4.life Aion 2 database and checks this repository for updates. No account, no telemetry.
+and never sends anything to the game servers. Fights and settings stay on your PC (`%APPDATA%\NovaMeter`). While running it
+looks up enemy names by NPC ID from the public gamers4.life Aion 2 database, and checks this repository for updates and shared
+skill names. No account, no telemetry.
 
-Not affiliated with NCSOFT. Aion is a trademark of NCSOFT Corporation. Class emblems © NCSOFT.
+## Data sources
+Shipped with the app and refreshed before releases:
+- skill names and icons: [aion2hub.com](https://aion2hub.com/database), with [gamers4.life](https://gamers4.life/aion-2/database/en/) as a fallback
+- dungeon bosses: aion2hub.com
+- enrage flags: gamers4.life; enrage timings: client data via [metabot.gg](https://metabot.gg/en/aion-2/bosses)
+- Nova Rating reference figures and boss difficulty: [AionFlex](https://aionflex.gg/meta/bosses) public boss pages
+  (class medians and top 5% from real uploaded kills)
+- dungeon artwork and boss portraits: metabot.gg
+
+Not affiliated with NCSOFT. Aion is a trademark of NCSOFT Corporation. Game art, class emblems and skill icons © NCSOFT.
