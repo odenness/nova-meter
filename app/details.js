@@ -1,8 +1,31 @@
 // Side window: a player's breakdown, fight history, and saved fight reports.
 // Live views follow the same event stream as the meter; history comes from the capture service (saved on disk).
-import { CLASSES, classIcon, UI_ICONS, makeDraggable, knownSkill, skillBase, askText } from "./icons.js";
-import { Fight } from "./model.js";
+import { CLASSES, classIcon, skillIcon, UI_ICONS, makeDraggable, knownSkill, skillBase, askText } from "./icons.js";
+import { Fight, skillRows } from "./model.js";
 import { startDemo } from "./demo.js";
+import { buildRuns, DUNGEONS, artReady, dungeonArt, bossPortrait, dungeonOfBoss, diffReady, bossDifficulty, difficultyLabel } from "./runs.js";
+artReady.then(() => render(true));
+diffReady.then(() => { runsCache.items = null; render(true); });
+// a boss's picture: its portrait, else its dungeon's artwork; "" when there's neither
+const bossPic = (name, cls = "pic") => {
+  const src = bossPortrait(name) || dungeonArt(dungeonOfBoss(name)?.slug);
+  return src ? `<img class="${cls}" src="${src}" alt="" loading="lazy">` : "";
+};
+const EXPEDITION_ICON = `<img class="expedition-icon" src="img/expedition.svg" alt="">`;   // stone gate + portal, like the game's
+import { rate, ratingClass, ratingSource, ratingsReady } from "./ratings.js";
+ratingsReady.then(() => render(true));
+const myCP = () => +(store.get("settings", {}).cp || 0);
+// rating for a player in a fight (snapshot or summary): only boss fights whose NPC id has reference data
+// A saved fight keeps the rating it got when it ended (p.nova); the live fight uses your CP from Settings; fights saved
+// before ratings were frozen use the CP stored with them if any, else the boss's typical CP, so they never move.
+const ratingOf = (f, p, dpsVal) => {
+  if (p?.nova) return p.nova;
+  if (!(f?.target?.boss || f?.boss)) return null;
+  const live = !report && (view === "player" || view === "live");   // the fight in progress (or just finished), not a saved one
+  const cp = p.self ? (live ? myCP() : +(f.cp || 0)) : 0;
+  return rate({ template: f.target?.template ?? f.template, cls: p.cls, dps: dpsVal, cp });
+};
+const ratingCell = r => r ? `<span class="rating ${ratingClass(r.rating)}" title="Nova Rating: ${Math.round(r.ratio * 100)}% of a typical player of this class${r.cpAdjusted ? ` at ${r.cp ? Math.round(r.cp).toLocaleString() + " " : "your "}Combat Power` : " at the boss's typical Combat Power"} (${fmt(r.expected)} DPS) on this boss, from ${r.n} character-weeks${r.healer ? ". Healers are rated on their damage only." : ""}">${Math.round(r.rating)}</span>` : `<span class="muted">–</span>`;
 
 const $ = id => document.getElementById(id);
 const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
@@ -26,6 +49,9 @@ const STAR = `<svg class="icon" viewBox="0 0 24 24"><path d="M12 1.5l2.3 8.2 8.2
 let skillNames = store.get("skillNames", {});
 const skillName = label => skillNames[label] || skillNames[skillBase(label)] || knownSkill(label) || label;
 const initials = label => { const n = skillName(label); return /^Skill \d+/.test(n) ? "?" : n.split(/\s+/).map(w => w[0]).join("").slice(0, 2).toUpperCase(); };
+// the skill's icon, or its initials when there isn't one; a player's merged summons show their class emblem
+const badge = (label, cls) => label === "Summons" ? `<span class="sk-icon cls">${classIcon(cls)}</span>`
+  : skillIcon(label) ? `<span class="sk-icon has-img">${skillIcon(label)}</span>` : `<span class="sk-icon">${esc(initials(label))}</span>`;
 
 function applyLook() {
   const r = document.documentElement.style;
@@ -39,9 +65,22 @@ const fight = new Fight(() => {});
 let view = params.get("view") || "player";      // "player" | "history" | "fight"
 let pid = +params.get("pid") || null;
 let wantName = params.get("name") || "";
-let tab = view === "history" ? "fights" : "skills";
+let tab = view === "history" ? "runs" : "skills";
 let report = null;                               // a saved fight being viewed (view "fight", or a player inside it)
 let historyItems = null;
+let run = null;                                  // the expedition run being viewed (view "run")
+let fromRun = false;                             // a fight report opened from a run: "back" returns to it
+let runsCache = { items: null, names: "", runs: [] };
+const runNames = () => store.get("runNames", {});
+function allRuns() {
+  const names = JSON.stringify(runNames()) + DUNGEONS.length;   // rebuilt once the dungeon list has loaded
+  if (runsCache.items !== historyItems || runsCache.names !== names) {
+    runsCache = { items: historyItems, names, runs: buildRuns(historyItems || [], { names: runNames() }) };
+  }
+  return runsCache.runs;
+}
+const runType = r => r.difficultyLabel || "Expedition";       // worked out from the bosses' NPC ids (or HP)
+const diffChip = label => label ? `<span class="diff-chip diff-${label.split(" ")[0].toLowerCase()}">${esc(label).replace(/(★+)/, '<span class="stars">$1</span>')}</span>` : "";
 let ws = null;
 const liveSnap = () => fight.start == null && fight.lastFinished ? fight.lastFinished : fight.snapshot();
 const snapNow = () => report || liveSnap();
@@ -57,14 +96,14 @@ function connect() {
     if (d.type === "events") d.events.forEach(e => e && e.t !== "net" && fight.push(e));
     else if (d.type === "history") { historyItems = d.items; if (view === "history") render(true); }
     else if (d.type === "history_saved") { historyItems = [d.item, ...(historyItems || []).filter(x => x.id !== d.item.id)]; if (view === "history") render(true); }
-    else if (d.type === "fight" && d.fight) { report = d.fight; view = "fight"; tab = "damage"; render(true); }
+    else if (d.type === "fight" && d.fight) { report = d.fight; fromRun = view === "run"; view = "fight"; tab = "damage"; render(true); }
   };
   ws.onclose = () => setTimeout(connect, 3000);
 }
 
 // the meter can point us at another player / view without reopening the window
 function show(info) {
-  if (info.view === "history") { view = "history"; tab = "fights"; report = null; send({ type: "history_list" }); }
+  if (info.view === "history") { view = "history"; tab = "runs"; report = null; run = null; send({ type: "history_list" }); }
   else { view = "player"; report = null; pid = +info.pid; wantName = info.name || ""; tab = "skills"; }
   render(true);
 }
@@ -84,20 +123,28 @@ function header({ emblem, name, cc, sub, me = false, back = false, picker = "" }
   $("dname").textContent = name;
   $("dme").hidden = !me;
   $("dsub").textContent = sub;
+  $("dsub").title = sub;                                          // the subtitle is one line: the full text on hover
   if ($("dplayer").dataset.opts !== picker) { $("dplayer").innerHTML = picker; $("dplayer").dataset.opts = picker; }
   $("dplayer").hidden = !picker;
 }
-const cards = list => { $("cards").innerHTML = list.map(([k, v]) => `<div class="card"><div class="k">${k}</div><div class="v">${v}</div></div>`).join(""); };
+const cards = list => {
+  const html = list.map(([k, v]) => `<div class="card"><div class="k">${k}</div><div class="v">${v}</div></div>`).join("");
+  if ($("cards")._html !== html) { $("cards").innerHTML = html; $("cards")._html = html; }
+};
 function body(key, html, force) {
   if (!force && key === lastKey) return;
+  const screen = k => k.split("|").slice(0, 2).join("|");      // e.g. "run|<id>", "report|<id>", "skills|<pid>"
+  const same = screen(key) === screen(lastKey);
   lastKey = key;
   const b = $("dbody"), sc = b.scrollTop;
   b.innerHTML = html();
-  b.scrollTop = sc;
+  b.scrollTop = same ? sc : 0;                                  // refreshes keep your place; a new screen starts at the top
 }
 
 function render(force = false) {
   if (view === "history") return renderHistory(force);
+  if (view === "run") return renderRun(force);
+  if (view === "live") return renderReport(force, liveSnap());
   if (view === "fight") return renderReport(force);
   renderPlayer(force);
 }
@@ -106,35 +153,39 @@ function render(force = false) {
 function renderPlayer(force) {
   const snap = snapNow();
   const ps = [...snap.players].sort((a, b) => b.dmg - a.dmg);
-  let p = ps.find(x => x.id === pid) || (wantName && ps.find(x => x.name === wantName));
+  // by name first: a new zone hands entity ids out again, so the old id may be someone else now
+  let p = (wantName && !wantName.startsWith("#") && ps.find(x => x.name === wantName)) || ps.find(x => x.id === pid);
   if (p) { pid = p.id; wantName = p.name; }
   const t = Math.max(snap.duration, 1);
   const party = ps.reduce((s, x) => s + x.dmg, 0) || 1;
-  setTabs([["skills", "Skills"], ["hits", "Hits"], ["defense", "Defense"], ["rotation", "Rotation"]]);
+  if (report && (tab === "hits" || tab === "rotation")) tab = "skills";
+  setTabs(report ? [["skills", "Skills"], ["defense", "Defense"]] : [["skills", "Skills"], ["hits", "Hits"], ["defense", "Defense"], ["rotation", "Rotation"]]);
   const picker = ps.map(x => `<option value="${x.id}" ${p && x.id === p.id ? "selected" : ""}>${esc(x.name)}</option>`).join("");
   if (!p) {
-    header({ emblem: STAR, name: wantName || "Waiting for a fight…", cc: settings.accent, sub: "Their numbers appear here as soon as they deal damage.", back: !!report, picker });
+    header({ emblem: STAR, name: wantName || "Waiting for a fight…", cc: settings.accent, sub: "Their numbers appear here as soon as they deal damage.", back: true, picker });
     cards([]); body("empty", () => `<div class="dempty">No data for this player yet.</div>`, force);
     return;
   }
   const crit = p.hits ? p.crits / p.hits * 100 : 0;
-  header({ emblem: classIcon(p.cls), name: p.name, cc: classColor(p.cls), me: p.self, back: !!report, picker,
+  header({ emblem: classIcon(p.cls), name: p.name, cc: classColor(p.cls), me: p.self, back: true, picker,
            sub: `#${ps.indexOf(p) + 1} · ${CLASSES[p.cls]?.label ?? "Class unknown"} · ${crit.toFixed(1)}% crit · ${snap.target?.name ?? ""}` });
   const active = (p.sec?.dmg || []).filter(Boolean).length;
-  cards([["DPS", fmt(p.dmg / t)], ["Damage", fmt(p.dmg)], ["Contribution", (p.dmg / party * 100).toFixed(1) + "%"],
+  const pr = ratingOf(snap, p, p.dmg / t);
+  cards([["DPS", fmt(p.dmg / t)], pr ? ["Nova Rating", `<span class="rating ${ratingClass(pr.rating)}">${Math.round(pr.rating)}</span><small> ${Math.round(pr.ratio * 100)}% of typical</small>`] : ["Damage", fmt(p.dmg)], ["Contribution", (p.dmg / party * 100).toFixed(1) + "%"],
          ["Active", `${fmtTime(Math.min(active, t))} <small>/ ${fmtTime(t)}</small>`]]);
   body(`${tab}|${p.id}|${p.hits}|${p.inc}|${p.healIn}|${Math.floor(t)}|${!!report}`,
     () => tab === "skills" ? skillsHtml(p, t) : tab === "hits" ? hitsHtml(p) : tab === "defense" ? defenseHtml(p, snap, t) : rotationHtml(p), force);
 }
 
 function skillsHtml(p, t) {
-  if (!p.skills.length) return `<div class="dempty">No damage yet.</div>`;
-  const total = p.dmg || 1, top = p.skills[0].dmg;
+  const skills = skillRows(p);
+  if (!skills.length) return `<div class="dempty">No damage yet.</div>`;
+  const total = p.dmg || 1, top = skills[0].dmg;
   return `<div class="sk-head"><span></span><span>Skill</span><span class="num">Damage</span><span class="num h-dps">DPS</span><span class="num">Crit</span></div>` +
-    p.skills.map(s => `<div class="sk-row" title="${s.hits} hits · avg ${fmt(s.dmg / s.hits)} · max ${fmt(s.max)} · ${(s.dmg / total * 100).toFixed(1)}% of damage">
+    skills.map(s => `<div class="sk-row" title="${s.hits} hits · avg ${fmt(s.dmg / s.hits)} · max ${fmt(s.max)} · ${(s.dmg / total * 100).toFixed(1)}% of damage">
       <div class="fill" style="width:${(s.dmg / top * 100).toFixed(1)}%"></div>
-      <span class="sk-icon">${esc(initials(s.name))}</span>
-      <span class="sk-name" data-skill="${esc(s.name)}" title="Click to rename">${/^Skill \d+/.test(skillName(s.name))
+      ${badge(s.name, p.cls)}
+      <span class="sk-name"${s.name === "Summons" ? ' title="Everything this player\'s summons did"' : ` data-skill="${esc(s.name)}" title="Click to rename"`}>${/^Skill \d+/.test(skillName(s.name))
         ? `<span class="muted">Unnamed skill · ${esc(s.name.replace(/^Skill (\d{4})\d+/, "$1"))}</span> <span class="sk-sub">click to name</span>`
         : esc(skillName(s.name))} <span class="sk-sub">${(s.dmg / total * 100).toFixed(1)}%</span></span>
       <span class="num dmg">${fmt(s.dmg)}</span><span class="num dps">${fmt(s.dmg / t)}</span><span class="num">${(s.crits / s.hits * 100).toFixed(0)}%</span>
@@ -156,7 +207,7 @@ function hitsHtml(p) {
   const log = (p.log || []).slice(-150).reverse();
   if (!log.length) return `<div class="dempty">${report ? "Individual hits aren't kept in saved fights." : "No hits yet."}</div>`;
   return log.map(h => `<div class="hit${h.crit ? " crit" : ""}"><span class="num muted">${fmtTime(h.t)}.${String(Math.floor((h.t % 1) * 10))}</span>
-    <span>${esc(skillName(h.skill))}${h.crit ? '<span class="crit-tag">CRIT</span>' : ""}</span><span class="num">${fmt(h.dmg)}</span></div>`).join("");
+    <span class="hit-skill">${skillIcon(h.skill, 18)}${esc(skillName(h.skill))}${h.crit ? '<span class="crit-tag">CRIT</span>' : ""}</span><span class="num">${fmt(h.dmg)}</span></div>`).join("");
 }
 
 function defenseHtml(p, snap, t) {
@@ -185,7 +236,7 @@ function rotationHtml(p) {
   recent.forEach((c, i) => {
     const gap = i ? c.t - recent[i - 1].end : 0;
     if (gap > 1.5) html += `<span class="gap">${gap.toFixed(1)}s</span>`;
-    html += `<div class="cast" title="${esc(skillName(c.skill))} · ${fmt(c.dmg)}"><span class="sk-icon">${esc(initials(c.skill))}</span><span class="t">${fmtTime(c.t)}</span></div>`;
+    html += `<div class="cast" title="${esc(skillName(c.skill))} · ${fmt(c.dmg)}">${badge(c.skill, p.cls)}<span class="t">${fmtTime(c.t)}</span></div>`;
   });
   return html + "</div>";
 }
@@ -193,7 +244,8 @@ function rotationHtml(p) {
 // ----- history -----
 function renderHistory(force) {
   const items = historyItems || [];
-  setTabs([["fights", "Fights"], ["bests", "Personal bests"]]);
+  setTabs([["runs", "Expeditions"], ["fights", "Fights"], ["bests", "Personal bests"]]);
+  if (tab === "runs") return renderRuns(force);
   header({ emblem: STAR, name: "Fight history", cc: settings.accent, sub: "Saved on this PC when each fight ends. Click one for the full report." });
   const kills = items.filter(f => f.killed).length;
   const time = items.reduce((s, f) => s + (f.duration || 0), 0);
@@ -213,7 +265,7 @@ function historyListHtml(items) {
     const lead = (f.players || []).slice(0, 4).map(p => `<span style="--cc:${classColor(p.cls)}" class="h-p">${esc(p.name)}</span>`).join("");
     html += `<div class="h-row" data-fight="${esc(f.id)}">
       <span class="h-time num">${new Date(f.date).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}</span>
-      <span class="h-main"><span class="h-name">${f.boss ? '<span class="boss-badge">BOSS</span> ' : ""}${esc(f.target ?? "Fight")}</span><span class="h-sub">${lead}</span></span>
+      <span class="h-main"><span class="h-name">${f.boss ? bossPic(f.target, "pic") || '<span class="boss-badge">BOSS</span> ' : ""}${esc(f.target ?? "Fight")} ${f.boss ? diffChip(difficultyLabel(bossDifficulty(f))) : ""}</span><span class="h-sub">${lead}</span></span>
       <span class="h-res ${f.killed ? "ok" : "muted"}">${f.killed ? "Kill" : "Ended"}<small class="num">${fmtTime(f.duration)}</small></span>
       <span class="h-dps num">${f.self ? fmt(f.self.dps) : "–"}<small>you</small></span>
       <span class="h-dps num">${fmt(f.partyDps)}<small>party</small></span>
@@ -221,6 +273,92 @@ function historyListHtml(items) {
     </div>`;
   }
   return html;
+}
+
+// ----- expedition runs (a dungeon visit: its boss fights, clear time, deaths) -----
+function renderRuns(force) {
+  const runs = allRuns();
+  header({ emblem: `<span class="emblem-gate">${EXPEDITION_ICON}</span>`, name: "Expeditions", cc: settings.accent,
+           sub: "Each dungeon visit as one run: clear time, deaths and every boss. Click one for the details." });
+  const clears = runs.filter(r => r.completed);
+  const recent = runs.filter(r => r.me).slice(0, 10);
+  cards([["Runs", runs.length], ["Full clears", clears.length],
+         ["Deaths / run", runs.length ? (runs.reduce((s, r) => s + r.deaths, 0) / runs.length).toFixed(1) : "–"],
+         ["Boss DPS (last 10)", recent.length ? fmt(recent.reduce((s, r) => s + r.myDps, 0) / recent.length) : "–"]]);
+  body(`runs|${historyItems === null}|${runs.length}|${runs[0]?.id}|${runsCache.names}|${runs[0]?.difficultyLabel}`, () => {
+    if (historyItems === null) return `<div class="dempty">Loading…</div>`;
+    if (!runs.length) return `<div class="dempty">No runs yet. A run appears here once you've fought a boss in a dungeon.</div>`;
+    const day = d => new Date(d).toLocaleDateString([], { weekday: "long", day: "numeric", month: "long" });
+    let html = "", last = "";
+    for (const r of runs.slice(0, 200)) {
+      const d = day(r.start);
+      if (d !== last) { html += `<div class="h-day">${d}</div>`; last = d; }
+      // the list stays a summary: difficulty + bosses killed; every fight and wipe is in the run view
+      const plainName = n => (n || "").replace(/\?$/, "");
+      const total = r.dungeon ? r.dungeon.bosses.length : new Set(r.bosses.map(f => plainName(f.target))).size;
+      const killed = new Set(r.bosses.filter(f => f.killed).map(f => plainName(f.target))).size;
+      const chips = `<span class="run-count">Bosses ${killed}/${total}</span>`;
+      const thumb = dungeonArt(r.dungeon?.slug) || bossPortrait(r.bosses[r.bosses.length - 1]?.target);
+      html += `<div class="h-row run-row" data-run="${esc(r.id)}">
+        <span class="run-thumb">${thumb ? `<img src="${thumb}" alt="" loading="lazy">` : EXPEDITION_ICON}<span class="num">${new Date(r.start).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}</span></span>
+        <span class="h-main"><span class="h-name">${esc(r.name)}${r.isBest ? ' <span class="run-best" title="Your fastest full clear">BEST</span>' : ""}</span><span class="h-sub">${diffChip(r.difficultyLabel)}${chips}</span></span>
+        <span class="h-res ${r.completed ? "ok" : "muted"}">${r.completed ? "Clear" : "Not cleared"}<small class="num">${fmtTime(r.clear)}</small></span>
+        <span class="h-dps num">${r.me ? fmt(r.myDps) : "–"}<small>you</small></span>
+        <span class="h-dps num">${fmt(r.partyDps)}<small>party</small></span>
+        <span class="h-dps num ${r.deaths ? "bad" : "muted"}">${r.deaths}<small>deaths</small></span>
+      </div>`;
+    }
+    return html + `<p class="muted run-note">Runs from before Nova Meter 0.6.7 are worked out from fight times, so they can be off.
+      Dungeon boss lists from <a class="link" data-href="https://aion2hub.com/database">aion2hub.com</a>.</p>`;
+  }, force);
+}
+
+function renderRun(force) {
+  const r = (run && allRuns().find(x => x.id === run.id)) || run;
+  if (!r) { view = "history"; tab = "runs"; return render(true); }
+  run = r;
+  setTabs([["bosses", "Bosses"], ["party", "Party"], ["fights", `All fights (${r.fights.length})`]]);
+  const when = new Date(r.start).toLocaleString([], { weekday: "short", day: "numeric", month: "short", hour: "2-digit", minute: "2-digit" });
+  const finalBoss = r.dungeon?.bosses.find(b => b.role === "Final Boss")?.name || r.bosses[r.bosses.length - 1]?.target;
+  header({ emblem: bossPic(finalBoss, "emblem-img") || STAR, name: r.name, cc: settings.accent, back: true,
+           sub: `${runType(r)} · ${when} · ${r.completed ? "Cleared" : "Not cleared"}${r.estimated ? " · estimated from fight times" : ""}` });
+  const plain = n => (n || "").replace(/\?$/, "");
+  const total = r.dungeon ? r.dungeon.bosses.length : new Set(r.bosses.map(f => plain(f.target))).size;
+  const killed = new Set(r.bosses.filter(f => f.killed).map(f => plain(f.target))).size;
+  cards([["Clear time", fmtTime(r.clear) + (r.isBest ? "<small> best</small>" : r.best ? `<small> best ${fmtTime(r.best)}</small>` : "")],
+         ["Bosses", `${killed}/${total}` + (r.wipes ? `<small> ${r.wipes} wipe${r.wipes === 1 ? "" : "s"}</small>` : "")],
+         ["Deaths", r.deaths], ["Your boss DPS", r.me ? fmt(r.myDps) : "–"]]);
+  const art = dungeonArt(r.dungeon?.slug);
+  const banner = art ? `<div class="run-banner" style="background-image:url('${art}')"><span>${esc(r.dungeon?.name ?? r.name)}${r.dungeon?.partySize ? ` · ${r.dungeon.partySize}-player` : ""}${r.dungeon?.itemLevel ? ` · item level ${r.dungeon.itemLevel}+` : ""}</span></div>` : "";
+  body(`run|${r.id}|${tab}|${r.name}|${runType(r)}|${!!art}`, () => banner + (() => {
+    const tools = `<div class="run-tools"><button class="mini-btn" data-act="run-rename">Rename</button></div>`;
+    if (tab === "party") {
+      if (!r.players.length) return `<div class="dempty">Nothing recorded.</div>` + tools;
+      const top = r.players[0].dmg || 1, sum = r.players.reduce((s, p) => s + p.dmg, 0) || 1;
+      return `<div class="sk-head"><span></span><span>Player (boss fights)</span><span class="num">Damage</span><span class="num h-dps">DPS</span><span class="num">%</span></div>` +
+        r.players.map(p => `<div class="sk-row" style="--cc:${classColor(p.cls)}">
+          <div class="fill" style="width:${(p.dmg / top * 100).toFixed(1)}%"></div>
+          <span class="sk-icon cls">${classIcon(p.cls)}</span><span class="sk-name">${esc(p.name)}${p.self ? ' <span class="me">ME</span>' : ""}</span>
+          <span class="num dmg">${fmt(p.dmg)}</span><span class="num dps">${fmt(p.dps)}</span><span class="num">${(p.dmg / sum * 100).toFixed(1)}%</span>
+        </div>`).join("") + tools;
+    }
+    if (tab === "fights") return historyListHtml([...r.fights].reverse()) + tools;
+    // the bosses in the order you met them, then any the dungeon has that you didn't reach
+    const at = f => fmtTime((f.date - r.start) / 1000);
+    let html = r.bosses.map(f => `<div class="h-row" data-fight="${esc(f.id)}">
+        <span class="h-time num" title="Time into the run">${at(f)}</span>
+        <span class="h-main"><span class="h-name">${bossPic(f.target, "pic")}${esc(f.target)}</span><span class="h-sub muted">${esc(r.dungeon?.bosses.find(b => b.name === plain(f.target))?.role ?? "Boss")}${f.deathCount ? ` · ${f.deathCount} death${f.deathCount === 1 ? "" : "s"}` : ""}</span></span>
+        <span class="h-res ${f.killed ? "ok" : "bad"}">${f.killed ? "Kill" : "Wipe"}<small class="num">${fmtTime(f.duration)}</small></span>
+        <span class="h-dps num">${f.self ? fmt(f.self.dps) : "–"}<small>you</small></span>
+        <span class="h-dps num">${fmt(f.partyDps)}<small>party</small></span>
+        <span class="h-dps num">${f.self ? ratingCell(ratingOf(f, { ...f.self, self: true }, f.self.dps)) : "–"}<small>rating</small></span>
+      </div>`).join("");
+    const met = new Set(r.bosses.map(f => plain(f.target)));
+    for (const b of r.dungeon?.bosses.filter(b => !met.has(b.name)) || []) {
+      html += `<div class="h-row run-missing"><span class="h-time num">–</span><span class="h-main"><span class="h-name">${bossPic(b.name, "pic")}${esc(b.name)}</span><span class="h-sub muted">${esc(b.role)} · not fought</span></span><span></span><span></span><span></span><span></span></div>`;
+    }
+    return html + tools;
+  })(), force);
 }
 
 function bestsHtml() {
@@ -235,15 +373,16 @@ function bestsHtml() {
 }
 
 // ----- saved fight report -----
-function renderReport(force) {
-  const f = report, t = Math.max(f.duration, 1);
+function renderReport(force, live = null) {
+  const f = live || report, t = Math.max(f.duration, 1);
   const ps = [...f.players].sort((a, b) => b.dmg - a.dmg);
   const total = ps.reduce((s, p) => s + p.dmg, 0) || 1;
   setTabs([["damage", "Damage"], ["healing", "Healing"], ["taken", "Damage taken"], ["deaths", `Deaths (${f.deaths.length})`]]);
-  header({ emblem: STAR, name: f.target?.name ?? "Fight", cc: settings.accent, back: true,
-           sub: `${new Date(f.date).toLocaleString([], { weekday: "short", day: "numeric", month: "short", hour: "2-digit", minute: "2-digit" })} · ${f.killed ? "Kill" : "Ended"}` });
+  header({ emblem: (f.target?.boss && bossPic(f.target.name, "emblem-img")) || STAR, name: f.target?.name ?? (live ? "Waiting for a fight…" : "Fight"), cc: settings.accent, back: !live,
+           sub: live ? `Current fight · ${fmtTime(f.duration)}${f.killed ? " · Kill" : ""} · click a player for their breakdown`
+                     : `${new Date(f.date).toLocaleString([], { weekday: "short", day: "numeric", month: "short", hour: "2-digit", minute: "2-digit" })} · ${f.killed ? "Kill" : "Ended"}${f.cp ? ` · your CP ${Math.round(f.cp).toLocaleString()}` : ""}` });
   cards([["Party DPS", fmt(total / t)], ["Damage", fmt(total)], ["Length", fmtTime(f.duration)], ["Deaths", f.deaths.length]]);
-  body(`report|${f.id}|${tab}`, () => {
+  body(live ? `live|${tab}|${Math.floor(f.duration)}|${f.players.length}|${total}` : `report|${f.id}|${tab}`, () => {
     if (tab === "deaths") return f.deaths.length ? f.deaths.map(d => { const h = d.hits[d.hits.length - 1];
       return `<div class="hit"><span class="num muted">${fmtTime(d.at)}</span><span>${esc(d.name)}${h ? ` · ${esc(h.skill)} from ${esc(h.from)}` : ""}</span><span class="num bad">${h ? fmt(h.dmg) : ""}</span></div>`; }).join("")
       : `<div class="dempty">Nobody died.</div>`;
@@ -251,12 +390,14 @@ function renderReport(force) {
     const rows = [...f.players].filter(p => (p[key] || 0) > 0).sort((a, b) => (b[key] || 0) - (a[key] || 0));
     if (!rows.length) return `<div class="dempty">Nothing recorded.</div>`;
     const sum = rows.reduce((s, p) => s + (p[key] || 0), 0) || 1, top = rows[0][key];
-    return `<div class="sk-head"><span></span><span>Player</span><span class="num">Total</span><span class="num h-dps">Per sec</span><span class="num">%</span></div>` +
-      rows.map(p => `<div class="sk-row player-row" style="--cc:${classColor(p.cls)}" data-pid="${p.id}" title="Click for ${esc(p.name)}'s breakdown">
+    const rated = key === "dmg" && rows.some(p => ratingOf(f, p, p.dmg / t));
+    return `<div class="sk-head${rated ? " rated" : ""}"><span></span><span>Player</span><span class="num">Total</span><span class="num h-dps">Per sec</span><span class="num">%</span>${rated ? '<span class="num" title="Nova Rating: percentile vs the same class at the same Combat Power on this boss">Rating</span>' : ""}</div>` +
+      rows.map(p => `<div class="sk-row player-row${rated ? " rated" : ""}" style="--cc:${classColor(p.cls)}" data-pid="${p.id}" title="Click for ${esc(p.name)}'s breakdown">
         <div class="fill" style="width:${(p[key] / top * 100).toFixed(1)}%"></div>
         <span class="sk-icon cls">${classIcon(p.cls)}</span><span class="sk-name">${esc(p.name)}${p.self ? ' <span class="me">ME</span>' : ""}</span>
         <span class="num dmg">${fmt(p[key])}</span><span class="num dps">${fmt(p[key] / t)}</span><span class="num">${(p[key] / sum * 100).toFixed(1)}%</span>
-      </div>`).join("") +
+        ${rated ? `<span class="num">${ratingCell(ratingOf(f, p, p.dmg / t))}</span>` : ""}
+      </div>`).join("") + (rated ? `<p class="muted run-note">Nova Rating: 50 = typical for that class (at your Combat Power, if set in Settings) on this boss, 95 = top 5%. Reference: ${esc(ratingSource())}.</p>` : "") +
       `<button class="mini-btn copy-chat" data-act="copy">Copy summary for game chat</button>`;
   }, force);
 }
@@ -272,7 +413,7 @@ function summaryText(f) {
 // ---------- wiring ----------
 $("dclose").innerHTML = UI_ICONS.close;
 $("dclose").onclick = () => nova ? nova.closeDetails() : window.close();
-$("dplayer").onchange = e => { pid = +e.target.value; render(true); };
+$("dplayer").onchange = e => { pid = +e.target.value; wantName = ""; render(true); };   // the id decides; render() picks up the name
 $("dtabs").onclick = e => {
   const b = e.target.closest("[data-tab]"); if (!b) return;
   tab = b.dataset.tab;
@@ -282,18 +423,39 @@ $("dtabs").onclick = e => {
 $("dhead").addEventListener("click", e => {
   if (!e.target.closest("[data-act=back]")) return;
   if (view === "player" && report) { view = "fight"; tab = "damage"; }
+  else if (view === "player") { view = "live"; tab = "damage"; }
+  else if (view === "fight" && fromRun && run) { view = "run"; tab = "bosses"; report = null; fromRun = false; }
+  else if (view === "run") { view = "history"; tab = "runs"; run = null; }
   else { view = "history"; tab = "fights"; report = null; }
   render(true);
+});
+// player rows open on press, not click: the live overview redraws twice a second and a redraw between press and
+// release would swallow the click
+$("dbody").addEventListener("pointerdown", e => {
+  const pr = e.button === 0 && e.target.closest(".player-row[data-pid]");
+  if (pr) { pid = +pr.dataset.pid; wantName = ""; view = "player"; tab = "skills"; render(true); }
 });
 $("dbody").addEventListener("click", e => {
   const del = e.target.closest("[data-del]");
   if (del) { e.stopPropagation(); if (confirm("Delete this fight from your history?")) send({ type: "history_delete", id: del.dataset.del }); return; }
+  const rr = e.target.closest("[data-run]");
+  if (rr) { run = allRuns().find(x => x.id === rr.dataset.run) || null; if (run) { view = "run"; tab = "bosses"; render(true); } return; }
+  const href = e.target.closest("[data-href]");
+  if (href) { if (nova?.openExternal) nova.openExternal(href.dataset.href); else window.open(href.dataset.href); return; }
+  if (e.target.closest("[data-act=run-rename]") && run) {
+    const key = run.nameKey;
+    askText("Name this dungeon (every run of it uses this name)", run.name).then(name => {
+      if (name === null) return;
+      const names = runNames();
+      if (name.trim()) names[key] = name.trim(); else delete names[key];
+      store.set("runNames", names); render(true);
+    });
+    return;
+  }
   const fr = e.target.closest("[data-fight]");
   if (fr) { send({ type: "history_get", id: fr.dataset.fight }); return; }
-  const pr = e.target.closest(".player-row[data-pid]");
-  if (pr) { pid = +pr.dataset.pid; view = "player"; tab = "skills"; render(true); return; }
   if (e.target.closest("[data-act=copy]")) {
-    navigator.clipboard.writeText(summaryText(report)).then(() => { e.target.textContent = "Copied — paste it into game chat"; });
+    navigator.clipboard.writeText(summaryText(report || liveSnap())).then(() => { e.target.textContent = "Copied — paste it into game chat"; });
     return;
   }
   if (e.target.closest("[data-act=share-skills]")) { shareSkillNames(); return; }

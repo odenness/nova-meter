@@ -43,6 +43,11 @@ export const CLASSES = {
     // staff with mantra ring
     svg: `<path d="M11 9h2v13h-2z"/><path fill-rule="evenodd" d="M12 1a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2.2a2.8 2.8 0 1 0 0 5.6 2.8 2.8 0 0 0 0-5.6z"/><path d="M8 13.5h8v1.6H8z"/>`,
   },
+  brawler: {
+    label: "Brawler", meter: "#e8605f", soft: "#b4797a",
+    // clenched fist (knuckles)
+    svg: `<path d="M6.5 7.5a1.8 1.8 0 0 1 3.6 0v-1a1.8 1.8 0 0 1 3.6 0v.5a1.8 1.8 0 0 1 3.6 0v1a1.8 1.8 0 0 1 2.2 1.75V14a7 7 0 0 1-7 7h-1.5A6.5 6.5 0 0 1 4.5 14.5V10a2 2 0 0 1 2-2z"/><path fill="#0d0f15" opacity=".5" d="M10.1 7.5v3h.6v-3zM13.7 7v3.5h.6V7zM17.3 8v3h.6V8zM6 13.2h8.5v1H6z"/>`,
+  },
 };
 
 export const CLASS_IMG = {};   // class -> url, for classes listed in img/classes/icons.json
@@ -95,9 +100,21 @@ export function knownSkill(label) {
   const base = Math.floor(+m[1] / 10000) * 10000;
   const s = SKILLS[String(base)];
   if (s) return s.n + (m[2] || "");
-  // each class's first skill id (11000000 Gladiator ... 18000000 Chanter) is its basic attack
-  if (base % 1000000 === 0 && base >= 11000000 && base <= 18000000) return "Auto-attack" + (m[2] || "");
+  // (Aion 2 has no auto-attack: xx000000 hits are e.g. a Spiritmaster spirit's basic hits, merged into "Summons")
   return null;
+}
+
+// Skill icons (from aion2hub.com, bundled in img/skills/<base id>.webp; refresh with tools/update_skill_icons.py)
+const SKILL_IMG = new Set();
+const SKILL_DIR = new URL("img/skills/", import.meta.url);
+fetch(new URL("icons.json", SKILL_DIR)).then(r => r.ok ? r.json() : []).then(ids => ids.forEach(i => SKILL_IMG.add(i))).catch(() => {});
+
+/** <img> for a skill label ("Skill 11010340", "Skill 16100004 (summon)"), or "" when there's no icon for it. */
+export function skillIcon(label, size = 26) {
+  const m = /^Skill (\d+)/.exec(label || "");
+  if (!m) return "";
+  const base = String(Math.floor(+m[1] / 10000) * 10000);
+  return SKILL_IMG.has(base) ? `<img class="skill-img" src="${new URL(`${base}.webp`, SKILL_DIR).href}" width="${size}" height="${size}" alt="" loading="lazy">` : "";
 }
 
 export function classIcon(cls, size = 26) {

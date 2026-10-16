@@ -288,3 +288,67 @@ input[type=range], input[type=checkbox] { accent-color: var(--accent); }
   animation: toast-in .25s ease-out; transition: opacity .5s; text-align: center; }
 .toast.out { opacity: 0; }
 @keyframes toast-in { from { opacity: 0; transform: translate(-50%, 8px); } }
+
+/* skill icons in the row tooltip and the in-meter breakdown */
+.tt-skill .nm { display: flex; align-items: center; gap: 5px; min-width: 0; }
+.tt-skill .nm .skill-img, .tt-skill .nm .icon { width: 14px; height: 14px; border-radius: 3px; flex: none; }
+td > .skill-img { width: 16px; height: 16px; border-radius: 3px; vertical-align: -3px; margin-right: 5px; }
+
+/* target health: % · HP left · time to kill written inside the bar (thicker for bosses, thickest for final bosses) */
+.hp { position: relative; }
+.target.has-hp .hp { height: 16px; border-radius: 4px; background: rgba(255, 255, 255, .10); }
+.target.has-hp .hp > div { border-radius: 4px; }
+.target.boss.has-hp .hp { height: 18px; }
+.target.final.has-hp .hp { height: 22px; }
+.hp-text { position: absolute; inset: 0; display: flex; align-items: center; gap: 0; padding: 0 7px; white-space: nowrap; overflow: hidden;
+  font: 600 10.5px var(--mono); color: #fff; text-shadow: 0 1px 2px rgba(0,0,0,.95), 0 0 3px rgba(0,0,0,.7); pointer-events: none; }
+.hp-text b { font-weight: 800; }
+.target.final .hp-text { font-size: 12px; padding: 0 9px; }
+.target:not(.has-hp) .hp-text { display: none; }
+.target.final .boss-badge { background: linear-gradient(90deg, #b8322a, #e5574d); box-shadow: 0 0 8px rgba(229, 87, 77, .6); }
+.boss-clock { margin-top: 15px; }
+.bc-track { position: relative; height: 10px; border-radius: 3px; background: rgba(255, 255, 255, .07); }
+.bc-elapsed { position: absolute; left: 0; top: 0; bottom: 0; border-radius: 3px 0 0 3px; background: rgba(255, 255, 255, .38); }
+.bc-ghost { position: absolute; top: 0; bottom: 0; background: repeating-linear-gradient(135deg, rgba(255,255,255,.22) 0 4px, rgba(255,255,255,.08) 4px 8px);
+  border: 1px dashed rgba(255, 255, 255, .45); border-left: 0; border-radius: 0 3px 3px 0; box-sizing: border-box; transition: width .4s, left .25s; }
+.bc-track.ok .bc-ghost { background: repeating-linear-gradient(135deg, color-mix(in srgb, var(--ok) 55%, transparent) 0 4px, color-mix(in srgb, var(--ok) 22%, transparent) 4px 8px); border-color: var(--ok); }
+.bc-track.close .bc-ghost { background: repeating-linear-gradient(135deg, color-mix(in srgb, var(--warn) 55%, transparent) 0 4px, color-mix(in srgb, var(--warn) 22%, transparent) 4px 8px); border-color: var(--warn); }
+.bc-track.bad .bc-ghost { background: repeating-linear-gradient(135deg, color-mix(in srgb, var(--bad) 60%, transparent) 0 4px, color-mix(in srgb, var(--bad) 25%, transparent) 4px 8px); border-color: var(--bad); }
+.bc-enrage { position: absolute; top: -4px; bottom: -4px; width: 3px; margin-left: -1px; background: var(--bad); border-radius: 2px; box-shadow: 0 0 6px var(--bad); }
+.bc-enrage span { position: absolute; top: -13px; left: 50%; transform: translateX(-50%); font: 700 9px var(--mono); color: var(--bad); white-space: nowrap; }
+.bc-text { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; margin-top: 4px; font: 12px var(--mono); color: var(--muted); }
+.bc-text b { color: var(--text); }
+#bcverdict.ok b { color: var(--ok); } #bcverdict.close b { color: var(--warn); } #bcverdict.bad b { color: var(--bad); }
+.bc-src { font-size: 10px; flex: none; }
+
+/* Nova Rating colours (percentile vs the same class at the same Combat Power on that boss) */
+.rating { font-weight: 800; font-family: var(--mono); }
+.r-grey { color: #9aa0ab; } .r-green { color: #3ec66b; } .r-blue { color: #3c8dff; }
+.r-purple { color: #b26cff; } .r-orange { color: #ff9a2e; } .r-gold { color: #f3d35a; text-shadow: 0 0 6px rgba(243, 211, 90, .5); }
+
+.tportrait { width: 22px; height: 22px; border-radius: 50%; object-fit: cover; flex: none; box-shadow: 0 0 0 1px rgba(255,255,255,.25); }
+.target.final .tportrait { width: 26px; height: 26px; box-shadow: 0 0 0 2px var(--bad), 0 0 8px rgba(229, 87, 77, .6); }
+.meter.compact .tportrait { display: none; }
+
+.tdiff { font: 700 9.5px var(--mono); color: var(--muted); background: rgba(255,255,255,.08); padding: 1px 6px; border-radius: 4px; flex: none; white-space: nowrap; }
+.meter.compact .tdiff { display: none; }
+
+/* Combat Power check on startup */
+.cp-prompt { position: absolute; left: 10px; right: 10px; bottom: 32px; z-index: 45; padding: 9px 11px 8px; border-radius: 9px;
+  background: rgba(10, 12, 17, .96); border: 1px solid color-mix(in srgb, var(--accent) 60%, transparent);
+  box-shadow: 0 10px 28px rgba(0,0,0,.55); animation: toast-in .25s ease-out; transition: opacity .3s; }
+.cp-prompt.out { opacity: 0; }
+.cp-row { display: flex; align-items: center; gap: 7px; flex-wrap: wrap; }
+.cp-row b { font-size: 13px; margin-right: auto; }
+.cp-row input { width: 92px; background: rgba(255,255,255,.07); border: 1px solid var(--line); color: var(--text); border-radius: 5px;
+  padding: 4px 7px; font: 600 13px var(--mono); }
+.cp-row input:focus { outline: none; border-color: var(--accent); }
+.cp-row input.bad { border-color: var(--bad); animation: cp-shake .25s; }
+.cp-row button { border: 1px solid var(--line); background: rgba(255,255,255,.06); color: var(--text); border-radius: 5px; padding: 4px 9px; cursor: pointer; font-size: 12px; }
+.cp-row .cp-save { background: var(--accent); color: #111; border-color: transparent; font-weight: 700; }
+.cp-row .cp-x { padding: 4px 7px; color: var(--muted); }
+.cp-sub { margin-top: 5px; font-size: 11px; color: var(--muted); }
+@keyframes cp-shake { 25% { transform: translateX(-3px); } 75% { transform: translateX(3px); } }
+
+/* the % and the rest of the bar text are separate pieces: space them (a leading space inside a flex item is dropped) */
+.hp-text { gap: .3em; }

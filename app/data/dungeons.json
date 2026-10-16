@@ -1,0 +1,560 @@
+{
+ "source": "https://aion2hub.com/database",
+ "updated": "2026-10-16",
+ "dungeons": [
+  {
+   "name": "Abyssal Forge: Ludra",
+   "slug": "abyssal-forge-ludra",
+   "bosses": [
+    {
+     "name": "Eternal Ludra",
+     "role": "Final Boss",
+     "kina": 0,
+     "level": 75
+    }
+   ],
+   "regionLocked": false
+  },
+  {
+   "name": "Abyssal Horn Den",
+   "slug": "abyssal-horn-den",
+   "bosses": [
+    {
+     "name": "Kapu",
+     "role": "Mid-boss 1",
+     "kina": 700000,
+     "level": 90
+    },
+    {
+     "name": "Dhakan",
+     "role": "Mid-boss 2",
+     "kina": 700000,
+     "level": 90
+    },
+    {
+     "name": "Gargaum",
+     "role": "Final Boss",
+     "kina": 700000,
+     "level": 90
+    }
+   ],
+   "regionLocked": true
+  },
+  {
+   "name": "Azure Breath Island",
+   "slug": "azure-breath-island",
+   "bosses": [
+    {
+     "name": "Wise Baumnute",
+     "role": "Mid-boss 1",
+     "kina": 335000,
+     "level": 78
+    },
+    {
+     "name": "Expanding Xyrepe",
+     "role": "Mid-boss 2",
+     "kina": 335000,
+     "level": 78
+    },
+    {
+     "name": "Awakened Alturadon",
+     "role": "Final Boss",
+     "kina": 335000,
+     "level": 78
+    }
+   ],
+   "regionLocked": true
+  },
+  {
+   "name": "Bakron Island",
+   "slug": "bakron-island",
+   "bosses": [
+    {
+     "name": "Rock Spirit",
+     "role": "Boss",
+     "kina": 0,
+     "level": 72
+    },
+    {
+     "name": "Earth Spirit",
+     "role": "Boss",
+     "kina": 0,
+     "level": 72
+    },
+    {
+     "name": "Enraged Rock Spirit",
+     "role": "Boss",
+     "kina": 0,
+     "level": 72
+    },
+    {
+     "name": "Enraged Earth Spirit",
+     "role": "Boss",
+     "kina": 0,
+     "level": 72
+    }
+   ],
+   "regionLocked": true
+  },
+  {
+   "name": "Chalice of Muspel",
+   "slug": "chalice-of-muspel",
+   "bosses": [
+    {
+     "name": "Iscariel",
+     "role": "Mid-boss 1",
+     "kina": 0
+    },
+    {
+     "name": "Kaldrix",
+     "role": "Final Boss",
+     "kina": 6000000,
+     "level": 85
+    }
+   ],
+   "regionLocked": true
+  },
+  {
+   "name": "Citadel of the Fallen Daeva",
+   "slug": "citadel-of-the-fallen-daeva",
+   "bosses": [
+    {
+     "name": "Willful Turgen",
+     "role": "Mid-boss 1",
+     "kina": 600000,
+     "level": 86
+    },
+    {
+     "name": "Forbidden Hexbeast Griosa",
+     "role": "Mid-boss 2",
+     "kina": 600000,
+     "level": 86
+    },
+    {
+     "name": "Basilus the False",
+     "role": "Final Boss",
+     "kina": 600000,
+     "level": 86
+    }
+   ],
+   "regionLocked": true
+  },
+  {
+   "name": "Consumed Deus Research Base",
+   "slug": "consumed-deus-research-base",
+   "bosses": [
+    {
+     "name": "Overseer Gromkas",
+     "role": "Mid-boss 1",
+     "kina": 600000,
+     "level": 88
+    },
+    {
+     "name": "Lab Director Zylus",
+     "role": "Mid-boss 2",
+     "kina": 600000,
+     "level": 88
+    },
+    {
+     "name": "Prideful Atiel",
+     "role": "Final Boss",
+     "kina": 600000,
+     "level": 88
+    }
+   ],
+   "regionLocked": true
+  },
+  {
+   "name": "Corroded Decontamination Facility",
+   "slug": "corroded-decontamination-facility",
+   "bosses": [
+    {
+     "name": "Terminator Bargott",
+     "role": "Boss",
+     "kina": 0,
+     "level": 80
+    },
+    {
+     "name": "Devouring Klawfly",
+     "role": "Boss",
+     "kina": 0,
+     "level": 80
+    },
+    {
+     "name": "Black Blood Blatt",
+     "role": "Boss",
+     "kina": 0,
+     "level": 80
+    }
+   ],
+   "regionLocked": true
+  },
+  {
+   "name": "Cradle of Nihility",
+   "slug": "cradle-of-nihility",
+   "bosses": [
+    {
+     "name": "Multiverse Veltiras",
+     "role": "Mid-boss 1",
+     "kina": 270000,
+     "level": 70
+    },
+    {
+     "name": "Solemn Valkan",
+     "role": "Mid-boss 2",
+     "kina": 270000,
+     "level": 70
+    },
+    {
+     "name": "Afflicted Bakarma",
+     "role": "Final Boss",
+     "kina": 270000,
+     "level": 70
+    }
+   ],
+   "regionLocked": true
+  },
+  {
+   "name": "Deus Research Base",
+   "slug": "deus-research-base",
+   "bosses": [
+    {
+     "name": "Nazmun",
+     "role": "Mid-boss 1",
+     "kina": 160000
+    },
+    {
+     "name": "Gelcos",
+     "role": "Mid-boss 2",
+     "kina": 160000
+    },
+    {
+     "name": "Atiel",
+     "role": "Final Boss",
+     "kina": 160000
+    }
+   ],
+   "regionLocked": false
+  },
+  {
+   "name": "Draupnir",
+   "slug": "draupnir",
+   "bosses": [
+    {
+     "name": "Phantasmal Lakshmi",
+     "role": "Mid-boss 1",
+     "kina": 170000,
+     "level": 45
+    },
+    {
+     "name": "Predator Saraswati",
+     "role": "Mid-boss 2",
+     "kina": 170000,
+     "level": 45
+    },
+    {
+     "name": "Transcendent Bakarma",
+     "role": "Final Boss",
+     "kina": 170000,
+     "level": 45
+    }
+   ],
+   "regionLocked": false
+  },
+  {
+   "name": "Dying Dramata's Nest",
+   "slug": "dying-dramatas-nest",
+   "bosses": [
+    {
+     "name": "Broodkeeper Nayatman",
+     "role": "Mid-boss 1",
+     "kina": 270000,
+     "level": 65
+    },
+    {
+     "name": "Manager Nasium",
+     "role": "Mid-boss 2",
+     "kina": 270000,
+     "level": 65
+    },
+    {
+     "name": "Decaying Durvati",
+     "role": "Final Boss",
+     "kina": 270000,
+     "level": 65
+    }
+   ],
+   "regionLocked": true
+  },
+  {
+   "name": "Ferocious Horn Den",
+   "slug": "ferocious-horn-den",
+   "bosses": [
+    {
+     "name": "Watchdog Kwapo",
+     "role": "Mid-boss 1",
+     "kina": 170000,
+     "level": 63
+    },
+    {
+     "name": "Necromancer Duanka",
+     "role": "Mid-boss 2",
+     "kina": 170000,
+     "level": 63
+    },
+    {
+     "name": "Ferocious Horn Nuakum",
+     "role": "Final Boss",
+     "kina": 170000,
+     "level": 63
+    }
+   ],
+   "regionLocked": false
+  },
+  {
+   "name": "Fire Temple",
+   "slug": "fire-temple",
+   "bosses": [
+    {
+     "name": "Red Spark Ignus",
+     "role": "Mid-boss 1",
+     "kina": 170000,
+     "level": 37
+    },
+    {
+     "name": "Black Smoke Murute",
+     "role": "Mid-boss 2",
+     "kina": 170000,
+     "level": 37
+    },
+    {
+     "name": "Kromede's Desire",
+     "role": "Final Boss",
+     "kina": 170000,
+     "level": 37
+    }
+   ],
+   "regionLocked": false
+  },
+  {
+   "name": "Hall of Illusion",
+   "slug": "hall-of-illusion",
+   "bosses": [
+    {
+     "name": "Nazarak",
+     "role": "Mid-boss 1",
+     "kina": 335000,
+     "level": 74
+    },
+    {
+     "name": "Glassvein",
+     "role": "Mid-boss 2",
+     "kina": 335000,
+     "level": 74
+    },
+    {
+     "name": "Nathara",
+     "role": "Final Boss",
+     "kina": 335000,
+     "level": 74
+    }
+   ],
+   "regionLocked": true
+  },
+  {
+   "name": "Krao Cave",
+   "slug": "krao-cave",
+   "bosses": [
+    {
+     "name": "Enhanced Harcon",
+     "role": "Mid-boss 1",
+     "kina": 170000,
+     "level": 22
+    },
+    {
+     "name": "Neglected Gadioton",
+     "role": "Mid-boss 2",
+     "kina": 170000,
+     "level": 22
+    },
+    {
+     "name": "Ultimate Berk",
+     "role": "Final Boss",
+     "kina": 170000,
+     "level": 22
+    }
+   ],
+   "regionLocked": false
+  },
+  {
+   "name": "Mirror of Scarlet Desire",
+   "slug": "mirror-of-scarlet-desire",
+   "bosses": [
+    {
+     "name": "Rotar",
+     "role": "Mid-boss 1",
+     "kina": 400000,
+     "level": 85
+    },
+    {
+     "name": "Robstino",
+     "role": "Mid-boss 2",
+     "kina": 400000,
+     "level": 85
+    },
+    {
+     "name": "Kromede's Desolation",
+     "role": "Final Boss",
+     "kina": 400000,
+     "level": 85
+    }
+   ],
+   "regionLocked": true
+  },
+  {
+   "name": "Noiran's Hidden Legacy",
+   "slug": "noirans-hidden-legacy",
+   "bosses": [
+    {
+     "name": "Incomplete Braunt",
+     "role": "Mid-boss 1",
+     "kina": 700000,
+     "level": 92
+    },
+    {
+     "name": "Mad Klominster",
+     "role": "Mid-boss 2",
+     "kina": 700000,
+     "level": 92
+    },
+    {
+     "name": "Askran",
+     "role": "Final Boss",
+     "kina": 700000,
+     "level": 92
+    }
+   ],
+   "regionLocked": true
+  },
+  {
+   "name": "Shattered Arkanis",
+   "slug": "shattered-arkanis",
+   "bosses": [
+    {
+     "name": "Siliator of Deceit",
+     "role": "Mid-boss 1",
+     "kina": 160000
+    },
+    {
+     "name": "Ruthilis of Pain",
+     "role": "Mid-boss 2",
+     "kina": 160000
+    },
+    {
+     "name": "Talisra of the Void",
+     "role": "Final Boss",
+     "kina": 160000
+    }
+   ],
+   "regionLocked": false
+  },
+  {
+   "name": "Snowfield of Sorrow",
+   "slug": "snowfield-of-sorrow",
+   "bosses": [
+    {
+     "name": "Triton the Returned",
+     "role": "Mid-boss 1",
+     "kina": 0,
+     "level": 92
+    },
+    {
+     "name": "Deltras",
+     "role": "Final Boss",
+     "kina": 8000000,
+     "level": 92
+    }
+   ],
+   "regionLocked": true
+  },
+  {
+   "name": "Submerged Life Temple",
+   "slug": "submerged-life-temple",
+   "bosses": [
+    {
+     "name": "Singing Ellyde",
+     "role": "Mid-boss 1",
+     "kina": 250000,
+     "level": 80
+    },
+    {
+     "name": "Deep Sea Pydeon",
+     "role": "Mid-boss 2",
+     "kina": 250000,
+     "level": 80
+    },
+    {
+     "name": "Submerged Emon",
+     "role": "Final Boss",
+     "kina": 250000,
+     "level": 80
+    }
+   ],
+   "regionLocked": true
+  },
+  {
+   "name": "Urugugu Canyon",
+   "slug": "urugugu-canyon",
+   "bosses": [
+    {
+     "name": "Guardian Captain Raur",
+     "role": "Mid-boss 1",
+     "kina": 170000,
+     "level": 30
+    },
+    {
+     "name": "Judge Urahum",
+     "role": "Mid-boss 2",
+     "kina": 170000,
+     "level": 30
+    },
+    {
+     "name": "Divine Auldor",
+     "role": "Final Boss",
+     "kina": 170000,
+     "level": 30
+    }
+   ],
+   "regionLocked": false
+  },
+  {
+   "name": "Vakron Sky Island",
+   "slug": "vakron-sky-island",
+   "bosses": [
+    {
+     "name": "Thamon",
+     "role": "Mid-boss 1",
+     "kina": 170000,
+     "level": 54
+    },
+    {
+     "name": "Tiere",
+     "role": "Mid-boss 2",
+     "kina": 170000,
+     "level": 54
+    },
+    {
+     "name": "Vakron",
+     "role": "Final Boss",
+     "kina": 170000,
+     "level": 54
+    }
+   ],
+   "entryLevel": 50,
+   "itemLevel": 4800,
+   "partySize": 5,
+   "reset": "Weekly (Wednesday)",
+   "regionLocked": false
+  }
+ ]
+}

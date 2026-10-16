@@ -1,0 +1,2672 @@
+{
+ "source": "AionFlex (aionflex.gg) public boss pages: class standing, busiest Combat-Power band, Global, 4+ player kills",
+ "updated": "2026-10-16",
+ "bosses": {
+  "2300206": {
+   "name": "Guardian Captain Raur",
+   "where": "Urugugu Canyon (Normal)",
+   "band": "Under 300K",
+   "fieldMedian": 10000,
+   "medianCP": 77000,
+   "entryCP": 71000,
+   "classes": {
+    "chanter": {
+     "median": 13000,
+     "p95": 22000,
+     "n": 359,
+     "parses": 2083
+    },
+    "spiritmaster": {
+     "median": 12000,
+     "p95": 20000,
+     "n": 234,
+     "parses": 1317
+    },
+    "sorcerer": {
+     "median": 12000,
+     "p95": 19000,
+     "n": 427,
+     "parses": 2739
+    },
+    "templar": {
+     "median": 11000,
+     "p95": 19000,
+     "n": 322,
+     "parses": 1881
+    },
+    "ranger": {
+     "median": 9500,
+     "p95": 16000,
+     "n": 613,
+     "parses": 3866
+    },
+    "assassin": {
+     "median": 9300,
+     "p95": 17000,
+     "n": 425,
+     "parses": 2574
+    },
+    "gladiator": {
+     "median": 9200,
+     "p95": 17000,
+     "n": 466,
+     "parses": 2636
+    },
+    "cleric": {
+     "median": 8000,
+     "p95": 13000,
+     "n": 328,
+     "parses": 1793
+    }
+   }
+  },
+  "2300218": {
+   "name": "Divine Auldor",
+   "where": "Urugugu Canyon (Normal)",
+   "band": "Under 300K",
+   "fieldMedian": 9700,
+   "medianCP": 77000,
+   "entryCP": 71000,
+   "classes": {
+    "sorcerer": {
+     "median": 12000,
+     "p95": 19000,
+     "n": 428,
+     "parses": 2709
+    },
+    "spiritmaster": {
+     "median": 12000,
+     "p95": 18000,
+     "n": 233,
+     "parses": 1301
+    },
+    "chanter": {
+     "median": 11000,
+     "p95": 19000,
+     "n": 361,
+     "parses": 2100
+    },
+    "ranger": {
+     "median": 9700,
+     "p95": 16000,
+     "n": 613,
+     "parses": 3826
+    },
+    "templar": {
+     "median": 9600,
+     "p95": 16000,
+     "n": 325,
+     "parses": 1866
+    },
+    "assassin": {
+     "median": 8400,
+     "p95": 15000,
+     "n": 416,
+     "parses": 2534
+    },
+    "gladiator": {
+     "median": 8200,
+     "p95": 14000,
+     "n": 457,
+     "parses": 2575
+    },
+    "cleric": {
+     "median": 7600,
+     "p95": 12000,
+     "n": 327,
+     "parses": 1759
+    }
+   }
+  },
+  "2300207": {
+   "name": "Judge Urahum",
+   "where": "Urugugu Canyon (Normal)",
+   "band": "Under 300K",
+   "fieldMedian": 11000,
+   "medianCP": 77000,
+   "entryCP": 71000,
+   "classes": {
+    "sorcerer": {
+     "median": 14000,
+     "p95": 21000,
+     "n": 425,
+     "parses": 2665
+    },
+    "spiritmaster": {
+     "median": 14000,
+     "p95": 21000,
+     "n": 233,
+     "parses": 1288
+    },
+    "chanter": {
+     "median": 13000,
+     "p95": 24000,
+     "n": 358,
+     "parses": 2045
+    },
+    "templar": {
+     "median": 12000,
+     "p95": 20000,
+     "n": 319,
+     "parses": 1844
+    },
+    "ranger": {
+     "median": 11000,
+     "p95": 18000,
+     "n": 608,
+     "parses": 3801
+    },
+    "gladiator": {
+     "median": 9500,
+     "p95": 17000,
+     "n": 463,
+     "parses": 2546
+    },
+    "assassin": {
+     "median": 9300,
+     "p95": 17000,
+     "n": 424,
+     "parses": 2534
+    },
+    "cleric": {
+     "median": 9000,
+     "p95": 15000,
+     "n": 328,
+     "parses": 1757
+    }
+   }
+  },
+  "2300812": {
+   "name": "Vakron",
+   "where": "Vakron Sky Island (Normal)",
+   "band": "Under 300K",
+   "fieldMedian": 10000,
+   "medianCP": 76000,
+   "entryCP": 70000,
+   "classes": {
+    "chanter": {
+     "median": 12000,
+     "p95": 21000,
+     "n": 360,
+     "parses": 1899
+    },
+    "sorcerer": {
+     "median": 12000,
+     "p95": 19000,
+     "n": 442,
+     "parses": 2183
+    },
+    "spiritmaster": {
+     "median": 11000,
+     "p95": 19000,
+     "n": 255,
+     "parses": 1371
+    },
+    "templar": {
+     "median": 11000,
+     "p95": 18000,
+     "n": 324,
+     "parses": 1719
+    },
+    "assassin": {
+     "median": 9300,
+     "p95": 17000,
+     "n": 447,
+     "parses": 2314
+    },
+    "ranger": {
+     "median": 9300,
+     "p95": 17000,
+     "n": 644,
+     "parses": 3371
+    },
+    "gladiator": {
+     "median": 8500,
+     "p95": 16000,
+     "n": 446,
+     "parses": 2266
+    },
+    "cleric": {
+     "median": 7600,
+     "p95": 14000,
+     "n": 329,
+     "parses": 1791
+    }
+   }
+  },
+  "2300810": {
+   "name": "Tiere",
+   "where": "Vakron Sky Island (Normal)",
+   "band": "Under 300K",
+   "fieldMedian": 9800,
+   "medianCP": 76000,
+   "entryCP": 70000,
+   "classes": {
+    "chanter": {
+     "median": 12000,
+     "p95": 21000,
+     "n": 359,
+     "parses": 1887
+    },
+    "sorcerer": {
+     "median": 12000,
+     "p95": 20000,
+     "n": 441,
+     "parses": 2178
+    },
+    "templar": {
+     "median": 12000,
+     "p95": 20000,
+     "n": 320,
+     "parses": 1711
+    },
+    "spiritmaster": {
+     "median": 11000,
+     "p95": 20000,
+     "n": 258,
+     "parses": 1353
+    },
+    "ranger": {
+     "median": 9300,
+     "p95": 17000,
+     "n": 647,
+     "parses": 3306
+    },
+    "gladiator": {
+     "median": 9100,
+     "p95": 18000,
+     "n": 445,
+     "parses": 2265
+    },
+    "assassin": {
+     "median": 8100,
+     "p95": 18000,
+     "n": 446,
+     "parses": 2299
+    },
+    "cleric": {
+     "median": 7600,
+     "p95": 13000,
+     "n": 331,
+     "parses": 1769
+    }
+   }
+  },
+  "2300811": {
+   "name": "Thamon",
+   "where": "Vakron Sky Island (Normal)",
+   "band": "Under 300K",
+   "fieldMedian": 12000,
+   "medianCP": 76000,
+   "entryCP": 70000,
+   "classes": {
+    "chanter": {
+     "median": 17000,
+     "p95": 27000,
+     "n": 340,
+     "parses": 1599
+    },
+    "spiritmaster": {
+     "median": 14000,
+     "p95": 25000,
+     "n": 249,
+     "parses": 1086
+    },
+    "sorcerer": {
+     "median": 14000,
+     "p95": 24000,
+     "n": 429,
+     "parses": 1874
+    },
+    "templar": {
+     "median": 13000,
+     "p95": 22000,
+     "n": 309,
+     "parses": 1417
+    },
+    "assassin": {
+     "median": 13000,
+     "p95": 23000,
+     "n": 431,
+     "parses": 2004
+    },
+    "gladiator": {
+     "median": 11000,
+     "p95": 19000,
+     "n": 431,
+     "parses": 1962
+    },
+    "ranger": {
+     "median": 11000,
+     "p95": 19000,
+     "n": 612,
+     "parses": 2875
+    },
+    "cleric": {
+     "median": 9400,
+     "p95": 16000,
+     "n": 312,
+     "parses": 1506
+    }
+   }
+  },
+  "2300471": {
+   "name": "Transcendent Bakarma",
+   "where": "Draupnir (Normal)",
+   "band": "Under 300K",
+   "fieldMedian": 9600,
+   "medianCP": 71000,
+   "entryCP": 62000,
+   "classes": {
+    "chanter": {
+     "median": 12000,
+     "p95": 31000,
+     "n": 238,
+     "parses": 877
+    },
+    "sorcerer": {
+     "median": 10000,
+     "p95": 23000,
+     "n": 307,
+     "parses": 1236
+    },
+    "templar": {
+     "median": 10000,
+     "p95": 22000,
+     "n": 177,
+     "parses": 680
+    },
+    "assassin": {
+     "median": 9400,
+     "p95": 24000,
+     "n": 274,
+     "parses": 1014
+    },
+    "spiritmaster": {
+     "median": 9000,
+     "p95": 21000,
+     "n": 148,
+     "parses": 518
+    },
+    "ranger": {
+     "median": 8900,
+     "p95": 20000,
+     "n": 342,
+     "parses": 1251
+    },
+    "gladiator": {
+     "median": 8800,
+     "p95": 20000,
+     "n": 270,
+     "parses": 1065
+    },
+    "cleric": {
+     "median": 6700,
+     "p95": 17000,
+     "n": 220,
+     "parses": 760
+    }
+   }
+  },
+  "2300403": {
+   "name": "Predator Saraswati",
+   "where": "Draupnir (Normal)",
+   "band": "Under 300K",
+   "fieldMedian": 11000,
+   "medianCP": 67000,
+   "entryCP": 60000,
+   "classes": {
+    "chanter": {
+     "median": 13000,
+     "p95": 29000,
+     "n": 212,
+     "parses": 630
+    },
+    "templar": {
+     "median": 13000,
+     "p95": 26000,
+     "n": 150,
+     "parses": 432
+    },
+    "sorcerer": {
+     "median": 13000,
+     "p95": 24000,
+     "n": 279,
+     "parses": 952
+    },
+    "spiritmaster": {
+     "median": 11000,
+     "p95": 20000,
+     "n": 138,
+     "parses": 398
+    },
+    "ranger": {
+     "median": 10000,
+     "p95": 22000,
+     "n": 289,
+     "parses": 880
+    },
+    "gladiator": {
+     "median": 10000,
+     "p95": 22000,
+     "n": 224,
+     "parses": 641
+    },
+    "assassin": {
+     "median": 8900,
+     "p95": 19000,
+     "n": 235,
+     "parses": 628
+    },
+    "cleric": {
+     "median": 7500,
+     "p95": 16000,
+     "n": 197,
+     "parses": 540
+    }
+   }
+  },
+  "2300108": {
+   "name": "Neglected Gadioton",
+   "where": "Krao Cave (Normal)",
+   "band": "Under 300K",
+   "fieldMedian": 10000,
+   "medianCP": 63000,
+   "entryCP": 57000,
+   "classes": {
+    "chanter": {
+     "median": 13000,
+     "p95": 23000,
+     "n": 149,
+     "parses": 475
+    },
+    "templar": {
+     "median": 12000,
+     "p95": 18000,
+     "n": 112,
+     "parses": 383
+    },
+    "sorcerer": {
+     "median": 11000,
+     "p95": 19000,
+     "n": 214,
+     "parses": 792
+    },
+    "spiritmaster": {
+     "median": 11000,
+     "p95": 19000,
+     "n": 120,
+     "parses": 409
+    },
+    "ranger": {
+     "median": 9700,
+     "p95": 19000,
+     "n": 229,
+     "parses": 751
+    },
+    "gladiator": {
+     "median": 9400,
+     "p95": 17000,
+     "n": 197,
+     "parses": 689
+    },
+    "assassin": {
+     "median": 9400,
+     "p95": 16000,
+     "n": 204,
+     "parses": 747
+    },
+    "cleric": {
+     "median": 7000,
+     "p95": 13000,
+     "n": 153,
+     "parses": 552
+    }
+   }
+  },
+  "2300104": {
+   "name": "Enhanced Harcon",
+   "where": "Krao Cave (Normal)",
+   "band": "Under 300K",
+   "fieldMedian": 9700,
+   "medianCP": 63000,
+   "entryCP": 57000,
+   "classes": {
+    "chanter": {
+     "median": 13000,
+     "p95": 22000,
+     "n": 149,
+     "parses": 463
+    },
+    "templar": {
+     "median": 12000,
+     "p95": 20000,
+     "n": 110,
+     "parses": 369
+    },
+    "sorcerer": {
+     "median": 11000,
+     "p95": 19000,
+     "n": 212,
+     "parses": 776
+    },
+    "spiritmaster": {
+     "median": 10000,
+     "p95": 19000,
+     "n": 120,
+     "parses": 392
+    },
+    "gladiator": {
+     "median": 9600,
+     "p95": 17000,
+     "n": 197,
+     "parses": 673
+    },
+    "assassin": {
+     "median": 9200,
+     "p95": 17000,
+     "n": 211,
+     "parses": 751
+    },
+    "ranger": {
+     "median": 8900,
+     "p95": 17000,
+     "n": 226,
+     "parses": 729
+    },
+    "cleric": {
+     "median": 6400,
+     "p95": 13000,
+     "n": 153,
+     "parses": 537
+    }
+   }
+  },
+  "2300171": {
+   "name": "Ultimate Berk",
+   "where": "Krao Cave (Normal)",
+   "band": "Under 300K",
+   "fieldMedian": 7400,
+   "medianCP": 64000,
+   "entryCP": 58000,
+   "classes": {
+    "sorcerer": {
+     "median": 9600,
+     "p95": 17000,
+     "n": 213,
+     "parses": 737
+    },
+    "spiritmaster": {
+     "median": 8800,
+     "p95": 16000,
+     "n": 111,
+     "parses": 381
+    },
+    "chanter": {
+     "median": 8600,
+     "p95": 15000,
+     "n": 138,
+     "parses": 463
+    },
+    "ranger": {
+     "median": 8200,
+     "p95": 15000,
+     "n": 216,
+     "parses": 709
+    },
+    "templar": {
+     "median": 7800,
+     "p95": 14000,
+     "n": 115,
+     "parses": 361
+    },
+    "assassin": {
+     "median": 6100,
+     "p95": 11000,
+     "n": 198,
+     "parses": 678
+    },
+    "gladiator": {
+     "median": 6000,
+     "p95": 10000,
+     "n": 185,
+     "parses": 643
+    },
+    "cleric": {
+     "median": 5800,
+     "p95": 11000,
+     "n": 145,
+     "parses": 516
+    }
+   }
+  },
+  "2300401": {
+   "name": "Phantasmal Lakshmi",
+   "where": "Draupnir (Normal)",
+   "band": "Under 300K",
+   "fieldMedian": 10000,
+   "medianCP": 67000,
+   "entryCP": 60000,
+   "classes": {
+    "chanter": {
+     "median": 13000,
+     "p95": 26000,
+     "n": 186,
+     "parses": 552
+    },
+    "templar": {
+     "median": 12000,
+     "p95": 22000,
+     "n": 126,
+     "parses": 365
+    },
+    "sorcerer": {
+     "median": 12000,
+     "p95": 22000,
+     "n": 246,
+     "parses": 844
+    },
+    "spiritmaster": {
+     "median": 10000,
+     "p95": 19000,
+     "n": 114,
+     "parses": 310
+    },
+    "assassin": {
+     "median": 10000,
+     "p95": 17000,
+     "n": 188,
+     "parses": 485
+    },
+    "gladiator": {
+     "median": 9100,
+     "p95": 20000,
+     "n": 204,
+     "parses": 575
+    },
+    "ranger": {
+     "median": 8800,
+     "p95": 21000,
+     "n": 244,
+     "parses": 731
+    },
+    "cleric": {
+     "median": 7600,
+     "p95": 16000,
+     "n": 180,
+     "parses": 475
+    }
+   }
+  },
+  "2310403": {
+   "name": "Predator Saraswati",
+   "where": "Draupnir (Exploration)",
+   "band": "Under 300K",
+   "fieldMedian": 8600,
+   "medianCP": 52000,
+   "entryCP": 42000,
+   "classes": {
+    "chanter": {
+     "median": 13000,
+     "p95": 27000,
+     "n": 242,
+     "parses": 438
+    },
+    "templar": {
+     "median": 9900,
+     "p95": 22000,
+     "n": 135,
+     "parses": 255
+    },
+    "sorcerer": {
+     "median": 9700,
+     "p95": 22000,
+     "n": 304,
+     "parses": 566
+    },
+    "spiritmaster": {
+     "median": 8800,
+     "p95": 22000,
+     "n": 191,
+     "parses": 385
+    },
+    "gladiator": {
+     "median": 7900,
+     "p95": 19000,
+     "n": 216,
+     "parses": 417
+    },
+    "ranger": {
+     "median": 7600,
+     "p95": 19000,
+     "n": 328,
+     "parses": 613
+    },
+    "assassin": {
+     "median": 7500,
+     "p95": 22000,
+     "n": 277,
+     "parses": 565
+    },
+    "cleric": {
+     "median": 7000,
+     "p95": 15000,
+     "n": 208,
+     "parses": 412
+    }
+   }
+  },
+  "2310471": {
+   "name": "Transcendent Bakarma",
+   "where": "Draupnir (Exploration)",
+   "band": "Under 300K",
+   "fieldMedian": 6000,
+   "medianCP": 52000,
+   "entryCP": 43000,
+   "classes": {
+    "chanter": {
+     "median": 8700,
+     "p95": 18000,
+     "n": 263,
+     "parses": 459
+    },
+    "templar": {
+     "median": 6900,
+     "p95": 15000,
+     "n": 143,
+     "parses": 270
+    },
+    "sorcerer": {
+     "median": 6300,
+     "p95": 14000,
+     "n": 326,
+     "parses": 590
+    },
+    "spiritmaster": {
+     "median": 5800,
+     "p95": 13000,
+     "n": 202,
+     "parses": 385
+    },
+    "gladiator": {
+     "median": 5600,
+     "p95": 11000,
+     "n": 232,
+     "parses": 425
+    },
+    "assassin": {
+     "median": 5400,
+     "p95": 13000,
+     "n": 298,
+     "parses": 558
+    },
+    "cleric": {
+     "median": 5200,
+     "p95": 13000,
+     "n": 223,
+     "parses": 426
+    },
+    "ranger": {
+     "median": 4900,
+     "p95": 13000,
+     "n": 335,
+     "parses": 581
+    }
+   }
+  },
+  "2310812": {
+   "name": "Vakron",
+   "where": "Vakron Sky Island (Exploration)",
+   "band": "Under 300K",
+   "fieldMedian": 11000,
+   "medianCP": 70000,
+   "entryCP": 67000,
+   "classes": {
+    "sorcerer": {
+     "median": 13000,
+     "p95": 22000,
+     "n": 224,
+     "parses": 459
+    },
+    "spiritmaster": {
+     "median": 13000,
+     "p95": 20000,
+     "n": 105,
+     "parses": 227
+    },
+    "chanter": {
+     "median": 13000,
+     "p95": 23000,
+     "n": 169,
+     "parses": 356
+    },
+    "templar": {
+     "median": 11000,
+     "p95": 17000,
+     "n": 119,
+     "parses": 234
+    },
+    "ranger": {
+     "median": 10000,
+     "p95": 18000,
+     "n": 278,
+     "parses": 597
+    },
+    "assassin": {
+     "median": 10000,
+     "p95": 18000,
+     "n": 206,
+     "parses": 459
+    },
+    "gladiator": {
+     "median": 9400,
+     "p95": 18000,
+     "n": 199,
+     "parses": 410
+    },
+    "cleric": {
+     "median": 9300,
+     "p95": 14000,
+     "n": 133,
+     "parses": 259
+    }
+   }
+  },
+  "2310810": {
+   "name": "Tiere",
+   "where": "Vakron Sky Island (Exploration)",
+   "band": "Under 300K",
+   "fieldMedian": 12000,
+   "medianCP": 70000,
+   "entryCP": 67000,
+   "classes": {
+    "chanter": {
+     "median": 15000,
+     "p95": 27000,
+     "n": 168,
+     "parses": 358
+    },
+    "sorcerer": {
+     "median": 14000,
+     "p95": 25000,
+     "n": 221,
+     "parses": 477
+    },
+    "spiritmaster": {
+     "median": 13000,
+     "p95": 23000,
+     "n": 107,
+     "parses": 230
+    },
+    "templar": {
+     "median": 13000,
+     "p95": 21000,
+     "n": 121,
+     "parses": 236
+    },
+    "assassin": {
+     "median": 12000,
+     "p95": 26000,
+     "n": 208,
+     "parses": 459
+    },
+    "ranger": {
+     "median": 12000,
+     "p95": 20000,
+     "n": 272,
+     "parses": 608
+    },
+    "gladiator": {
+     "median": 11000,
+     "p95": 21000,
+     "n": 188,
+     "parses": 384
+    },
+    "cleric": {
+     "median": 9900,
+     "p95": 18000,
+     "n": 134,
+     "parses": 259
+    }
+   }
+  },
+  "2310401": {
+   "name": "Phantasmal Lakshmi",
+   "where": "Draupnir (Exploration)",
+   "band": "Under 300K",
+   "fieldMedian": 7200,
+   "medianCP": 52000,
+   "entryCP": 43000,
+   "classes": {
+    "chanter": {
+     "median": 9700,
+     "p95": 21000,
+     "n": 208,
+     "parses": 347
+    },
+    "templar": {
+     "median": 8300,
+     "p95": 18000,
+     "n": 125,
+     "parses": 218
+    },
+    "spiritmaster": {
+     "median": 8300,
+     "p95": 18000,
+     "n": 152,
+     "parses": 299
+    },
+    "sorcerer": {
+     "median": 8000,
+     "p95": 18000,
+     "n": 262,
+     "parses": 468
+    },
+    "cleric": {
+     "median": 6600,
+     "p95": 13000,
+     "n": 175,
+     "parses": 338
+    },
+    "gladiator": {
+     "median": 6500,
+     "p95": 14000,
+     "n": 197,
+     "parses": 353
+    },
+    "assassin": {
+     "median": 6000,
+     "p95": 15000,
+     "n": 201,
+     "parses": 374
+    },
+    "ranger": {
+     "median": 5600,
+     "p95": 14000,
+     "n": 273,
+     "parses": 484
+    }
+   }
+  },
+  "2310811": {
+   "name": "Thamon",
+   "where": "Vakron Sky Island (Exploration)",
+   "band": "Under 300K",
+   "fieldMedian": 12000,
+   "medianCP": 70000,
+   "entryCP": 67000,
+   "classes": {
+    "chanter": {
+     "median": 18000,
+     "p95": 30000,
+     "n": 163,
+     "parses": 321
+    },
+    "spiritmaster": {
+     "median": 15000,
+     "p95": 27000,
+     "n": 99,
+     "parses": 204
+    },
+    "sorcerer": {
+     "median": 14000,
+     "p95": 26000,
+     "n": 209,
+     "parses": 401
+    },
+    "assassin": {
+     "median": 13000,
+     "p95": 23000,
+     "n": 195,
+     "parses": 403
+    },
+    "templar": {
+     "median": 13000,
+     "p95": 20000,
+     "n": 117,
+     "parses": 219
+    },
+    "gladiator": {
+     "median": 11000,
+     "p95": 19000,
+     "n": 190,
+     "parses": 361
+    },
+    "ranger": {
+     "median": 11000,
+     "p95": 18000,
+     "n": 257,
+     "parses": 535
+    },
+    "cleric": {
+     "median": 9000,
+     "p95": 22000,
+     "n": 132,
+     "parses": 233
+    }
+   }
+  },
+  "2330707": {
+   "name": "Siliator of Deceit",
+   "where": "Shattered Arkanis (Grade)",
+   "band": "Under 300K",
+   "fieldMedian": 8700,
+   "medianCP": 80000,
+   "entryCP": 76000,
+   "classes": {
+    "spiritmaster": {
+     "median": 11000,
+     "p95": 18000,
+     "n": 87,
+     "parses": 168
+    },
+    "sorcerer": {
+     "median": 11000,
+     "p95": 18000,
+     "n": 187,
+     "parses": 351
+    },
+    "chanter": {
+     "median": 9700,
+     "p95": 16000,
+     "n": 155,
+     "parses": 310
+    },
+    "templar": {
+     "median": 8900,
+     "p95": 15000,
+     "n": 139,
+     "parses": 252
+    },
+    "ranger": {
+     "median": 8900,
+     "p95": 15000,
+     "n": 258,
+     "parses": 427
+    },
+    "gladiator": {
+     "median": 7500,
+     "p95": 12000,
+     "n": 172,
+     "parses": 360
+    },
+    "assassin": {
+     "median": 7300,
+     "p95": 14000,
+     "n": 183,
+     "parses": 316
+    },
+    "cleric": {
+     "median": 6700,
+     "p95": 12000,
+     "n": 146,
+     "parses": 244
+    }
+   }
+  },
+  "2330708": {
+   "name": "Ruthilis of Pain",
+   "where": "Shattered Arkanis (Grade)",
+   "band": "Under 300K",
+   "fieldMedian": 8500,
+   "medianCP": 80000,
+   "entryCP": 76000,
+   "classes": {
+    "chanter": {
+     "median": 10000,
+     "p95": 19000,
+     "n": 157,
+     "parses": 300
+    },
+    "sorcerer": {
+     "median": 10000,
+     "p95": 16000,
+     "n": 188,
+     "parses": 340
+    },
+    "spiritmaster": {
+     "median": 10000,
+     "p95": 17000,
+     "n": 91,
+     "parses": 176
+    },
+    "templar": {
+     "median": 9700,
+     "p95": 16000,
+     "n": 139,
+     "parses": 249
+    },
+    "gladiator": {
+     "median": 8300,
+     "p95": 13000,
+     "n": 176,
+     "parses": 354
+    },
+    "ranger": {
+     "median": 8000,
+     "p95": 15000,
+     "n": 266,
+     "parses": 431
+    },
+    "assassin": {
+     "median": 7200,
+     "p95": 14000,
+     "n": 181,
+     "parses": 326
+    },
+    "cleric": {
+     "median": 6400,
+     "p95": 12000,
+     "n": 143,
+     "parses": 242
+    }
+   }
+  },
+  "2320616": {
+   "name": "Gelcos",
+   "where": "Deus Research Base (Grade)",
+   "band": "Under 300K",
+   "fieldMedian": 9400,
+   "medianCP": 81000,
+   "entryCP": 77000,
+   "classes": {
+    "spiritmaster": {
+     "median": 12000,
+     "p95": 20000,
+     "n": 78,
+     "parses": 116
+    },
+    "sorcerer": {
+     "median": 12000,
+     "p95": 18000,
+     "n": 140,
+     "parses": 234
+    },
+    "chanter": {
+     "median": 10000,
+     "p95": 20000,
+     "n": 142,
+     "parses": 234
+    },
+    "templar": {
+     "median": 9900,
+     "p95": 16000,
+     "n": 112,
+     "parses": 175
+    },
+    "ranger": {
+     "median": 9000,
+     "p95": 15000,
+     "n": 226,
+     "parses": 365
+    },
+    "gladiator": {
+     "median": 8400,
+     "p95": 14000,
+     "n": 157,
+     "parses": 277
+    },
+    "assassin": {
+     "median": 7900,
+     "p95": 16000,
+     "n": 158,
+     "parses": 264
+    },
+    "cleric": {
+     "median": 7100,
+     "p95": 13000,
+     "n": 120,
+     "parses": 207
+    }
+   }
+  },
+  "2330709": {
+   "name": "Talisra of the Void",
+   "where": "Shattered Arkanis (Grade)",
+   "band": "Under 300K",
+   "fieldMedian": 8900,
+   "medianCP": 81000,
+   "entryCP": 76000,
+   "classes": {
+    "chanter": {
+     "median": 11000,
+     "p95": 17000,
+     "n": 140,
+     "parses": 238
+    },
+    "sorcerer": {
+     "median": 10000,
+     "p95": 16000,
+     "n": 156,
+     "parses": 239
+    },
+    "spiritmaster": {
+     "median": 10000,
+     "p95": 17000,
+     "n": 76,
+     "parses": 128
+    },
+    "assassin": {
+     "median": 9000,
+     "p95": 14000,
+     "n": 144,
+     "parses": 229
+    },
+    "templar": {
+     "median": 8900,
+     "p95": 14000,
+     "n": 116,
+     "parses": 174
+    },
+    "ranger": {
+     "median": 8200,
+     "p95": 13000,
+     "n": 222,
+     "parses": 313
+    },
+    "gladiator": {
+     "median": 7900,
+     "p95": 13000,
+     "n": 135,
+     "parses": 246
+    },
+    "cleric": {
+     "median": 6300,
+     "p95": 11000,
+     "n": 120,
+     "parses": 191
+    }
+   }
+  },
+  "2320601": {
+   "name": "Atiel",
+   "where": "Deus Research Base (Grade)",
+   "band": "Under 300K",
+   "fieldMedian": 9900,
+   "medianCP": 82000,
+   "entryCP": 77000,
+   "classes": {
+    "spiritmaster": {
+     "median": 12000,
+     "p95": 20000,
+     "n": 78,
+     "parses": 121
+    },
+    "sorcerer": {
+     "median": 12000,
+     "p95": 19000,
+     "n": 131,
+     "parses": 201
+    },
+    "chanter": {
+     "median": 12000,
+     "p95": 19000,
+     "n": 145,
+     "parses": 247
+    },
+    "assassin": {
+     "median": 9800,
+     "p95": 16000,
+     "n": 148,
+     "parses": 247
+    },
+    "ranger": {
+     "median": 9700,
+     "p95": 15000,
+     "n": 216,
+     "parses": 349
+    },
+    "templar": {
+     "median": 9300,
+     "p95": 15000,
+     "n": 112,
+     "parses": 177
+    },
+    "gladiator": {
+     "median": 8700,
+     "p95": 14000,
+     "n": 150,
+     "parses": 266
+    },
+    "cleric": {
+     "median": 6900,
+     "p95": 12000,
+     "n": 119,
+     "parses": 192
+    }
+   }
+  },
+  "2310371": {
+   "name": "Kromede's Desire",
+   "where": "Fire Temple (Exploration)",
+   "band": "Under 300K",
+   "fieldMedian": 4200,
+   "medianCP": 33000,
+   "entryCP": 30000,
+   "classes": {
+    "chanter": {
+     "median": 6100,
+     "p95": 12000,
+     "n": 158,
+     "parses": 196
+    },
+    "templar": {
+     "median": 4500,
+     "p95": 6800,
+     "n": 79,
+     "parses": 102
+    },
+    "sorcerer": {
+     "median": 4500,
+     "p95": 9100,
+     "n": 174,
+     "parses": 239
+    },
+    "spiritmaster": {
+     "median": 4200,
+     "p95": 7300,
+     "n": 129,
+     "parses": 169
+    },
+    "cleric": {
+     "median": 4100,
+     "p95": 7900,
+     "n": 156,
+     "parses": 220
+    },
+    "ranger": {
+     "median": 3800,
+     "p95": 7400,
+     "n": 194,
+     "parses": 268
+    },
+    "gladiator": {
+     "median": 3700,
+     "p95": 8200,
+     "n": 116,
+     "parses": 190
+    },
+    "assassin": {
+     "median": 3500,
+     "p95": 9400,
+     "n": 180,
+     "parses": 267
+    }
+   }
+  },
+  "2320615": {
+   "name": "Nazmun",
+   "where": "Deus Research Base (Grade)",
+   "band": "Under 300K",
+   "fieldMedian": 10000,
+   "medianCP": 81000,
+   "entryCP": 77000,
+   "classes": {
+    "spiritmaster": {
+     "median": 15000,
+     "p95": 22000,
+     "n": 76,
+     "parses": 113
+    },
+    "sorcerer": {
+     "median": 13000,
+     "p95": 20000,
+     "n": 138,
+     "parses": 219
+    },
+    "chanter": {
+     "median": 11000,
+     "p95": 20000,
+     "n": 133,
+     "parses": 218
+    },
+    "ranger": {
+     "median": 10000,
+     "p95": 17000,
+     "n": 206,
+     "parses": 334
+    },
+    "templar": {
+     "median": 10000,
+     "p95": 18000,
+     "n": 102,
+     "parses": 146
+    },
+    "assassin": {
+     "median": 9100,
+     "p95": 16000,
+     "n": 147,
+     "parses": 242
+    },
+    "gladiator": {
+     "median": 8900,
+     "p95": 16000,
+     "n": 150,
+     "parses": 258
+    },
+    "cleric": {
+     "median": 7500,
+     "p95": 15000,
+     "n": 111,
+     "parses": 179
+    }
+   }
+  },
+  "2310171": {
+   "name": "Ultimate Berk",
+   "where": "Krao Cave (Exploration)",
+   "band": "Under 300K",
+   "fieldMedian": 1600,
+   "medianCP": 17000,
+   "entryCP": 15000,
+   "classes": {
+    "chanter": {
+     "median": 2000,
+     "p95": 4500,
+     "n": 156,
+     "parses": 181
+    },
+    "sorcerer": {
+     "median": 1900,
+     "p95": 9700,
+     "n": 148,
+     "parses": 214
+    },
+    "spiritmaster": {
+     "median": 1700,
+     "p95": 4500,
+     "n": 103,
+     "parses": 127
+    },
+    "ranger": {
+     "median": 1600,
+     "p95": 8100,
+     "n": 164,
+     "parses": 199
+    },
+    "templar": {
+     "median": 1600,
+     "p95": 3200,
+     "n": 86,
+     "parses": 107
+    },
+    "cleric": {
+     "median": 1500,
+     "p95": 5700,
+     "n": 139,
+     "parses": 171
+    },
+    "gladiator": {
+     "median": 1400,
+     "p95": 7500,
+     "n": 105,
+     "parses": 157
+    },
+    "assassin": {
+     "median": 1100,
+     "p95": 5000,
+     "n": 109,
+     "parses": 150
+    }
+   }
+  },
+  "2310218": {
+   "name": "Divine Auldor",
+   "where": "Urugugu Canyon (Exploration)",
+   "band": "Under 300K",
+   "fieldMedian": 2800,
+   "medianCP": 24000,
+   "entryCP": 21000,
+   "classes": {
+    "chanter": {
+     "median": 4600,
+     "p95": 8500,
+     "n": 146,
+     "parses": 170
+    },
+    "templar": {
+     "median": 3100,
+     "p95": 7300,
+     "n": 74,
+     "parses": 87
+    },
+    "spiritmaster": {
+     "median": 3000,
+     "p95": 6900,
+     "n": 113,
+     "parses": 155
+    },
+    "sorcerer": {
+     "median": 2900,
+     "p95": 6600,
+     "n": 142,
+     "parses": 177
+    },
+    "ranger": {
+     "median": 2600,
+     "p95": 7700,
+     "n": 164,
+     "parses": 217
+    },
+    "gladiator": {
+     "median": 2500,
+     "p95": 5600,
+     "n": 99,
+     "parses": 132
+    },
+    "cleric": {
+     "median": 2400,
+     "p95": 5900,
+     "n": 142,
+     "parses": 175
+    },
+    "assassin": {
+     "median": 2300,
+     "p95": 5000,
+     "n": 119,
+     "parses": 161
+    }
+   }
+  },
+  "2310311": {
+   "name": "Red Spark Ignus",
+   "where": "Fire Temple (Exploration)",
+   "band": "Under 300K",
+   "fieldMedian": 4700,
+   "medianCP": 33000,
+   "entryCP": 30000,
+   "classes": {
+    "chanter": {
+     "median": 7300,
+     "p95": 17000,
+     "n": 120,
+     "parses": 149
+    },
+    "templar": {
+     "median": 5300,
+     "p95": 10000,
+     "n": 64,
+     "parses": 73
+    },
+    "spiritmaster": {
+     "median": 4700,
+     "p95": 9500,
+     "n": 98,
+     "parses": 133
+    },
+    "sorcerer": {
+     "median": 4500,
+     "p95": 14000,
+     "n": 129,
+     "parses": 174
+    },
+    "gladiator": {
+     "median": 4500,
+     "p95": 10000,
+     "n": 102,
+     "parses": 151
+    },
+    "ranger": {
+     "median": 4400,
+     "p95": 9500,
+     "n": 162,
+     "parses": 207
+    },
+    "assassin": {
+     "median": 4200,
+     "p95": 13000,
+     "n": 138,
+     "parses": 194
+    },
+    "cleric": {
+     "median": 3900,
+     "p95": 10000,
+     "n": 134,
+     "parses": 184
+    }
+   }
+  },
+  "2340615": {
+   "name": "Nazmun",
+   "where": "Deus Research Base (Grade)",
+   "band": "Under 300K",
+   "fieldMedian": 10000,
+   "medianCP": 90000,
+   "entryCP": 85000,
+   "classes": {
+    "sorcerer": {
+     "median": 13000,
+     "p95": 18000,
+     "n": 61,
+     "parses": 123
+    },
+    "chanter": {
+     "median": 12000,
+     "p95": 20000,
+     "n": 78,
+     "parses": 148
+    },
+    "spiritmaster": {
+     "median": 12000,
+     "p95": null,
+     "n": 41,
+     "parses": 110
+    },
+    "ranger": {
+     "median": 11000,
+     "p95": 16000,
+     "n": 145,
+     "parses": 290
+    },
+    "templar": {
+     "median": 10000,
+     "p95": 16000,
+     "n": 72,
+     "parses": 146
+    },
+    "gladiator": {
+     "median": 9300,
+     "p95": 14000,
+     "n": 81,
+     "parses": 169
+    },
+    "assassin": {
+     "median": 8900,
+     "p95": 13000,
+     "n": 79,
+     "parses": 153
+    },
+    "cleric": {
+     "median": 7600,
+     "p95": 13000,
+     "n": 69,
+     "parses": 147
+    }
+   }
+  },
+  "2340616": {
+   "name": "Gelcos",
+   "where": "Deus Research Base (Grade)",
+   "band": "Under 300K",
+   "fieldMedian": 9500,
+   "medianCP": 89000,
+   "entryCP": 85000,
+   "classes": {
+    "sorcerer": {
+     "median": 12000,
+     "p95": 17000,
+     "n": 61,
+     "parses": 121
+    },
+    "spiritmaster": {
+     "median": 11000,
+     "p95": null,
+     "n": 41,
+     "parses": 107
+    },
+    "chanter": {
+     "median": 10000,
+     "p95": 19000,
+     "n": 75,
+     "parses": 143
+    },
+    "templar": {
+     "median": 9700,
+     "p95": 15000,
+     "n": 70,
+     "parses": 146
+    },
+    "ranger": {
+     "median": 9600,
+     "p95": 16000,
+     "n": 143,
+     "parses": 281
+    },
+    "gladiator": {
+     "median": 8600,
+     "p95": 14000,
+     "n": 78,
+     "parses": 164
+    },
+    "assassin": {
+     "median": 8200,
+     "p95": 13000,
+     "n": 74,
+     "parses": 155
+    },
+    "cleric": {
+     "median": 6600,
+     "p95": 11000,
+     "n": 70,
+     "parses": 143
+    }
+   }
+  },
+  "2310206": {
+   "name": "Guardian Captain Raur",
+   "where": "Urugugu Canyon (Exploration)",
+   "band": "Under 300K",
+   "fieldMedian": 2900,
+   "medianCP": 23000,
+   "entryCP": 21000,
+   "classes": {
+    "chanter": {
+     "median": 4800,
+     "p95": 9900,
+     "n": 122,
+     "parses": 148
+    },
+    "templar": {
+     "median": 3500,
+     "p95": 7700,
+     "n": 69,
+     "parses": 79
+    },
+    "spiritmaster": {
+     "median": 3000,
+     "p95": 6400,
+     "n": 104,
+     "parses": 140
+    },
+    "sorcerer": {
+     "median": 2800,
+     "p95": 7100,
+     "n": 128,
+     "parses": 162
+    },
+    "assassin": {
+     "median": 2500,
+     "p95": 6800,
+     "n": 109,
+     "parses": 143
+    },
+    "gladiator": {
+     "median": 2500,
+     "p95": 6900,
+     "n": 94,
+     "parses": 126
+    },
+    "cleric": {
+     "median": 2500,
+     "p95": 6900,
+     "n": 129,
+     "parses": 151
+    },
+    "ranger": {
+     "median": 2300,
+     "p95": 5300,
+     "n": 156,
+     "parses": 208
+    }
+   }
+  },
+  "2350708": {
+   "name": "Ruthilis of Pain",
+   "where": "Shattered Arkanis (Grade)",
+   "band": "Under 300K",
+   "fieldMedian": 8600,
+   "medianCP": 89000,
+   "entryCP": 85000,
+   "classes": {
+    "chanter": {
+     "median": 11000,
+     "p95": 19000,
+     "n": 73,
+     "parses": 165
+    },
+    "sorcerer": {
+     "median": 10000,
+     "p95": 19000,
+     "n": 64,
+     "parses": 154
+    },
+    "templar": {
+     "median": 9500,
+     "p95": 18000,
+     "n": 63,
+     "parses": 120
+    },
+    "spiritmaster": {
+     "median": 9500,
+     "p95": null,
+     "n": 35,
+     "parses": 75
+    },
+    "gladiator": {
+     "median": 8700,
+     "p95": 15000,
+     "n": 88,
+     "parses": 181
+    },
+    "ranger": {
+     "median": 8200,
+     "p95": 14000,
+     "n": 114,
+     "parses": 236
+    },
+    "assassin": {
+     "median": 8000,
+     "p95": 14000,
+     "n": 76,
+     "parses": 141
+    },
+    "cleric": {
+     "median": 5900,
+     "p95": 9500,
+     "n": 77,
+     "parses": 160
+    }
+   }
+  },
+  "2350707": {
+   "name": "Siliator of Deceit",
+   "where": "Shattered Arkanis (Grade)",
+   "band": "Under 300K",
+   "fieldMedian": 9300,
+   "medianCP": 89000,
+   "entryCP": 85000,
+   "classes": {
+    "sorcerer": {
+     "median": 12000,
+     "p95": 19000,
+     "n": 64,
+     "parses": 145
+    },
+    "spiritmaster": {
+     "median": 11000,
+     "p95": null,
+     "n": 34,
+     "parses": 75
+    },
+    "chanter": {
+     "median": 11000,
+     "p95": 18000,
+     "n": 73,
+     "parses": 163
+    },
+    "templar": {
+     "median": 9900,
+     "p95": 16000,
+     "n": 61,
+     "parses": 125
+    },
+    "ranger": {
+     "median": 9700,
+     "p95": 14000,
+     "n": 115,
+     "parses": 234
+    },
+    "gladiator": {
+     "median": 8000,
+     "p95": 15000,
+     "n": 85,
+     "parses": 188
+    },
+    "assassin": {
+     "median": 7700,
+     "p95": 13000,
+     "n": 75,
+     "parses": 127
+    },
+    "cleric": {
+     "median": 7200,
+     "p95": 10000,
+     "n": 73,
+     "parses": 154
+    }
+   }
+  },
+  "2300311": {
+   "name": "Red Spark Ignus",
+   "where": "Fire Temple (Normal)",
+   "band": "Under 300K",
+   "fieldMedian": 15000,
+   "medianCP": 96000,
+   "entryCP": 92000,
+   "classes": {
+    "sorcerer": {
+     "median": 19000,
+     "p95": null,
+     "n": 32,
+     "parses": 134
+    },
+    "chanter": {
+     "median": 16000,
+     "p95": null,
+     "n": 34,
+     "parses": 165
+    },
+    "templar": {
+     "median": 16000,
+     "p95": null,
+     "n": 26,
+     "parses": 115
+    },
+    "ranger": {
+     "median": 16000,
+     "p95": 23000,
+     "n": 61,
+     "parses": 283
+    },
+    "gladiator": {
+     "median": 14000,
+     "p95": null,
+     "n": 33,
+     "parses": 145
+    },
+    "cleric": {
+     "median": 11000,
+     "p95": null,
+     "n": 34,
+     "parses": 165
+    },
+    "assassin": {
+     "median": 11000,
+     "p95": null,
+     "n": 28,
+     "parses": 93
+    }
+   }
+  },
+  "2300312": {
+   "name": "Black Smoke Murute",
+   "where": "Fire Temple (Normal) Normal",
+   "band": "Under 300K",
+   "fieldMedian": 14000,
+   "medianCP": 96000,
+   "entryCP": 92000,
+   "classes": {
+    "sorcerer": {
+     "median": 17000,
+     "p95": null,
+     "n": 32,
+     "parses": 135
+    },
+    "chanter": {
+     "median": 15000,
+     "p95": null,
+     "n": 36,
+     "parses": 160
+    },
+    "ranger": {
+     "median": 15000,
+     "p95": 25000,
+     "n": 61,
+     "parses": 281
+    },
+    "templar": {
+     "median": 14000,
+     "p95": null,
+     "n": 26,
+     "parses": 111
+    },
+    "gladiator": {
+     "median": 13000,
+     "p95": null,
+     "n": 33,
+     "parses": 139
+    },
+    "assassin": {
+     "median": 11000,
+     "p95": null,
+     "n": 28,
+     "parses": 92
+    },
+    "cleric": {
+     "median": 9500,
+     "p95": null,
+     "n": 35,
+     "parses": 163
+    }
+   }
+  },
+  "2300371": {
+   "name": "Kromede's Desire",
+   "where": "Fire Temple (Normal) Normal",
+   "band": "Under 300K",
+   "fieldMedian": 12000,
+   "medianCP": 96000,
+   "entryCP": 92000,
+   "classes": {
+    "sorcerer": {
+     "median": 14000,
+     "p95": null,
+     "n": 33,
+     "parses": 127
+    },
+    "chanter": {
+     "median": 13000,
+     "p95": null,
+     "n": 34,
+     "parses": 166
+    },
+    "ranger": {
+     "median": 12000,
+     "p95": 18000,
+     "n": 60,
+     "parses": 275
+    },
+    "assassin": {
+     "median": 12000,
+     "p95": null,
+     "n": 25,
+     "parses": 90
+    },
+    "templar": {
+     "median": 12000,
+     "p95": null,
+     "n": 26,
+     "parses": 108
+    },
+    "gladiator": {
+     "median": 11000,
+     "p95": null,
+     "n": 33,
+     "parses": 134
+    },
+    "cleric": {
+     "median": 8200,
+     "p95": null,
+     "n": 35,
+     "parses": 166
+    }
+   }
+  },
+  "2340601": {
+   "name": "Atiel stage 3",
+   "where": "Deus Research Base (Grade) Transcendence",
+   "band": "Under 300K",
+   "fieldMedian": 11000,
+   "medianCP": 90000,
+   "entryCP": 86000,
+   "classes": {
+    "sorcerer": {
+     "median": 13000,
+     "p95": 18000,
+     "n": 54,
+     "parses": 99
+    },
+    "chanter": {
+     "median": 13000,
+     "p95": 19000,
+     "n": 76,
+     "parses": 139
+    },
+    "spiritmaster": {
+     "median": 12000,
+     "p95": null,
+     "n": 37,
+     "parses": 80
+    },
+    "assassin": {
+     "median": 11000,
+     "p95": 15000,
+     "n": 74,
+     "parses": 131
+    },
+    "ranger": {
+     "median": 11000,
+     "p95": 16000,
+     "n": 122,
+     "parses": 224
+    },
+    "templar": {
+     "median": 9700,
+     "p95": 14000,
+     "n": 68,
+     "parses": 124
+    },
+    "gladiator": {
+     "median": 9300,
+     "p95": 15000,
+     "n": 74,
+     "parses": 147
+    },
+    "cleric": {
+     "median": 7100,
+     "p95": 11000,
+     "n": 67,
+     "parses": 129
+    }
+   }
+  },
+  "2310104": {
+   "name": "Enhanced Harcon",
+   "where": "Krao Cave (Exploration)",
+   "band": "Under 300K",
+   "fieldMedian": 2200,
+   "medianCP": 17000,
+   "entryCP": 15000,
+   "classes": {
+    "chanter": {
+     "median": 3400,
+     "p95": 6200,
+     "n": 104,
+     "parses": 121
+    },
+    "templar": {
+     "median": 2800,
+     "p95": 5900,
+     "n": 67,
+     "parses": 81
+    },
+    "sorcerer": {
+     "median": 2200,
+     "p95": 14000,
+     "n": 110,
+     "parses": 159
+    },
+    "gladiator": {
+     "median": 2100,
+     "p95": 7900,
+     "n": 82,
+     "parses": 123
+    },
+    "spiritmaster": {
+     "median": 2000,
+     "p95": 3900,
+     "n": 76,
+     "parses": 93
+    },
+    "ranger": {
+     "median": 1900,
+     "p95": 13000,
+     "n": 115,
+     "parses": 147
+    },
+    "assassin": {
+     "median": 1900,
+     "p95": 7500,
+     "n": 93,
+     "parses": 122
+    },
+    "cleric": {
+     "median": 1800,
+     "p95": 9700,
+     "n": 111,
+     "parses": 141
+    }
+   }
+  },
+  "2310310": {
+   "name": "Silver Blade Rotan",
+   "where": "Fire Temple (Exploration) Other",
+   "band": "Under 300K",
+   "fieldMedian": 2500,
+   "medianCP": 34000,
+   "entryCP": 30000,
+   "classes": {
+    "chanter": {
+     "median": 3700,
+     "p95": 14000,
+     "n": 67,
+     "parses": 81
+    },
+    "templar": {
+     "median": 3000,
+     "p95": 6200,
+     "n": 55,
+     "parses": 64
+    },
+    "spiritmaster": {
+     "median": 2500,
+     "p95": 6400,
+     "n": 69,
+     "parses": 87
+    },
+    "ranger": {
+     "median": 2500,
+     "p95": 7000,
+     "n": 113,
+     "parses": 142
+    },
+    "gladiator": {
+     "median": 2300,
+     "p95": 7300,
+     "n": 65,
+     "parses": 88
+    },
+    "sorcerer": {
+     "median": 2300,
+     "p95": 7900,
+     "n": 94,
+     "parses": 115
+    },
+    "assassin": {
+     "median": 2200,
+     "p95": 5800,
+     "n": 110,
+     "parses": 149
+    },
+    "cleric": {
+     "median": 2200,
+     "p95": 6900,
+     "n": 88,
+     "parses": 111
+    }
+   }
+  },
+  "2350709": {
+   "name": "Talisra of the Void stage 3",
+   "where": "Shattered Arkanis (Grade) Transcendence",
+   "band": "Under 300K",
+   "fieldMedian": 10000,
+   "medianCP": 90000,
+   "entryCP": 85000,
+   "classes": {
+    "chanter": {
+     "median": 12000,
+     "p95": 18000,
+     "n": 69,
+     "parses": 143
+    },
+    "sorcerer": {
+     "median": 12000,
+     "p95": 17000,
+     "n": 55,
+     "parses": 110
+    },
+    "spiritmaster": {
+     "median": 12000,
+     "p95": null,
+     "n": 30,
+     "parses": 47
+    },
+    "assassin": {
+     "median": 10000,
+     "p95": 14000,
+     "n": 67,
+     "parses": 110
+    },
+    "gladiator": {
+     "median": 10000,
+     "p95": 17000,
+     "n": 70,
+     "parses": 132
+    },
+    "ranger": {
+     "median": 9900,
+     "p95": 14000,
+     "n": 97,
+     "parses": 171
+    },
+    "templar": {
+     "median": 9800,
+     "p95": 16000,
+     "n": 56,
+     "parses": 96
+    },
+    "cleric": {
+     "median": 7100,
+     "p95": 11000,
+     "n": 68,
+     "parses": 119
+    }
+   }
+  },
+  "2310312": {
+   "name": "Black Smoke Murute",
+   "where": "Fire Temple (Exploration) Other",
+   "band": "Under 300K",
+   "fieldMedian": 5100,
+   "medianCP": 33000,
+   "entryCP": 30000,
+   "classes": {
+    "chanter": {
+     "median": 7600,
+     "p95": 18000,
+     "n": 54,
+     "parses": 67
+    },
+    "templar": {
+     "median": 6100,
+     "p95": null,
+     "n": 40,
+     "parses": 51
+    },
+    "spiritmaster": {
+     "median": 5500,
+     "p95": null,
+     "n": 48,
+     "parses": 56
+    },
+    "sorcerer": {
+     "median": 5300,
+     "p95": 11000,
+     "n": 70,
+     "parses": 87
+    },
+    "cleric": {
+     "median": 4800,
+     "p95": 10000,
+     "n": 63,
+     "parses": 85
+    },
+    "assassin": {
+     "median": 4700,
+     "p95": 14000,
+     "n": 67,
+     "parses": 84
+    },
+    "gladiator": {
+     "median": 4700,
+     "p95": 11000,
+     "n": 52,
+     "parses": 79
+    },
+    "ranger": {
+     "median": 4500,
+     "p95": 6800,
+     "n": 70,
+     "parses": 94
+    }
+   }
+  },
+  "2300908": {
+   "name": "Watchdog Kwapo",
+   "where": "Ferocious Horn Den (Normal) Normal",
+   "band": "Under 300K",
+   "fieldMedian": 14000,
+   "medianCP": 98000,
+   "entryCP": 92000,
+   "classes": {
+    "chanter": {
+     "median": 17000,
+     "p95": null,
+     "n": 20,
+     "parses": 87
+    },
+    "ranger": {
+     "median": 14000,
+     "p95": null,
+     "n": 31,
+     "parses": 107
+    },
+    "templar": {
+     "median": 13000,
+     "p95": null,
+     "n": 23,
+     "parses": 94
+    }
+   }
+  },
+  "2300909": {
+   "name": "Necromancer Duanka",
+   "where": "Ferocious Horn Den (Normal) Normal",
+   "band": "Under 300K",
+   "fieldMedian": 13000,
+   "medianCP": 98000,
+   "entryCP": 92000,
+   "classes": {
+    "chanter": {
+     "median": 16000,
+     "p95": null,
+     "n": 20,
+     "parses": 86
+    },
+    "ranger": {
+     "median": 13000,
+     "p95": null,
+     "n": 35,
+     "parses": 108
+    },
+    "templar": {
+     "median": 13000,
+     "p95": null,
+     "n": 23,
+     "parses": 90
+    }
+   }
+  },
+  "2310108": {
+   "name": "Neglected Gadioton",
+   "where": "Krao Cave (Exploration) Other",
+   "band": "Under 300K",
+   "fieldMedian": 2100,
+   "medianCP": 17000,
+   "entryCP": 14000,
+   "classes": {
+    "chanter": {
+     "median": 2900,
+     "p95": 7100,
+     "n": 70,
+     "parses": 75
+    },
+    "sorcerer": {
+     "median": 2300,
+     "p95": 14000,
+     "n": 59,
+     "parses": 68
+    },
+    "templar": {
+     "median": 2300,
+     "p95": null,
+     "n": 34,
+     "parses": 42
+    },
+    "spiritmaster": {
+     "median": 2000,
+     "p95": null,
+     "n": 38,
+     "parses": 41
+    },
+    "ranger": {
+     "median": 1800,
+     "p95": 12000,
+     "n": 75,
+     "parses": 84
+    },
+    "gladiator": {
+     "median": 1800,
+     "p95": null,
+     "n": 38,
+     "parses": 57
+    },
+    "assassin": {
+     "median": 1700,
+     "p95": null,
+     "n": 41,
+     "parses": 46
+    },
+    "cleric": {
+     "median": 1700,
+     "p95": 8300,
+     "n": 50,
+     "parses": 55
+    }
+   }
+  },
+  "2300910": {
+   "name": "Ferocious Horn Nuakum",
+   "where": "Ferocious Horn Den (Normal) Normal",
+   "band": "Under 300K",
+   "fieldMedian": 12000,
+   "medianCP": 99000,
+   "entryCP": 93000,
+   "classes": {
+    "ranger": {
+     "median": 13000,
+     "p95": null,
+     "n": 32,
+     "parses": 95
+    }
+   }
+  },
+  "2310207": {
+   "name": "Judge Urahum",
+   "where": "Urugugu Canyon (Exploration) Other",
+   "band": "Under 300K",
+   "fieldMedian": 2800,
+   "medianCP": 23000,
+   "entryCP": 21000,
+   "classes": {
+    "chanter": {
+     "median": 4600,
+     "p95": null,
+     "n": 37,
+     "parses": 37
+    },
+    "sorcerer": {
+     "median": 3000,
+     "p95": null,
+     "n": 37,
+     "parses": 40
+    },
+    "spiritmaster": {
+     "median": 2800,
+     "p95": null,
+     "n": 39,
+     "parses": 43
+    },
+    "ranger": {
+     "median": 2700,
+     "p95": 6700,
+     "n": 55,
+     "parses": 57
+    },
+    "gladiator": {
+     "median": 2500,
+     "p95": null,
+     "n": 30,
+     "parses": 32
+    },
+    "cleric": {
+     "median": 2500,
+     "p95": null,
+     "n": 35,
+     "parses": 43
+    },
+    "assassin": {
+     "median": 2400,
+     "p95": null,
+     "n": 46,
+     "parses": 53
+    }
+   }
+  },
+  "2300310": {
+   "name": "Silver Blade Rotan",
+   "where": "Fire Temple (Normal) Normal",
+   "band": "Under 300K",
+   "fieldMedian": 6400,
+   "medianCP": 96000,
+   "entryCP": 91000,
+   "classes": {
+    "ranger": {
+     "median": 7600,
+     "p95": null,
+     "n": 36,
+     "parses": 58
+    },
+    "chanter": {
+     "median": 6500,
+     "p95": null,
+     "n": 20,
+     "parses": 29
+    },
+    "cleric": {
+     "median": 6200,
+     "p95": null,
+     "n": 20,
+     "parses": 34
+    }
+   }
+  },
+  "2310910": {
+   "name": "Ferocious Horn Nuakum",
+   "where": "Ferocious Horn Den (Exploration) Other",
+   "band": "Under 300K",
+   "fieldMedian": 15000,
+   "medianCP": 94000,
+   "entryCP": 90000,
+   "classes": {
+    "ranger": {
+     "median": 16000,
+     "p95": null,
+     "n": 34,
+     "parses": 63
+    },
+    "assassin": {
+     "median": 13000,
+     "p95": null,
+     "n": 20,
+     "parses": 29
+    },
+    "gladiator": {
+     "median": 13000,
+     "p95": null,
+     "n": 25,
+     "parses": 45
+    },
+    "templar": {
+     "median": 13000,
+     "p95": null,
+     "n": 20,
+     "parses": 33
+    }
+   }
+  },
+  "2310909": {
+   "name": "Necromancer Duanka",
+   "where": "Ferocious Horn Den (Exploration) Other",
+   "band": "Under 300K",
+   "fieldMedian": 17000,
+   "medianCP": 93000,
+   "entryCP": 90000,
+   "classes": {
+    "assassin": {
+     "median": 19000,
+     "p95": null,
+     "n": 20,
+     "parses": 29
+    },
+    "templar": {
+     "median": 18000,
+     "p95": null,
+     "n": 20,
+     "parses": 33
+    },
+    "gladiator": {
+     "median": 17000,
+     "p95": null,
+     "n": 25,
+     "parses": 43
+    },
+    "ranger": {
+     "median": 16000,
+     "p95": null,
+     "n": 32,
+     "parses": 58
+    }
+   }
+  },
+  "2310908": {
+   "name": "Watchdog Kwapo",
+   "where": "Ferocious Horn Den (Exploration) Other",
+   "band": "Under 300K",
+   "fieldMedian": 13000,
+   "medianCP": 93000,
+   "entryCP": 90000,
+   "classes": {
+    "ranger": {
+     "median": 15000,
+     "p95": null,
+     "n": 30,
+     "parses": 56
+    },
+    "templar": {
+     "median": 13000,
+     "p95": null,
+     "n": 20,
+     "parses": 33
+    },
+    "gladiator": {
+     "median": 12000,
+     "p95": null,
+     "n": 25,
+     "parses": 39
+    }
+   }
+  }
+ }
+}

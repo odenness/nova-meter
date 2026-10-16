@@ -1,7 +1,20 @@
-import { CLASSES, CLASS_IMG, classIcon, EVENT_ICONS, UI_ICONS, makeDraggable, knownSkill, skillBase, askText } from "./icons.js";
+import { CLASSES, CLASS_IMG, classIcon, skillIcon, EVENT_ICONS, UI_ICONS, makeDraggable, knownSkill, skillBase, askText } from "./icons.js";
 const CLASS_IMG_READY = cls => !!CLASS_IMG[cls];
-import { Fight, MODES, value, cumulative, mergeSnapshots, filteredDamage } from "./model.js";
+import { Fight, MODES, value, cumulative, mergeSnapshots, filteredDamage, skillRows } from "./model.js";
 import { EVENTS, eventState, describe, fmtWait, chime } from "./timers.js";
+import { DUNGEONS, bossPortrait, bossDifficulty } from "./runs.js";
+// Personal bests are kept per boss AND difficulty ("Vakron (Conquest)"). Bests saved before that were keyed by name
+// only; nearly all of those are Conquest kills, so they still count for Conquest (and for bosses of unknown difficulty).
+const bestKey = tg => {
+  const d = tg ? bossDifficulty({ template: tg.template, name: tg.name, maxHp: tg.maxHp }) : null;
+  return d ? `${tg.name} (${d.difficulty})` : tg?.name;
+};
+function findBest(tg, who) {
+  const k = bestKey(tg);
+  const legacyOk = k === tg.name || /\(Conquest/.test(k);
+  return bests[`${k}|${who}`] || bests[k] || (legacyOk ? bests[`${tg.name}|${who}`] || bests[tg.name] : null);
+}
+import { rate, ratingClass } from "./ratings.js";
 import { startDemo, demoBest } from "./demo.js";
 
 const $ = id => document.getElementById(id);
@@ -29,7 +42,7 @@ const DEFAULTS = {
   cols: { total: true, dps: true, pct: true, crit: true },
   countdowns: false, chime: true, compact: false, locked: false,
   idleEnd: 12, bossHp: 3000000, scope: "all", targetFilter: "all",
-  pbShow: true, pbSound: true, pbVolume: 0.5,
+  pbShow: true, pbSound: true, pbVolume: 0.5, cp: "", cpAt: 0,
 };
 const saved = store.get("settings", {});
 if (saved.partyOnly !== undefined) { saved.scope = saved.partyOnly ? "party" : "all"; delete saved.partyOnly; }
@@ -43,7 +56,7 @@ if ((saved.layout || 1) < 4) {            // one-time move to the 0.6.3 defaults
 }
 saved.layout = 4;
 // Only these can be changed (Settings, header buttons); everything else always uses the defaults.
-const USER_KEYS = ["mode", "segment", "compact", "locked", "chime", "fontSize", "opacity", "scale", "accent", "scope", "pbShow", "pbSound", "pbVolume"];
+const USER_KEYS = ["mode", "segment", "compact", "locked", "chime", "fontSize", "opacity", "scale", "accent", "scope", "pbShow", "pbSound", "pbVolume", "cp", "cpAt"];
 const settings = { ...DEFAULTS, ...Object.fromEntries(USER_KEYS.filter(k => k in saved).map(k => [k, saved[k]])), layout: 4 };
 store.set("settings", settings);          // saves the layout number too, so the steps above run only once
 const FONTS = {
@@ -121,7 +134,17 @@ let serverHistory = null;                 // fight summaries from the capture se
 
 function onFightEnd(snap) {
   if (!snap.players.length || snap.duration < 5) return;
-  const slim = { ...snap, players: snap.players.map(({ log, ...p }) => p) };   // hit logs are big; keep them out of storage
+  // Freeze the rating with the fight: your Combat Power at the time and each player's Nova Rating as calculated now,
+  // so a later CP update or a refreshed reference never changes a fight that's already in your history.
+  const cp = +settings.cp > 0 ? +settings.cp : null;
+  const t = Math.max(snap.duration, 1);
+  const frozen = p => {
+    if (!snap.target?.boss || !snap.target.template) return null;
+    const r = rate({ template: snap.target.template, cls: p.cls, dps: p.dmg / t, cp: p.self ? cp : 0 });
+    return r && { rating: Math.round(r.rating * 10) / 10, expected: Math.round(r.expected), ratio: Math.round(r.ratio * 1000) / 1000,
+                  n: r.n, cpAdjusted: r.cpAdjusted, healer: r.healer, cp: p.self ? cp : null };
+  };
+  const slim = { ...snap, cp, players: snap.players.map(({ log, ...p }) => ({ ...p, nova: frozen(p) })) };   // hit logs stay out of storage
   session.push(slim);
   if (session.length > 300) { session.splice(0, session.length - 300); mergedCache = null; }
   if (source === "live") sendLive({ type: "history_save", fight: slim });
@@ -132,11 +155,11 @@ function onFightEnd(snap) {
     const len = Math.ceil(snap.duration);
     const rec = { dps: {}, cum: {}, date: snap.date, cls: me.cls, name: me.name };
     for (const m of ["DPS", "nDPS", "rDPS"]) { rec.cum[m] = cumulative(me, m, len); rec.dps[m] = value(me, m) / snap.duration; }
-    const key = `${snap.target.name}|${me.name}`;
-    const old = bests[key] || bests[snap.target.name];
+    const key = `${bestKey(snap.target)}|${me.name}`;
+    const old = findBest(snap.target, me.name);
     if (!old || !old.dps || rec.dps.DPS > old.dps.DPS) {
       bests[key] = rec; store.set("best", bests);
-      celebratePB({ boss: snap.target.name, dps: rec.dps.DPS, prev: old?.dps?.DPS || 0, first: !old?.dps?.DPS,
+      celebratePB({ boss: bestKey(snap.target), dps: rec.dps.DPS, prev: old?.dps?.DPS || 0, first: !old?.dps?.DPS,
                     name: me.name, cls: me.cls, color: classColor(me.cls), bossFight: !!snap.target.boss });
     }
   }
@@ -217,6 +240,70 @@ function segmentSnap() {
   return parts.length === 1 && fight.start == null ? { ...parts[0], overall: true } : mergeSnapshots(parts);
 }
 
+// ---------- boss race against the enrage timer ----------
+// Only for bosses that enrage: the capture service sends each boss version's enrage timer (meter/service/enrage.json,
+// or the game's Enrage flag looked up for bosses not in it). The track shows the fight so far, a ghost bar out to the
+// projected kill (green: before enrage, amber: tight, red: after) and the enrage marker.
+const isFinalBoss = name => DUNGEONS.some(d => d.bosses.some(b => b.role === "Final Boss" && b.name === (name || "").replace(/\?$/, "")));
+const hpTrack = { id: null, pts: [] };          // (fight seconds, hp) samples for the current target: recent kill speed
+
+function killRate(snap, tg) {
+  const avg = snap.duration > 2 ? (tg.maxHp - tg.hp) / snap.duration : 0;
+  const key = `${fight.start}|${tg.name}`;
+  if (hpTrack.id !== key) { hpTrack.id = key; hpTrack.pts = []; }
+  const last = hpTrack.pts[hpTrack.pts.length - 1];
+  if (!last || last[1] !== tg.hp) hpTrack.pts.push([snap.duration, tg.hp]);
+  while (hpTrack.pts.length > 2 && snap.duration - hpTrack.pts[0][0] > 20) hpTrack.pts.shift();
+  const [t0, h0] = hpTrack.pts[0];
+  const recent = snap.duration - t0 >= 8 ? (h0 - tg.hp) / (snap.duration - t0) : 0;
+  return recent > 0 && avg > 0 ? (avg + recent) / 2 : avg;     // steady, but follows burn phases and downtime
+}
+
+function renderBossClock(snap, tg) {
+  const known = tg && typeof tg.hp === "number" && tg.maxHp > 0;
+  const limit = tg?.enrage || 0;
+  const final = !!(tg && tg.boss && isFinalBoss(tg.name));
+  $("target").classList.toggle("final", final);
+  $("tboss").textContent = final ? "FINAL BOSS" : "BOSS";
+  const show = !!(known && tg.boss && limit > 0 && !settings.compact && !snap.overall);
+  $("bclock").hidden = !show;
+  if (!show) return;
+  const t = snap.duration;
+  const rate = killRate(snap, tg);
+  const kill = snap.killed ? t : rate > 0 ? t + tg.hp / rate : null;      // projected time of death (fight seconds)
+  const span = Math.max(limit, kill || 0, t, 1) * 1.08;
+  const pct = x => `${Math.min(100, x / span * 100).toFixed(2)}%`;
+  $("bcel").style.width = pct(t);
+  $("bcghost").style.left = pct(t);
+  $("bcghost").style.width = kill ? `${Math.max(0, Math.min(100, (kill - t) / span * 100)).toFixed(2)}%` : "0";
+  $("bcen").style.left = pct(limit);
+  $("bcen").hidden = false;
+  $("bcenlabel").textContent = fmtTime(limit);
+  let verdict = "", cls = "";
+  if (snap.killed) {
+    verdict = t <= limit ? `Killed with <b>${fmtTime(limit - t)}</b> to spare` : `Killed <b>${fmtTime(t - limit)}</b> after enrage`;
+    cls = t <= limit ? "ok" : "bad";
+  } else if (!kill) {
+    verdict = `Enrage at <b>${fmtTime(limit)}</b>`;
+  } else if (t >= limit) {
+    verdict = `<b>Enraged</b> · kill in ${fmtTime(kill - t)}`; cls = "bad";
+  } else {
+    const need = tg.hp / (limit - t);                         // kill speed needed to beat enrage
+    const margin = rate / need - 1;
+    if (kill <= limit) {
+      cls = margin > 0.12 ? "ok" : "close";
+      verdict = `<b>${fmtTime(limit - kill)}</b> before enrage` + (cls === "close" ? " · tight" : "");
+    } else {
+      verdict = `<b>${fmtTime(kill - limit)}</b> short of enrage · need <b>+${Math.ceil(-margin * 100 / (1 + margin))}%</b> DPS`;
+      cls = margin > -0.1 ? "close" : "bad";
+    }
+  }
+  $("bctrack").className = `bc-track ${cls}`;
+  $("bcverdict").innerHTML = verdict;
+  $("bcverdict").className = cls;
+  $("bcsrc").textContent = `enrage ${fmtTime(limit)}`;
+}
+
 // ---------- main render ----------
 function rowsFor(snap, mode) {
   const t = Math.max(snap.duration, 1);
@@ -239,7 +326,7 @@ function rowsFor(snap, mode) {
 
 function vsBest(snap, me, mode) {
   if (!me || !snap.target || snap.overall || !["DPS", "rDPS", "nDPS"].includes(mode)) return null;
-  const best = bests[`${snap.target.name}|${me.name}`] || bests[snap.target.name];
+  const best = findBest(snap.target, me.name);
   const i = Math.floor(snap.duration);
   if (!best?.cum?.[mode] || i < 5) return null;
   const ref = best.cum[mode][Math.min(i, best.cum[mode].length - 1)];
@@ -259,10 +346,17 @@ function render() {
 
   // target
   const tg = snap.target;
+  renderBossClock(snap, tg);
   if (tg) {
     const known = typeof tg.hp === "number" && tg.maxHp > 0;
     const pct = known ? tg.hp / tg.maxHp * 100 : 0;
     $("tname").textContent = tg.name;
+    const diff = tg.boss ? bossDifficulty({ template: tg.template, name: tg.name, maxHp: tg.maxHp }) : null;
+    $("tdiff").textContent = diff ? diff.difficulty : "";
+    $("tdiff").hidden = !diff;
+    const portrait = tg.boss ? bossPortrait(tg.name) : null;
+    if ($("tportrait").getAttribute("src") !== portrait) { if (portrait) $("tportrait").src = portrait; else $("tportrait").removeAttribute("src"); }
+    $("tportrait").hidden = !portrait;
     $("target").classList.toggle("boss", !!tg.boss);
     $("tboss").hidden = !tg.boss;
     const tn = $("tname");
@@ -271,19 +365,22 @@ function render() {
     tn.title = tg.template && source === "live" ? "Click to name this enemy (remembered next time)" : "";
     $("thp").parentElement.hidden = !known;
     const info = $("tinfo");
-    if (snap.killed) { info.innerHTML = `Kill · <b>${fmtTime(snap.duration)}</b>`; info.className = "target-info kill"; }
-    else if (!known) { info.textContent = snap.overall ? fmtTime(snap.duration) : ""; info.className = "target-info"; }
-    else {
-      const rate = snap.duration > 2 ? (tg.maxHp - tg.hp) / snap.duration : 0;
-      info.innerHTML = `<b>${pct.toFixed(1)}%</b><span class="ti-hp"> · ${fmt(tg.hp)} HP</span>` +
-        (rate > 0 ? ` · <b>${fmtTime(tg.hp / rate)}</b><span class="ti-ttk"> to kill</span>` : "");
-      info.className = "target-info";
+    info.className = "target-info";
+    info.textContent = known ? "" : snap.overall || !snap.duration ? "" : fmtTime(snap.duration);   // no HP: just the fight time
+    $("target").classList.toggle("has-hp", known);
+    if (known) {
+      // bosses: the same kill speed as the enrage race (whole fight blended with the last 20 s)
+      const rate = tg.boss && !snap.overall ? killRate(snap, tg) : snap.duration > 2 ? (tg.maxHp - tg.hp) / snap.duration : 0;
+      $("thpct").textContent = snap.killed ? "Killed" : `${pct.toFixed(1)}%`;
+      $("thpinfo").innerHTML = snap.killed ? ` · ${fmtTime(snap.duration)}`
+        : `<span class="ti-hp"> · ${fmt(tg.hp)} HP</span>` + (rate > 0 ? ` · ${fmtTime(tg.hp / rate)}<span class="ti-ttk"> to kill</span>` : "");
     }
     $("thp").style.width = pct + "%";
   } else {
+    $("thpct").textContent = ""; $("thpinfo").textContent = ""; $("target").classList.remove("has-hp");
     $("tname").textContent = "Waiting for a fight…"; $("tinfo").textContent = ""; $("thp").style.width = "0";
     $("thp").parentElement.hidden = false;
-    $("target").classList.remove("boss"); $("tboss").hidden = true;
+    $("target").classList.remove("boss"); $("tboss").hidden = true; $("tportrait").hidden = true; $("tdiff").hidden = true;
   }
 
   // rows
@@ -437,16 +534,26 @@ function placeTip(anchor) {
   if (top + tip.offsetHeight > innerHeight - 4) top = Math.max(4, r.top - tip.offsetHeight - 4);
   tip.style.left = left + "px"; tip.style.top = top + "px";
 }
+// Nova Rating in the row tooltip (boss fights with reference data only)
+function ratingLine(p) {
+  const tg = lastSnap?.target;
+  const t = Math.max(lastSnap?.duration || 1, 1);
+  if (!tg?.boss || !tg.template || lastSnap?.overall) return "";
+  const r = rate({ template: tg.template, cls: p.cls, dps: p.dmg / t, cp: p.self ? +settings.cp : 0 });
+  return r ? `<div class="tt-sub">Nova Rating <b class="rating ${ratingClass(r.rating)}">${Math.round(r.rating)}</b> · ${Math.round(r.ratio * 100)}% of a typical ${CLASSES[p.cls]?.label ?? p.cls}${r.cpAdjusted ? " at your CP" : ""} (${fmt(r.expected)})</div>` : "";
+}
+
 function showRowTip(pid) {
   const p = lastRows.get(pid), el = document.querySelector(`[data-row="${pid}"]`);
   if (!p || !el) { $("tip").hidden = true; tipRow = null; return; }
   const total = p.dmg || 1;
   const t = Math.max(lastSnap?.duration || 1, 1);
-  const top = (p.skills || []).slice(0, 6);
+  const top = skillRows(p).slice(0, 6);
   const tipHtml = `<div class="tt-head" style="--cc:${classColor(p.cls)}">${classIcon(p.cls)}${esc(p.name)}</div>
     <div class="tt-sub">${CLASSES[p.cls]?.label ?? "Class unknown"} · #${p.rank} · ${p.share.toFixed(1)}% of party</div>
     <div class="tt-sub">${fmt(p.dmg)} damage · ${fmt(p.dmg / t)} DPS${p.heal ? ` · ${fmt(p.heal)} healing` : ""}${p.inc ? ` · ${fmt(p.inc)} taken` : ""} · ${p.hits ? (p.crits / p.hits * 100).toFixed(1) : 0}% crit</div>
-    ${top.map(s => `<div class="tt-skill" style="--cc:${classColor(p.cls)}"><span class="nm">${esc(skillName(s.name))}</span><span class="num">${fmt(s.dmg)}</span><span class="num muted">${(s.dmg / total * 100).toFixed(0)}%</span><div class="tt-bar" style="width:${(s.dmg / top[0].dmg * 100).toFixed(0)}%"></div></div>`).join("")}
+    ${top.map(s => `<div class="tt-skill" style="--cc:${classColor(p.cls)}"><span class="nm">${s.name === "Summons" ? classIcon(p.cls, 14) : skillIcon(s.name, 14)}${esc(skillName(s.name))}</span><span class="num">${fmt(s.dmg)}</span><span class="num muted">${(s.dmg / total * 100).toFixed(0)}%</span><div class="tt-bar" style="width:${(s.dmg / top[0].dmg * 100).toFixed(0)}%"></div></div>`).join("")}
+    ${ratingLine(p)}
     <div class="tt-foot">Click for the full breakdown</div>`;
   if ($("tip")._html !== tipHtml) { $("tip").innerHTML = tipHtml; $("tip")._html = tipHtml; }
   $("tip").hidden = false;
@@ -514,7 +621,7 @@ function detailsHtml(snap) {
     const total = p.dmg || 1;
     content = `<h4>${esc(p.name)} · ${fmt(p.dmg)} damage · ${fmt(p.dmg / t)} DPS · ${p.hits} hits · ${p.hits ? (p.crits / p.hits * 100).toFixed(1) : 0}% crit</h4>
     <table class="t" style="--cc:${classColor(p.cls)}"><tr><th>Skill</th><th class="n">Damage</th><th class="n">%</th><th class="n">DPS</th><th class="n">Hits</th><th class="n">Avg</th><th class="n">Max</th><th class="n">Crit</th></tr>
-    ${p.skills.map(s => `<tr><td>${esc(skillName(s.name))}<div class="mini" style="width:${s.dmg / p.skills[0].dmg * 100}%"></div></td>
+    ${skillRows(p).map((s, i, all) => `<tr><td>${skillIcon(s.name, 16)}${esc(skillName(s.name))}<div class="mini" style="width:${s.dmg / all[0].dmg * 100}%"></div></td>
       <td class="n">${fmt(s.dmg)}</td><td class="n">${(s.dmg / total * 100).toFixed(1)}%</td><td class="n">${fmt(s.dmg / t)}</td>
       <td class="n">${s.hits}</td><td class="n">${fmt(s.dmg / s.hits)}</td><td class="n">${fmt(s.max)}</td><td class="n crit">${(s.crits / s.hits * 100).toFixed(0)}%</td></tr>`).join("")}</table>`;
   }
@@ -548,7 +655,7 @@ function chartHtml(snap, p, mode) {
   const W = 600, H = 170, L = 44, B = 18, T = 8;
   const rolling = cum => cum.map((c, i) => (c - (cum[i - 5] ?? 0)) / Math.min(i + 1, 5));
   const cur = rolling(cumulative(p, mode, len));
-  const best = p.self && snap.target && !snap.overall && (bests[`${snap.target.name}|${p.name}`] || bests[snap.target.name])?.cum?.[mode];
+  const best = p.self && snap.target && !snap.overall && findBest(snap.target, p.name)?.cum?.[mode];
   const ref = best ? rolling(best.slice(0, len)) : [];
   const yMax = Math.max(1, ...cur, ...ref) * 1.1;
   const x = i => L + (i / (len - 1)) * (W - L - 6);
@@ -628,6 +735,8 @@ function settingsHtml() {
   </div>
   <h4>Fights</h4><div class="form">
     <label>Show</label>${seg("scope", [["me", "Only me"], ["party", "My party"], ["all", "Everyone"]])}
+    <label>Your Combat Power</label><div><input type="number" data-set="cp" min="0" step="100" placeholder="e.g. 76000" value="${esc(settings.cp || "")}" style="width:110px">
+      <div class="muted" style="font-size:12px;margin-top:4px">Used for your Nova Rating: you're compared with your class at your Combat Power. Others are compared at the boss's typical Combat Power.</div></div>
   </div>
   <h4>Personal bests</h4><div class="form">
     <label>Celebration</label>${check("pbShow", "Show a celebration on screen when you beat your best on a boss", settings.pbShow)}
@@ -687,7 +796,7 @@ window.novaLocked = on => { settings.locked = !!on; applySettings(); render(); }
 // Locked = clicks go to the game, but the lock button itself stays clickable (mouse moves still reach the page).
 let overLock = false;
 document.addEventListener("mousemove", e => {
-  const over = settings.locked && !!e.target.closest?.("#lock");
+  const over = settings.locked && !!e.target.closest?.("#lock, .cp-prompt");
   if (over !== overLock && nova?.setClickable) { overLock = over; nova.setClickable(over); }
 });
 document.addEventListener("mouseleave", () => { if (overLock && nova?.setClickable) { overLock = false; nova.setClickable(false); } });
@@ -779,8 +888,53 @@ $("panel-body").addEventListener("input", e => {
   const label = el.previousElementSibling;
   if (RANGE_TEXT[k] && label) label.textContent = RANGE_TEXT[k](v);
   if (k === "idleEnd" || k === "bossHp") sendFightSettings();
+  if (k === "cp") settings.cpAt = Date.now();
   render();
 });
+
+// ---------- Combat Power check on startup ----------
+// Your Nova Rating compares you with your class at your Combat Power, which the game doesn't send: ask for it when the
+// meter starts (pre-filled, so an unchanged CP is one click), and get out of the way once a fight starts.
+const parseCP = v => {
+  const m = /^\s*([\d.,]+)\s*(k?)\s*$/i.exec(String(v || ""));
+  if (!m) return null;
+  const n = parseFloat(m[1].replace(/,/g, "")) * (m[2] ? 1000 : 1);
+  return n >= 1000 && n <= 10_000_000 ? Math.round(n) : null;
+};
+const ago = ms => { const d = Math.floor((Date.now() - ms) / 86400000); return d <= 0 ? "today" : d === 1 ? "yesterday" : `${d} days ago`; };
+
+function cpPrompt() {
+  if (document.querySelector(".cp-prompt")) return;
+  const had = parseCP(settings.cp);
+  const el = document.createElement("form");
+  el.className = "cp-prompt";
+  el.innerHTML = `<div class="cp-row"><b>Your Combat Power</b>
+      <input type="text" inputmode="numeric" placeholder="e.g. 76000" value="${had ?? ""}" aria-label="Your Combat Power">
+      <button type="submit" class="cp-save">Save</button>${had ? `<button type="button" class="cp-same" title="Keep ${had.toLocaleString()}">Same</button>` : ""}
+      <button type="button" class="cp-x" title="Not now">×</button></div>
+    <div class="cp-sub">${had ? `Last updated ${ago(settings.cpAt || 0)} · ` : ""}used for your Nova Rating · change it any time in Settings</div>`;
+  const input = el.querySelector("input");
+  const close = () => { el.classList.add("out"); clearInterval(watch); setTimeout(() => el.remove(), 300); if (overLock && nova?.setClickable) { overLock = false; nova.setClickable(false); } };
+  const keep = v => { settings.cp = String(v); settings.cpAt = Date.now(); applySettings(); render(); close(); };
+  el.onsubmit = e => {
+    e.preventDefault();
+    const v = parseCP(input.value);
+    if (v) keep(v);
+    else { input.classList.add("bad"); input.focus(); }
+  };
+  el.querySelector(".cp-same")?.addEventListener("click", () => keep(had));
+  el.querySelector(".cp-x").onclick = close;
+  input.addEventListener("input", () => input.classList.remove("bad"));
+  input.addEventListener("keydown", e => { if (e.key === "Escape") close(); });
+  $("meter").append(el);
+  const shown = Date.now();
+  // gone after 30 s untouched, or as soon as a fight starts (unless you're typing in it)
+  const watch = setInterval(() => {
+    if (document.activeElement === input) return;
+    if (Date.now() - shown > 30000 || (fight.start != null && source === "live")) close();
+  }, 500);
+}
+if (isApp || params.has("live")) setTimeout(() => { if (fight.start == null) cpPrompt(); }, 1500);
 
 // ---------- start ----------
 if (params.has("overlay")) document.body.classList.add("overlay");

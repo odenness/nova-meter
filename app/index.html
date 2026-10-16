@@ -33,10 +33,18 @@
   <!-- boss / target -->
   <div class="target" id="target">
     <div class="target-row">
-      <div class="target-name"><span class="boss-badge" id="tboss" hidden>BOSS</span><span id="tname">Waiting for a fight…</span></div>
+      <div class="target-name"><img class="tportrait" id="tportrait" alt="" hidden><span class="boss-badge" id="tboss" hidden>BOSS</span><span id="tname">Waiting for a fight…</span><span class="tdiff" id="tdiff" hidden></span></div>
       <div class="target-info" id="tinfo"></div>
     </div>
-    <div class="hp"><div id="thp" style="width:0"></div></div>
+    <div class="hp"><div id="thp" style="width:0"></div><span class="hp-text"><b id="thpct"></b><span id="thpinfo"></span></span></div>
+    <!-- boss race against the enrage timer: fight so far, ghost bar to the projected kill, enrage marker -->
+    <div class="boss-clock" id="bclock" hidden>
+      <div class="bc-track" id="bctrack">
+        <div class="bc-elapsed" id="bcel"></div><div class="bc-ghost" id="bcghost"></div>
+        <div class="bc-enrage" id="bcen" hidden><span id="bcenlabel"></span></div>
+      </div>
+      <div class="bc-text"><span id="bcverdict"></span><span class="bc-src" id="bcsrc">enrage</span></div>
+    </div>
   </div>
 
   <!-- totals: "Total Damage 45.7M ............ 238.1K DPS" -->

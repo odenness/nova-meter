@@ -3,15 +3,15 @@
 
 const PARTY = [
   { id: 101, name: "LastOlie",  cls: "gladiator", cp: 648200, self: true, rate: 3900,
-    skills: ["Ferocious Strike", "Cleave", "Seismic Wave", "Whirlwind", "Auto-attack"] },
+    skills: ["Ferocious Strike", "Cleave", "Seismic Wave", "Whirlwind"] },
   { id: 102, name: "Kaelith",   cls: "assassin",  cp: 722000, rate: 4300,
-    skills: ["Shadow Strike", "Ambush", "Rune Carve", "Venom Edge", "Auto-attack"] },
+    skills: ["Shadow Strike", "Ambush", "Rune Carve", "Venom Edge"] },
   { id: 103, name: "Morwenna",  cls: "sorcerer",  cp: 729700, rate: 4200,
-    skills: ["Flame Bolt", "Ice Chain", "Inferno", "Blaze", "Auto-attack"] },
+    skills: ["Flame Bolt", "Ice Chain", "Inferno", "Blaze"] },
   { id: 104, name: "Brannoc",   cls: "chanter",   cp: 635100, rate: 2700, buff: { name: "Blessing of Wind", pct: .09 },
-    skills: ["Meteor Strike", "Pentacle Shock", "Hallowed Strike", "Auto-attack"] },
+    skills: ["Meteor Strike", "Pentacle Shock", "Hallowed Strike"] },
   { id: 105, name: "Sylvara",   cls: "cleric",    cp: 601300, rate: 1500, buff: { name: "Blessing", pct: .03 }, healer: true,
-    skills: ["Smite", "Chastisement", "Holy Light", "Auto-attack"] },
+    skills: ["Smite", "Chastisement", "Holy Light"] },
 ];
 const BOSS = { name: "Ancient Guardian", maxHp: 9.2e6, skills: ["Crushing Blow", "Stone Rain", "Guardian's Wrath", "Tremor"] };
 const MAX_HP = 32000;
@@ -31,7 +31,7 @@ export function startDemo(emit) {
     killAt = null;
     scriptedDeath = now + 32000 + Math.random() * 15000;
     nextLag ??= now + 25000;
-    emit({ t: "target", ts: now, name: BOSS.name, hp, maxHp: BOSS.maxHp });
+    emit({ t: "target", ts: now, name: BOSS.name, hp, maxHp: BOSS.maxHp, boss: true, enrage: 150 });
   }
 
   function hitBoss(p) {
@@ -96,7 +96,7 @@ export function startDemo(emit) {
       emit({ t: "revive", ts: now, id });
     }
     hp = Math.max(0, hp - dealt);
-    emit({ t: "target", ts: now, name: BOSS.name, hp, maxHp: BOSS.maxHp });
+    emit({ t: "target", ts: now, name: BOSS.name, hp, maxHp: BOSS.maxHp, boss: true, enrage: 150 });
     if (hp === 0) killAt = now;
 
     if (now >= nextLag) { lagUntil = now + 14000; nextLag = now + 70000; }

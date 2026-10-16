@@ -1,0 +1,2322 @@
+{
+ "source": "AionFlex boss index (aionflex.gg/meta/bosses)",
+ "updated": "2026-10-16",
+ "byTemplate": {
+  "2300206": {
+   "name": "Guardian Captain Raur",
+   "dungeon": "Urugugu Canyon",
+   "difficulty": "Conquest",
+   "level": null,
+   "hp": 5200000,
+   "stars": 2
+  },
+  "2300218": {
+   "name": "Divine Auldor",
+   "dungeon": "Urugugu Canyon",
+   "difficulty": "Conquest",
+   "level": null,
+   "hp": 9800000,
+   "stars": 2
+  },
+  "2300207": {
+   "name": "Judge Urahum",
+   "dungeon": "Urugugu Canyon",
+   "difficulty": "Conquest",
+   "level": null,
+   "hp": 5200000,
+   "stars": 2
+  },
+  "2300812": {
+   "name": "Vakron",
+   "dungeon": "Vakron Sky Island",
+   "difficulty": "Conquest",
+   "level": null,
+   "hp": 9800000,
+   "stars": 2
+  },
+  "2300810": {
+   "name": "Tiere",
+   "dungeon": "Vakron Sky Island",
+   "difficulty": "Conquest",
+   "level": null,
+   "hp": 5200000,
+   "stars": 2
+  },
+  "2300811": {
+   "name": "Thamon",
+   "dungeon": "Vakron Sky Island",
+   "difficulty": "Conquest",
+   "level": null,
+   "hp": 6800000,
+   "stars": 2
+  },
+  "2300471": {
+   "name": "Transcendent Bakarma",
+   "dungeon": "Draupnir",
+   "difficulty": "Conquest · Tier 1",
+   "level": null,
+   "hp": 7600000,
+   "stars": 1
+  },
+  "2300403": {
+   "name": "Predator Saraswati",
+   "dungeon": "Draupnir",
+   "difficulty": "Conquest",
+   "level": null,
+   "hp": 3600000,
+   "stars": 1
+  },
+  "2300108": {
+   "name": "Neglected Gadioton",
+   "dungeon": "Krao Cave",
+   "difficulty": "Conquest",
+   "level": null,
+   "hp": 3600000,
+   "stars": 1
+  },
+  "2300104": {
+   "name": "Enhanced Harcon",
+   "dungeon": "Krao Cave",
+   "difficulty": "Conquest",
+   "level": null,
+   "hp": 3600000,
+   "stars": 1
+  },
+  "2300171": {
+   "name": "Ultimate Berk",
+   "dungeon": "Krao Cave",
+   "difficulty": "Conquest",
+   "level": null,
+   "hp": 6800000,
+   "stars": 1
+  },
+  "2300401": {
+   "name": "Phantasmal Lakshmi",
+   "dungeon": "Draupnir",
+   "difficulty": "Conquest",
+   "level": null,
+   "hp": 3600000,
+   "stars": 1
+  },
+  "2310403": {
+   "name": "Predator Saraswati",
+   "dungeon": "Draupnir",
+   "difficulty": "Exploration",
+   "level": null,
+   "hp": 1500000,
+   "stars": 1
+  },
+  "2310471": {
+   "name": "Transcendent Bakarma",
+   "dungeon": "Draupnir",
+   "difficulty": "Exploration",
+   "level": null,
+   "hp": 3200000,
+   "stars": 1
+  },
+  "2310812": {
+   "name": "Vakron",
+   "dungeon": "Vakron Sky Island",
+   "difficulty": "Exploration",
+   "level": null,
+   "hp": 4300000,
+   "stars": 2
+  },
+  "2310810": {
+   "name": "Tiere",
+   "dungeon": "Vakron Sky Island",
+   "difficulty": "Exploration",
+   "level": null,
+   "hp": 2200000,
+   "stars": 2
+  },
+  "2310401": {
+   "name": "Phantasmal Lakshmi",
+   "dungeon": "Draupnir",
+   "difficulty": "Exploration",
+   "level": null,
+   "hp": 1500000,
+   "stars": 1
+  },
+  "2310811": {
+   "name": "Thamon",
+   "dungeon": "Vakron Sky Island",
+   "difficulty": "Exploration",
+   "level": null,
+   "hp": 2700000,
+   "stars": 2
+  },
+  "2330707": {
+   "name": "Siliator of Deceit",
+   "dungeon": "Shattered Arkanis",
+   "difficulty": "Transcendence · Stage 1",
+   "level": 1,
+   "hp": 5800000,
+   "stars": 1
+  },
+  "2330708": {
+   "name": "Ruthilis of Pain",
+   "dungeon": "Shattered Arkanis",
+   "difficulty": "Transcendence · Stage 1",
+   "level": 1,
+   "hp": 5800000,
+   "stars": 1
+  },
+  "2701854": {
+   "name": "Watchful Raptor Dodori",
+   "dungeon": "Sanctum of Loathing",
+   "difficulty": "Ascension Trial Easy",
+   "level": null,
+   "hp": 600000,
+   "stars": null
+  },
+  "2701853": {
+   "name": "Featherstorm Duduri",
+   "dungeon": "Sanctum of Loathing",
+   "difficulty": "Ascension Trial Easy",
+   "level": null,
+   "hp": 600000,
+   "stars": null
+  },
+  "2320616": {
+   "name": "Gelcos",
+   "dungeon": "Deus Research Base",
+   "difficulty": "Transcendence · Stage 1",
+   "level": 1,
+   "hp": 5800000,
+   "stars": 1
+  },
+  "2330709": {
+   "name": "Talisra of the Void",
+   "dungeon": "Shattered Arkanis",
+   "difficulty": "Transcendence · Stage 1",
+   "level": 1,
+   "hp": 11000000,
+   "stars": 1
+  },
+  "2320601": {
+   "name": "Atiel",
+   "dungeon": "Deus Research Base",
+   "difficulty": "Transcendence · Stage 1",
+   "level": 1,
+   "hp": 11000000,
+   "stars": 1
+  },
+  "2310371": {
+   "name": "Kromede's Desire",
+   "dungeon": "Fire Temple",
+   "difficulty": "Exploration",
+   "level": null,
+   "hp": 1800000,
+   "stars": 3
+  },
+  "2320615": {
+   "name": "Nazmun",
+   "dungeon": "Deus Research Base",
+   "difficulty": "Transcendence · Stage 1",
+   "level": 1,
+   "hp": 5800000,
+   "stars": 1
+  },
+  "2701842": {
+   "name": "Watchful Raptor Dodori",
+   "dungeon": "Sanctum of Loathing",
+   "difficulty": "Ascension Trial Normal",
+   "level": null,
+   "hp": 750000,
+   "stars": null
+  },
+  "2701841": {
+   "name": "Featherstorm Duduri",
+   "dungeon": "Sanctum of Loathing",
+   "difficulty": "Ascension Trial Normal",
+   "level": null,
+   "hp": 750000,
+   "stars": null
+  },
+  "2310171": {
+   "name": "Ultimate Berk",
+   "dungeon": "Krao Cave",
+   "difficulty": "Exploration",
+   "level": null,
+   "hp": 608000,
+   "stars": 1
+  },
+  "2310218": {
+   "name": "Divine Auldor",
+   "dungeon": "Urugugu Canyon",
+   "difficulty": "Exploration",
+   "level": null,
+   "hp": 1100000,
+   "stars": 2
+  },
+  "2310311": {
+   "name": "Red Spark Ignus",
+   "dungeon": "Fire Temple",
+   "difficulty": "Exploration",
+   "level": null,
+   "hp": 897000,
+   "stars": 3
+  },
+  "2340615": {
+   "name": "Nazmun",
+   "dungeon": "Deus Research Base",
+   "difficulty": "Transcendence · Stage 3",
+   "level": 3,
+   "hp": 7200000,
+   "stars": 1
+  },
+  "2340616": {
+   "name": "Gelcos",
+   "dungeon": "Deus Research Base",
+   "difficulty": "Transcendence · Stage 3",
+   "level": 3,
+   "hp": 7200000,
+   "stars": 1
+  },
+  "2310206": {
+   "name": "Guardian Captain Raur",
+   "dungeon": "Urugugu Canyon",
+   "difficulty": "Exploration",
+   "level": null,
+   "hp": 560000,
+   "stars": 2
+  },
+  "2350708": {
+   "name": "Ruthilis of Pain",
+   "dungeon": "Shattered Arkanis",
+   "difficulty": "Transcendence · Stage 3",
+   "level": 3,
+   "hp": 7200000,
+   "stars": 1
+  },
+  "2350707": {
+   "name": "Siliator of Deceit",
+   "dungeon": "Shattered Arkanis",
+   "difficulty": "Transcendence · Stage 3",
+   "level": 3,
+   "hp": 7200000,
+   "stars": 1
+  },
+  "2300311": {
+   "name": "Red Spark Ignus",
+   "dungeon": "Fire Temple",
+   "difficulty": "Conquest",
+   "level": null,
+   "hp": 8200000,
+   "stars": 3
+  },
+  "2300312": {
+   "name": "Black Smoke Murute",
+   "dungeon": "Fire Temple",
+   "difficulty": "Conquest",
+   "level": null,
+   "hp": 8200000,
+   "stars": 3
+  },
+  "2300371": {
+   "name": "Kromede's Desire",
+   "dungeon": "Fire Temple",
+   "difficulty": "Conquest",
+   "level": null,
+   "hp": 15400000,
+   "stars": 3
+  },
+  "2340601": {
+   "name": "Atiel",
+   "dungeon": "Deus Research Base",
+   "difficulty": "Transcendence · Stage 3",
+   "level": 3,
+   "hp": 13600000,
+   "stars": 1
+  },
+  "2310104": {
+   "name": "Enhanced Harcon",
+   "dungeon": "Krao Cave",
+   "difficulty": "Exploration",
+   "level": null,
+   "hp": 305000,
+   "stars": 1
+  },
+  "2980040": {
+   "name": "Gatekeeper Pinopi",
+   "dungeon": "Nightmare",
+   "difficulty": "Nightmare · Level 1",
+   "level": 1,
+   "hp": 1200000,
+   "stars": null
+  },
+  "2310310": {
+   "name": "Silver Blade Rotan",
+   "dungeon": "Fire Temple",
+   "difficulty": "Exploration",
+   "level": null,
+   "hp": 599000,
+   "stars": 3
+  },
+  "2350709": {
+   "name": "Talisra of the Void",
+   "dungeon": "Shattered Arkanis",
+   "difficulty": "Transcendence · Stage 3",
+   "level": 3,
+   "hp": 13600000,
+   "stars": 1
+  },
+  "2980041": {
+   "name": "Gatekeeper Pinopi",
+   "dungeon": "Nightmare",
+   "difficulty": "Nightmare · Level 2",
+   "level": 2,
+   "hp": 1400000,
+   "stars": null
+  },
+  "2980150": {
+   "name": "Furious Feruk",
+   "dungeon": "Nightmare",
+   "difficulty": "Nightmare · Level 1",
+   "level": 1,
+   "hp": 1200000,
+   "stars": null
+  },
+  "2980042": {
+   "name": "Gatekeeper Pinopi",
+   "dungeon": "Nightmare",
+   "difficulty": "Nightmare · Level 3",
+   "level": 3,
+   "hp": 1600000,
+   "stars": null
+  },
+  "2980043": {
+   "name": "Gatekeeper Pinopi",
+   "dungeon": "Nightmare",
+   "difficulty": "Nightmare · Level 4",
+   "level": 4,
+   "hp": 1700000,
+   "stars": null
+  },
+  "2980044": {
+   "name": "Gatekeeper Pinopi",
+   "dungeon": "Nightmare",
+   "difficulty": "Nightmare · Level 5",
+   "level": 5,
+   "hp": 1800000,
+   "stars": null
+  },
+  "2980151": {
+   "name": "Furious Feruk",
+   "dungeon": "Nightmare",
+   "difficulty": "Nightmare · Level 2",
+   "level": 2,
+   "hp": 1400000,
+   "stars": null
+  },
+  "2701020": {
+   "name": "Queen Karat",
+   "dungeon": "Karat's Nest",
+   "difficulty": "Conquest",
+   "level": null,
+   "hp": 201000,
+   "stars": null
+  },
+  "2310312": {
+   "name": "Black Smoke Murute",
+   "dungeon": "Fire Temple",
+   "difficulty": "Exploration",
+   "level": null,
+   "hp": 897000,
+   "stars": 3
+  },
+  "2700988": {
+   "name": "Seyron of the Lake",
+   "dungeon": "Deep Dark Pit",
+   "difficulty": "Conquest",
+   "level": null,
+   "hp": 201000,
+   "stars": null
+  },
+  "2700715": {
+   "name": "Warden Santras",
+   "dungeon": "Dranactus Underkeep",
+   "difficulty": "Conquest",
+   "level": null,
+   "hp": 113000,
+   "stars": null
+  },
+  "2700716": {
+   "name": "Furious Feruk",
+   "dungeon": "Dranactus Underkeep",
+   "difficulty": "Conquest",
+   "level": null,
+   "hp": 113000,
+   "stars": null
+  },
+  "2701525": {
+   "name": "Reckless Jonas",
+   "dungeon": "Ascetic's Cave",
+   "difficulty": "Conquest",
+   "level": null,
+   "hp": 201000,
+   "stars": null
+  },
+  "2701485": {
+   "name": "Custodian Chakkerman",
+   "dungeon": "Pirate's Treasure Storage",
+   "difficulty": "Conquest",
+   "level": null,
+   "hp": 197000,
+   "stars": null
+  },
+  "2980045": {
+   "name": "Gatekeeper Pinopi",
+   "dungeon": "Nightmare",
+   "difficulty": "Nightmare · Level 6",
+   "level": 6,
+   "hp": 1900000,
+   "stars": null
+  },
+  "2700963": {
+   "name": "Pilgrim Santian",
+   "dungeon": "Solitary Rock Tomb",
+   "difficulty": "Conquest",
+   "level": null,
+   "hp": 201000,
+   "stars": null
+  },
+  "2700952": {
+   "name": "Priestess Soirel",
+   "dungeon": "Abandoned Memorial Room",
+   "difficulty": "Conquest",
+   "level": null,
+   "hp": 201000,
+   "stars": null
+  },
+  "2980152": {
+   "name": "Furious Feruk",
+   "dungeon": "Nightmare",
+   "difficulty": "Nightmare · Level 3",
+   "level": 3,
+   "hp": 1600000,
+   "stars": null
+  },
+  "2700847": {
+   "name": "Zikel's Apparition",
+   "dungeon": "Impetusium",
+   "difficulty": "Conquest",
+   "level": null,
+   "hp": 270000,
+   "stars": null
+  },
+  "2700949": {
+   "name": "Guardian Spirit Drant",
+   "dungeon": "Illusionary Ruins",
+   "difficulty": "Conquest",
+   "level": null,
+   "hp": 200000,
+   "stars": null
+  },
+  "2701151": {
+   "name": "Hystan's Apparition",
+   "dungeon": "Impetusium",
+   "difficulty": "Conquest",
+   "level": null,
+   "hp": 270000,
+   "stars": null
+  },
+  "2701280": {
+   "name": "Shaman Kumbahum",
+   "dungeon": "Kumbahum's Cave",
+   "difficulty": "Conquest",
+   "level": null,
+   "hp": 200000,
+   "stars": null
+  },
+  "2701096": {
+   "name": "Forgotten Lenara",
+   "dungeon": "Altar of Hope",
+   "difficulty": "Conquest",
+   "level": null,
+   "hp": 200000,
+   "stars": null
+  },
+  "2701454": {
+   "name": "Warrior Wasti",
+   "dungeon": "Scale Altar",
+   "difficulty": "Conquest",
+   "level": null,
+   "hp": 199000,
+   "stars": null
+  },
+  "2701480": {
+   "name": "Informant Zibro",
+   "dungeon": "Lonely Rock Chasm",
+   "difficulty": "Conquest",
+   "level": null,
+   "hp": 198000,
+   "stars": null
+  },
+  "2701118": {
+   "name": "Quartermaster Tyius",
+   "dungeon": "Guardian's Armory",
+   "difficulty": "Conquest",
+   "level": null,
+   "hp": 201000,
+   "stars": null
+  },
+  "2701578": {
+   "name": "Mad Lazekhi",
+   "dungeon": "Shulak Cave",
+   "difficulty": "Conquest",
+   "level": null,
+   "hp": 201000,
+   "stars": null
+  },
+  "2980046": {
+   "name": "Gatekeeper Pinopi",
+   "dungeon": "Nightmare",
+   "difficulty": "Nightmare · Level 7",
+   "level": 7,
+   "hp": 2000000,
+   "stars": null
+  },
+  "2700703": {
+   "name": "Soulreaper Rathman",
+   "dungeon": "Collapsed Oracle",
+   "difficulty": "Conquest",
+   "level": null,
+   "hp": 67000,
+   "stars": null
+  },
+  "2700744": {
+   "name": "Fortress Guardian Notun",
+   "dungeon": "Destruction Archon Underground Fortress",
+   "difficulty": "Conquest",
+   "level": null,
+   "hp": 128000,
+   "stars": null
+  },
+  "2701551": {
+   "name": "Depository Manager Arya",
+   "dungeon": "Drana Depository",
+   "difficulty": "Conquest",
+   "level": null,
+   "hp": 201000,
+   "stars": null
+  },
+  "2701101": {
+   "name": "Corpse-Eating Targoth",
+   "dungeon": "Targoth's Cave",
+   "difficulty": "Conquest",
+   "level": null,
+   "hp": 200000,
+   "stars": null
+  },
+  "2700857": {
+   "name": "Mutated Ulgorn",
+   "dungeon": "Blades Hideout",
+   "difficulty": "Conquest",
+   "level": null,
+   "hp": 150000,
+   "stars": null
+  },
+  "2700908": {
+   "name": "Mutated Gerod",
+   "dungeon": "Blades Hideout",
+   "difficulty": "Conquest",
+   "level": null,
+   "hp": 150000,
+   "stars": null
+  },
+  "2701544": {
+   "name": "Plantation Storage Supply Captain",
+   "dungeon": "Plantation Storage",
+   "difficulty": "Conquest",
+   "level": null,
+   "hp": 201000,
+   "stars": null
+  },
+  "2701142": {
+   "name": "Reaver Lisansa",
+   "dungeon": "Kidnapper's Hold",
+   "difficulty": "Conquest",
+   "level": null,
+   "hp": 202000,
+   "stars": null
+  },
+  "2701287": {
+   "name": "Rare Fungpus",
+   "dungeon": "All-Curing Cave",
+   "difficulty": "Conquest",
+   "level": null,
+   "hp": 201000,
+   "stars": null
+  },
+  "2701043": {
+   "name": "Kraka Ritualist",
+   "dungeon": "Kraka's Altar",
+   "difficulty": "Conquest",
+   "level": null,
+   "hp": 201000,
+   "stars": null
+  },
+  "2701569": {
+   "name": "Supervisor Sinah",
+   "dungeon": "Lagta Fafnite Storage",
+   "difficulty": "Conquest",
+   "level": null,
+   "hp": 201000,
+   "stars": null
+  },
+  "2701051": {
+   "name": "Guardian's Illusion",
+   "dungeon": "Kaisinel's Collapsed Sanctum",
+   "difficulty": "Conquest",
+   "level": null,
+   "hp": 300000,
+   "stars": null
+  },
+  "2701298": {
+   "name": "Desperate Robert's Apparition",
+   "dungeon": "Victims' Cave",
+   "difficulty": "Conquest",
+   "level": null,
+   "hp": 202000,
+   "stars": null
+  },
+  "2701055": {
+   "name": "Vanguard Captain Vamana",
+   "dungeon": "Hidden Ruins Altar",
+   "difficulty": "Conquest",
+   "level": null,
+   "hp": 202000,
+   "stars": null
+  },
+  "2701568": {
+   "name": "Prison Compound Warden Homish",
+   "dungeon": "Homish's Prison Compound",
+   "difficulty": "Conquest",
+   "level": null,
+   "hp": 375000,
+   "stars": null
+  },
+  "2701521": {
+   "name": "Caretaker Sinandash",
+   "dungeon": "Laborer Training Ground",
+   "difficulty": "Conquest",
+   "level": null,
+   "hp": 201000,
+   "stars": null
+  },
+  "2980047": {
+   "name": "Gatekeeper Pinopi",
+   "dungeon": "Nightmare",
+   "difficulty": "Nightmare · Level 8",
+   "level": 8,
+   "hp": 2200000,
+   "stars": null
+  },
+  "2701202": {
+   "name": "Fanatic Ullimus",
+   "dungeon": "Aullaeu Oratory",
+   "difficulty": "Conquest",
+   "level": null,
+   "hp": 201000,
+   "stars": null
+  },
+  "2701184": {
+   "name": "Mutant Dratona",
+   "dungeon": "Dratona Outpost",
+   "difficulty": "Conquest",
+   "level": null,
+   "hp": 201000,
+   "stars": null
+  },
+  "2701344": {
+   "name": "Fafnir's Poison Blood",
+   "dungeon": "Root of the Sacred Tree",
+   "difficulty": "Conquest",
+   "level": null,
+   "hp": 59000,
+   "stars": null
+  },
+  "2980153": {
+   "name": "Furious Feruk",
+   "dungeon": "Nightmare",
+   "difficulty": "Nightmare · Level 4",
+   "level": 4,
+   "hp": 1700000,
+   "stars": null
+  },
+  "2701250": {
+   "name": "Balhash",
+   "dungeon": "Bloodsoaked Confessional",
+   "difficulty": "Conquest",
+   "level": null,
+   "hp": 201000,
+   "stars": null
+  },
+  "2300908": {
+   "name": "Watchdog Kwapo",
+   "dungeon": "Ferocious Horn Den",
+   "difficulty": "Conquest",
+   "level": null,
+   "hp": 8200000,
+   "stars": 3
+  },
+  "2701501": {
+   "name": "Scouts Captain Nahram",
+   "dungeon": "Balaur Scouts Campsite",
+   "difficulty": "Conquest",
+   "level": null,
+   "hp": 201000,
+   "stars": null
+  },
+  "2980049": {
+   "name": "Gatekeeper Pinopi",
+   "dungeon": "Nightmare",
+   "difficulty": "Nightmare · Level 10",
+   "level": 10,
+   "hp": 2400000,
+   "stars": null
+  },
+  "2300909": {
+   "name": "Necromancer Duanka",
+   "dungeon": "Ferocious Horn Den",
+   "difficulty": "Conquest",
+   "level": null,
+   "hp": 8200000,
+   "stars": 3
+  },
+  "2701138": {
+   "name": "Enraged Kernon",
+   "dungeon": "Herb Cave",
+   "difficulty": "Conquest",
+   "level": null,
+   "hp": 202000,
+   "stars": null
+  },
+  "2701310": {
+   "name": "Daine of Tears",
+   "dungeon": "Unstable Cave",
+   "difficulty": "Conquest",
+   "level": null,
+   "hp": 201000,
+   "stars": null
+  },
+  "2701072": {
+   "name": "Wanted Criminal Kius",
+   "dungeon": "Kius's Residence",
+   "difficulty": "Conquest",
+   "level": null,
+   "hp": 202000,
+   "stars": null
+  },
+  "2700975": {
+   "name": "Lieutenant Sineora",
+   "dungeon": "Anguish Hideout",
+   "difficulty": "Conquest",
+   "level": null,
+   "hp": 202000,
+   "stars": null
+  },
+  "2980048": {
+   "name": "Gatekeeper Pinopi",
+   "dungeon": "Nightmare",
+   "difficulty": "Nightmare · Level 9",
+   "level": 9,
+   "hp": 2300000,
+   "stars": null
+  },
+  "2310108": {
+   "name": "Neglected Gadioton",
+   "dungeon": "Krao Cave",
+   "difficulty": "Exploration",
+   "level": null,
+   "hp": 305000,
+   "stars": 1
+  },
+  "2701148": {
+   "name": "Rampaging Neparan's Soul",
+   "dungeon": "Grave of the Wrathful Dead",
+   "difficulty": "Conquest",
+   "level": null,
+   "hp": 200000,
+   "stars": null
+  },
+  "2701156": {
+   "name": "Kaisinel's Nightmare",
+   "dungeon": "Kaisinel's Distorted Dream",
+   "difficulty": "Conquest",
+   "level": null,
+   "hp": 300000,
+   "stars": null
+  },
+  "2701145": {
+   "name": "Venomous Insect Sram",
+   "dungeon": "Deadly Poison Den",
+   "difficulty": "Conquest",
+   "level": null,
+   "hp": 202000,
+   "stars": null
+  },
+  "2700916": {
+   "name": "Poacher Captain",
+   "dungeon": "Poacher's Den",
+   "difficulty": "Conquest",
+   "level": null,
+   "hp": 202000,
+   "stars": null
+  },
+  "2700692": {
+   "name": "Rampaging Tyrant Tassin",
+   "dungeon": "Zikel's Sanctum",
+   "difficulty": "Conquest",
+   "level": null,
+   "hp": 43000,
+   "stars": null
+  },
+  "2701078": {
+   "name": "Oathbreaker Gartua",
+   "dungeon": "Dungeon D0012",
+   "difficulty": "Conquest",
+   "level": null,
+   "hp": 52000,
+   "stars": null
+  },
+  "2701130": {
+   "name": "Mutated Dehinon",
+   "dungeon": "Dehinon's Hideout",
+   "difficulty": "Conquest",
+   "level": null,
+   "hp": 201000,
+   "stars": null
+  },
+  "2700695": {
+   "name": "Executioner Nua",
+   "dungeon": "Zikel's Sanctum",
+   "difficulty": "Conquest",
+   "level": null,
+   "hp": 43000,
+   "stars": null
+  },
+  "2701829": {
+   "name": "Featherstorm Duduri",
+   "dungeon": "Sanctum of Loathing",
+   "difficulty": "Ascension Trial Hard",
+   "level": null,
+   "hp": 1200000,
+   "stars": null
+  },
+  "2701830": {
+   "name": "Watchful Raptor Dodori",
+   "dungeon": "Sanctum of Loathing",
+   "difficulty": "Ascension Trial Hard",
+   "level": null,
+   "hp": 1200000,
+   "stars": null
+  },
+  "2700942": {
+   "name": "Captain Nagto",
+   "dungeon": "Looted Repository",
+   "difficulty": "Conquest",
+   "level": null,
+   "hp": 201000,
+   "stars": null
+  },
+  "2701275": {
+   "name": "Scouts Captain Lamnah",
+   "dungeon": "Lamnah Base",
+   "difficulty": "Conquest",
+   "level": null,
+   "hp": 201000,
+   "stars": null
+  },
+  "2701035": {
+   "name": "Scion Behit",
+   "dungeon": "Abandoned One's Grave",
+   "difficulty": "Conquest",
+   "level": null,
+   "hp": 202000,
+   "stars": null
+  },
+  "2300910": {
+   "name": "Ferocious Horn Nuakum",
+   "dungeon": "Ferocious Horn Den",
+   "difficulty": "Conquest",
+   "level": null,
+   "hp": 15500000,
+   "stars": 3
+  },
+  "2980154": {
+   "name": "Furious Feruk",
+   "dungeon": "Nightmare",
+   "difficulty": "Nightmare · Level 5",
+   "level": 5,
+   "hp": 1800000,
+   "stars": null
+  },
+  "2700921": {
+   "name": "Trickster Boss Korhe",
+   "dungeon": "Trickster's Den",
+   "difficulty": "Conquest",
+   "level": null,
+   "hp": 202000,
+   "stars": null
+  },
+  "2700981": {
+   "name": "Mutated Insectoid Valka",
+   "dungeon": "Valka's Nest",
+   "difficulty": "Conquest",
+   "level": null,
+   "hp": 201000,
+   "stars": null
+  },
+  "2701227": {
+   "name": "Legion Outlaws Leader",
+   "dungeon": "Dusk Pit",
+   "difficulty": "Conquest",
+   "level": null,
+   "hp": 201000,
+   "stars": null
+  },
+  "2980240": {
+   "name": "Fafnir's Poison Blood",
+   "dungeon": "Nightmare",
+   "difficulty": "Nightmare · Level 1",
+   "level": 1,
+   "hp": 1200000,
+   "stars": null
+  },
+  "2700876": {
+   "name": "Mature Baratuna",
+   "dungeon": "Dratona Cave",
+   "difficulty": "Conquest",
+   "level": null,
+   "hp": 201000,
+   "stars": null
+  },
+  "2700886": {
+   "name": "Sentinel Nuraka",
+   "dungeon": "Blue Dragon's Trap",
+   "difficulty": "Conquest",
+   "level": null,
+   "hp": 201000,
+   "stars": null
+  },
+  "2701013": {
+   "name": "Cruel Sumakhi",
+   "dungeon": "Smuggler's Cave",
+   "difficulty": "Conquest",
+   "level": null,
+   "hp": 201000,
+   "stars": null
+  },
+  "2701048": {
+   "name": "Sanctuary Guardian",
+   "dungeon": "Zikel's Collapsed Barracks",
+   "difficulty": "Conquest",
+   "level": null,
+   "hp": 300000,
+   "stars": null
+  },
+  "2700835": {
+   "name": "Corrupted Deios",
+   "dungeon": "Corrupted Spiritmaster's Residence",
+   "difficulty": "Conquest",
+   "level": null,
+   "hp": 201000,
+   "stars": null
+  },
+  "2310207": {
+   "name": "Judge Urahum",
+   "dungeon": "Urugugu Canyon",
+   "difficulty": "Exploration",
+   "level": null,
+   "hp": 560000,
+   "stars": 2
+  },
+  "2980155": {
+   "name": "Furious Feruk",
+   "dungeon": "Nightmare",
+   "difficulty": "Nightmare · Level 6",
+   "level": 6,
+   "hp": 1900000,
+   "stars": null
+  },
+  "2700265": {
+   "name": "Oathbreaker Gartua",
+   "dungeon": "Etheria Rift",
+   "difficulty": "Conquest",
+   "level": null,
+   "hp": 26000,
+   "stars": null
+  },
+  "2701399": {
+   "name": "Sanctum Guardian Gauss",
+   "dungeon": "Illusion Sanctum",
+   "difficulty": "Conquest",
+   "level": null,
+   "hp": 48000,
+   "stars": null
+  },
+  "2980250": {
+   "name": "Wraith Giselle",
+   "dungeon": "Nightmare",
+   "difficulty": "Nightmare · Level 1",
+   "level": 1,
+   "hp": 1200000,
+   "stars": null
+  },
+  "2701155": {
+   "name": "Zikel's Nightmare",
+   "dungeon": "Zikel's Distorted Dream",
+   "difficulty": "Conquest",
+   "level": null,
+   "hp": 300000,
+   "stars": null
+  },
+  "2700914": {
+   "name": "Toblini",
+   "dungeon": "Chilly Hideout",
+   "difficulty": "Conquest",
+   "level": null,
+   "hp": 202000,
+   "stars": null
+  },
+  "2980156": {
+   "name": "Furious Feruk",
+   "dungeon": "Nightmare",
+   "difficulty": "Nightmare · Level 7",
+   "level": 7,
+   "hp": 2000000,
+   "stars": null
+  },
+  "2300310": {
+   "name": "Silver Blade Rotan",
+   "dungeon": "Fire Temple",
+   "difficulty": "Conquest",
+   "level": null,
+   "hp": 574000,
+   "stars": 3
+  },
+  "2980157": {
+   "name": "Furious Feruk",
+   "dungeon": "Nightmare",
+   "difficulty": "Nightmare · Level 8",
+   "level": 8,
+   "hp": 2200000,
+   "stars": null
+  },
+  "2310910": {
+   "name": "Ferocious Horn Nuakum",
+   "dungeon": "Ferocious Horn Den",
+   "difficulty": "Exploration",
+   "level": null,
+   "hp": 5700000,
+   "stars": 3
+  },
+  "2310909": {
+   "name": "Necromancer Duanka",
+   "dungeon": "Ferocious Horn Den",
+   "difficulty": "Exploration",
+   "level": null,
+   "hp": 2900000,
+   "stars": 3
+  },
+  "2310908": {
+   "name": "Watchdog Kwapo",
+   "dungeon": "Ferocious Horn Den",
+   "difficulty": "Exploration",
+   "level": null,
+   "hp": 2800000,
+   "stars": 3
+  },
+  "2980158": {
+   "name": "Furious Feruk",
+   "dungeon": "Nightmare",
+   "difficulty": "Nightmare · Level 9",
+   "level": 9,
+   "hp": 2300000,
+   "stars": null
+  },
+  "2980159": {
+   "name": "Furious Feruk",
+   "dungeon": "Nightmare",
+   "difficulty": "Nightmare · Level 10",
+   "level": 10,
+   "hp": 2400000,
+   "stars": null
+  },
+  "2980241": {
+   "name": "Fafnir's Poison Blood",
+   "dungeon": "Nightmare",
+   "difficulty": "Nightmare · Level 2",
+   "level": 2,
+   "hp": 1400000,
+   "stars": null
+  },
+  "2980251": {
+   "name": "Wraith Giselle",
+   "dungeon": "Nightmare",
+   "difficulty": "Nightmare · Level 2",
+   "level": 2,
+   "hp": 1400000,
+   "stars": null
+  },
+  "2300907": {
+   "name": "Shining Mau Totem",
+   "dungeon": "Ferocious Horn Den",
+   "difficulty": "Conquest",
+   "level": null,
+   "hp": 312000,
+   "stars": 3
+  },
+  "2980242": {
+   "name": "Fafnir's Poison Blood",
+   "dungeon": "Nightmare",
+   "difficulty": "Nightmare · Level 3",
+   "level": 3,
+   "hp": 1600000,
+   "stars": null
+  },
+  "2980170": {
+   "name": "Fortress Guardian Notun",
+   "dungeon": "Nightmare",
+   "difficulty": "Nightmare · Level 1",
+   "level": 1,
+   "hp": 1800000,
+   "stars": null
+  },
+  "2980171": {
+   "name": "Fortress Guardian Notun",
+   "dungeon": "Nightmare",
+   "difficulty": "Nightmare · Level 2",
+   "level": 2,
+   "hp": 2200000,
+   "stars": null
+  },
+  "2310907": {
+   "name": "Shining Mau Totem",
+   "dungeon": "Ferocious Horn Den",
+   "difficulty": "Exploration",
+   "level": null,
+   "hp": 259000,
+   "stars": 3
+  },
+  "2980243": {
+   "name": "Fafnir's Poison Blood",
+   "dungeon": "Nightmare",
+   "difficulty": "Nightmare · Level 4",
+   "level": 4,
+   "hp": 1700000,
+   "stars": null
+  },
+  "2980172": {
+   "name": "Fortress Guardian Notun",
+   "dungeon": "Nightmare",
+   "difficulty": "Nightmare · Level 3",
+   "level": 3,
+   "hp": 2300000,
+   "stars": null
+  },
+  "2980252": {
+   "name": "Wraith Giselle",
+   "dungeon": "Nightmare",
+   "difficulty": "Nightmare · Level 3",
+   "level": 3,
+   "hp": 1600000,
+   "stars": null
+  },
+  "2701789": {
+   "name": "Divided Aponos",
+   "dungeon": "Nightmare Altar",
+   "difficulty": "Ascension Trial Normal",
+   "level": null,
+   "hp": 752000,
+   "stars": null
+  },
+  "2353708": {
+   "name": "Ruthilis of Pain",
+   "dungeon": "Shattered Arkanis",
+   "difficulty": "Transcendence · Stage 6",
+   "level": 6,
+   "hp": 9600000,
+   "stars": 1
+  },
+  "2353707": {
+   "name": "Siliator of Deceit",
+   "dungeon": "Shattered Arkanis",
+   "difficulty": "Transcendence · Stage 6",
+   "level": 6,
+   "hp": 9600000,
+   "stars": 1
+  },
+  "2701807": {
+   "name": "Divided Aponos",
+   "dungeon": "Nightmare Altar",
+   "difficulty": "Ascension Trial Hard",
+   "level": null,
+   "hp": 1200000,
+   "stars": null
+  },
+  "2701753": {
+   "name": "Divided Aponos",
+   "dungeon": "Nightmare Altar",
+   "difficulty": "Ascension Trial Easy",
+   "level": null,
+   "hp": 602000,
+   "stars": null
+  },
+  "2343615": {
+   "name": "Nazmun",
+   "dungeon": "Deus Research Base",
+   "difficulty": "Transcendence · Stage 6",
+   "level": 6,
+   "hp": 9600000,
+   "stars": 1
+  },
+  "2353709": {
+   "name": "Talisra of the Void",
+   "dungeon": "Shattered Arkanis",
+   "difficulty": "Transcendence · Stage 6",
+   "level": 6,
+   "hp": 18200000,
+   "stars": 1
+  },
+  "2980244": {
+   "name": "Fafnir's Poison Blood",
+   "dungeon": "Nightmare",
+   "difficulty": "Nightmare · Level 5",
+   "level": 5,
+   "hp": 1800000,
+   "stars": null
+  },
+  "2980173": {
+   "name": "Fortress Guardian Notun",
+   "dungeon": "Nightmare",
+   "difficulty": "Nightmare · Level 4",
+   "level": 4,
+   "hp": 2500000,
+   "stars": null
+  },
+  "2980253": {
+   "name": "Wraith Giselle",
+   "dungeon": "Nightmare",
+   "difficulty": "Nightmare · Level 4",
+   "level": 4,
+   "hp": 1700000,
+   "stars": null
+  },
+  "2343616": {
+   "name": "Gelcos",
+   "dungeon": "Deus Research Base",
+   "difficulty": "Transcendence · Stage 6",
+   "level": 6,
+   "hp": 9700000,
+   "stars": 1
+  },
+  "2343601": {
+   "name": "Atiel",
+   "dungeon": "Deus Research Base",
+   "difficulty": "Transcendence · Stage 6",
+   "level": 6,
+   "hp": 18200000,
+   "stars": 1
+  },
+  "2980174": {
+   "name": "Fortress Guardian Notun",
+   "dungeon": "Nightmare",
+   "difficulty": "Nightmare · Level 5",
+   "level": 5,
+   "hp": 2700000,
+   "stars": null
+  },
+  "2980245": {
+   "name": "Fafnir's Poison Blood",
+   "dungeon": "Nightmare",
+   "difficulty": "Nightmare · Level 6",
+   "level": 6,
+   "hp": 1900000,
+   "stars": null
+  },
+  "2980254": {
+   "name": "Wraith Giselle",
+   "dungeon": "Nightmare",
+   "difficulty": "Nightmare · Level 5",
+   "level": 5,
+   "hp": 1800000,
+   "stars": null
+  },
+  "2980175": {
+   "name": "Fortress Guardian Notun",
+   "dungeon": "Nightmare",
+   "difficulty": "Nightmare · Level 6",
+   "level": 6,
+   "hp": 2900000,
+   "stars": null
+  },
+  "2980256": {
+   "name": "Wraith Giselle",
+   "dungeon": "Nightmare",
+   "difficulty": "Nightmare · Level 7",
+   "level": 7,
+   "hp": 2000000,
+   "stars": null
+  },
+  "2980246": {
+   "name": "Fafnir's Poison Blood",
+   "dungeon": "Nightmare",
+   "difficulty": "Nightmare · Level 7",
+   "level": 7,
+   "hp": 2000000,
+   "stars": null
+  },
+  "2980255": {
+   "name": "Wraith Giselle",
+   "dungeon": "Nightmare",
+   "difficulty": "Nightmare · Level 6",
+   "level": 6,
+   "hp": 1900000,
+   "stars": null
+  },
+  "2980176": {
+   "name": "Fortress Guardian Notun",
+   "dungeon": "Nightmare",
+   "difficulty": "Nightmare · Level 7",
+   "level": 7,
+   "hp": 3100000,
+   "stars": null
+  },
+  "2980257": {
+   "name": "Wraith Giselle",
+   "dungeon": "Nightmare",
+   "difficulty": "Nightmare · Level 8",
+   "level": 8,
+   "hp": 2200000,
+   "stars": null
+  },
+  "2980177": {
+   "name": "Fortress Guardian Notun",
+   "dungeon": "Nightmare",
+   "difficulty": "Nightmare · Level 8",
+   "level": 8,
+   "hp": 3200000,
+   "stars": null
+  },
+  "2980247": {
+   "name": "Fafnir's Poison Blood",
+   "dungeon": "Nightmare",
+   "difficulty": "Nightmare · Level 8",
+   "level": 8,
+   "hp": 2200000,
+   "stars": null
+  },
+  "2330424": {
+   "name": "Transcendent Bakarma",
+   "dungeon": "Draupnir",
+   "difficulty": "Conquest · Tier 2",
+   "level": null,
+   "hp": 9200000,
+   "stars": 1
+  }
+ },
+ "hpByName": {
+  "Guardian Captain Raur": [
+   [
+    560000,
+    "Exploration"
+   ],
+   [
+    5200000,
+    "Conquest"
+   ]
+  ],
+  "Divine Auldor": [
+   [
+    1100000,
+    "Exploration"
+   ],
+   [
+    9800000,
+    "Conquest"
+   ]
+  ],
+  "Judge Urahum": [
+   [
+    560000,
+    "Exploration"
+   ],
+   [
+    5200000,
+    "Conquest"
+   ]
+  ],
+  "Vakron": [
+   [
+    4300000,
+    "Exploration"
+   ],
+   [
+    9800000,
+    "Conquest"
+   ]
+  ],
+  "Tiere": [
+   [
+    2200000,
+    "Exploration"
+   ],
+   [
+    5200000,
+    "Conquest"
+   ]
+  ],
+  "Thamon": [
+   [
+    2700000,
+    "Exploration"
+   ],
+   [
+    6800000,
+    "Conquest"
+   ]
+  ],
+  "Transcendent Bakarma": [
+   [
+    3200000,
+    "Exploration"
+   ],
+   [
+    7600000,
+    "Conquest · Tier 1"
+   ],
+   [
+    9200000,
+    "Conquest · Tier 2"
+   ]
+  ],
+  "Predator Saraswati": [
+   [
+    1500000,
+    "Exploration"
+   ],
+   [
+    3600000,
+    "Conquest"
+   ]
+  ],
+  "Neglected Gadioton": [
+   [
+    305000,
+    "Exploration"
+   ],
+   [
+    3600000,
+    "Conquest"
+   ]
+  ],
+  "Enhanced Harcon": [
+   [
+    305000,
+    "Exploration"
+   ],
+   [
+    3600000,
+    "Conquest"
+   ]
+  ],
+  "Ultimate Berk": [
+   [
+    608000,
+    "Exploration"
+   ],
+   [
+    6800000,
+    "Conquest"
+   ]
+  ],
+  "Phantasmal Lakshmi": [
+   [
+    1500000,
+    "Exploration"
+   ],
+   [
+    3600000,
+    "Conquest"
+   ]
+  ],
+  "Siliator of Deceit": [
+   [
+    5800000,
+    "Transcendence · Stage 1"
+   ],
+   [
+    7200000,
+    "Transcendence · Stage 3"
+   ],
+   [
+    9600000,
+    "Transcendence · Stage 6"
+   ]
+  ],
+  "Ruthilis of Pain": [
+   [
+    5800000,
+    "Transcendence · Stage 1"
+   ],
+   [
+    7200000,
+    "Transcendence · Stage 3"
+   ],
+   [
+    9600000,
+    "Transcendence · Stage 6"
+   ]
+  ],
+  "Watchful Raptor Dodori": [
+   [
+    600000,
+    "Ascension Trial Easy"
+   ],
+   [
+    750000,
+    "Ascension Trial Normal"
+   ],
+   [
+    1200000,
+    "Ascension Trial Hard"
+   ]
+  ],
+  "Featherstorm Duduri": [
+   [
+    600000,
+    "Ascension Trial Easy"
+   ],
+   [
+    750000,
+    "Ascension Trial Normal"
+   ],
+   [
+    1200000,
+    "Ascension Trial Hard"
+   ]
+  ],
+  "Gelcos": [
+   [
+    5800000,
+    "Transcendence · Stage 1"
+   ],
+   [
+    7200000,
+    "Transcendence · Stage 3"
+   ],
+   [
+    9700000,
+    "Transcendence · Stage 6"
+   ]
+  ],
+  "Talisra of the Void": [
+   [
+    11000000,
+    "Transcendence · Stage 1"
+   ],
+   [
+    13600000,
+    "Transcendence · Stage 3"
+   ],
+   [
+    18200000,
+    "Transcendence · Stage 6"
+   ]
+  ],
+  "Atiel": [
+   [
+    11000000,
+    "Transcendence · Stage 1"
+   ],
+   [
+    13600000,
+    "Transcendence · Stage 3"
+   ],
+   [
+    18200000,
+    "Transcendence · Stage 6"
+   ]
+  ],
+  "Kromede's Desire": [
+   [
+    1800000,
+    "Exploration"
+   ],
+   [
+    15400000,
+    "Conquest"
+   ]
+  ],
+  "Nazmun": [
+   [
+    5800000,
+    "Transcendence · Stage 1"
+   ],
+   [
+    7200000,
+    "Transcendence · Stage 3"
+   ],
+   [
+    9600000,
+    "Transcendence · Stage 6"
+   ]
+  ],
+  "Red Spark Ignus": [
+   [
+    897000,
+    "Exploration"
+   ],
+   [
+    8200000,
+    "Conquest"
+   ]
+  ],
+  "Black Smoke Murute": [
+   [
+    897000,
+    "Exploration"
+   ],
+   [
+    8200000,
+    "Conquest"
+   ]
+  ],
+  "Gatekeeper Pinopi": [
+   [
+    1200000,
+    "Nightmare · Level 1"
+   ],
+   [
+    1400000,
+    "Nightmare · Level 2"
+   ],
+   [
+    1600000,
+    "Nightmare · Level 3"
+   ],
+   [
+    1700000,
+    "Nightmare · Level 4"
+   ],
+   [
+    1800000,
+    "Nightmare · Level 5"
+   ],
+   [
+    1900000,
+    "Nightmare · Level 6"
+   ],
+   [
+    2000000,
+    "Nightmare · Level 7"
+   ],
+   [
+    2200000,
+    "Nightmare · Level 8"
+   ],
+   [
+    2300000,
+    "Nightmare · Level 9"
+   ],
+   [
+    2400000,
+    "Nightmare · Level 10"
+   ]
+  ],
+  "Silver Blade Rotan": [
+   [
+    574000,
+    "Conquest"
+   ],
+   [
+    599000,
+    "Exploration"
+   ]
+  ],
+  "Furious Feruk": [
+   [
+    113000,
+    "Conquest"
+   ],
+   [
+    1200000,
+    "Nightmare · Level 1"
+   ],
+   [
+    1400000,
+    "Nightmare · Level 2"
+   ],
+   [
+    1600000,
+    "Nightmare · Level 3"
+   ],
+   [
+    1700000,
+    "Nightmare · Level 4"
+   ],
+   [
+    1800000,
+    "Nightmare · Level 5"
+   ],
+   [
+    1900000,
+    "Nightmare · Level 6"
+   ],
+   [
+    2000000,
+    "Nightmare · Level 7"
+   ],
+   [
+    2200000,
+    "Nightmare · Level 8"
+   ],
+   [
+    2300000,
+    "Nightmare · Level 9"
+   ],
+   [
+    2400000,
+    "Nightmare · Level 10"
+   ]
+  ],
+  "Queen Karat": [
+   [
+    201000,
+    "Conquest"
+   ]
+  ],
+  "Seyron of the Lake": [
+   [
+    201000,
+    "Conquest"
+   ]
+  ],
+  "Warden Santras": [
+   [
+    113000,
+    "Conquest"
+   ]
+  ],
+  "Reckless Jonas": [
+   [
+    201000,
+    "Conquest"
+   ]
+  ],
+  "Custodian Chakkerman": [
+   [
+    197000,
+    "Conquest"
+   ]
+  ],
+  "Pilgrim Santian": [
+   [
+    201000,
+    "Conquest"
+   ]
+  ],
+  "Priestess Soirel": [
+   [
+    201000,
+    "Conquest"
+   ]
+  ],
+  "Zikel's Apparition": [
+   [
+    270000,
+    "Conquest"
+   ]
+  ],
+  "Guardian Spirit Drant": [
+   [
+    200000,
+    "Conquest"
+   ]
+  ],
+  "Hystan's Apparition": [
+   [
+    270000,
+    "Conquest"
+   ]
+  ],
+  "Shaman Kumbahum": [
+   [
+    200000,
+    "Conquest"
+   ]
+  ],
+  "Forgotten Lenara": [
+   [
+    200000,
+    "Conquest"
+   ]
+  ],
+  "Warrior Wasti": [
+   [
+    199000,
+    "Conquest"
+   ]
+  ],
+  "Informant Zibro": [
+   [
+    198000,
+    "Conquest"
+   ]
+  ],
+  "Quartermaster Tyius": [
+   [
+    201000,
+    "Conquest"
+   ]
+  ],
+  "Mad Lazekhi": [
+   [
+    201000,
+    "Conquest"
+   ]
+  ],
+  "Soulreaper Rathman": [
+   [
+    67000,
+    "Conquest"
+   ]
+  ],
+  "Fortress Guardian Notun": [
+   [
+    128000,
+    "Conquest"
+   ],
+   [
+    1800000,
+    "Nightmare · Level 1"
+   ],
+   [
+    2200000,
+    "Nightmare · Level 2"
+   ],
+   [
+    2300000,
+    "Nightmare · Level 3"
+   ],
+   [
+    2500000,
+    "Nightmare · Level 4"
+   ],
+   [
+    2700000,
+    "Nightmare · Level 5"
+   ],
+   [
+    2900000,
+    "Nightmare · Level 6"
+   ],
+   [
+    3100000,
+    "Nightmare · Level 7"
+   ],
+   [
+    3200000,
+    "Nightmare · Level 8"
+   ]
+  ],
+  "Depository Manager Arya": [
+   [
+    201000,
+    "Conquest"
+   ]
+  ],
+  "Corpse-Eating Targoth": [
+   [
+    200000,
+    "Conquest"
+   ]
+  ],
+  "Mutated Ulgorn": [
+   [
+    150000,
+    "Conquest"
+   ]
+  ],
+  "Mutated Gerod": [
+   [
+    150000,
+    "Conquest"
+   ]
+  ],
+  "Plantation Storage Supply Captain": [
+   [
+    201000,
+    "Conquest"
+   ]
+  ],
+  "Reaver Lisansa": [
+   [
+    202000,
+    "Conquest"
+   ]
+  ],
+  "Rare Fungpus": [
+   [
+    201000,
+    "Conquest"
+   ]
+  ],
+  "Kraka Ritualist": [
+   [
+    201000,
+    "Conquest"
+   ]
+  ],
+  "Supervisor Sinah": [
+   [
+    201000,
+    "Conquest"
+   ]
+  ],
+  "Guardian's Illusion": [
+   [
+    300000,
+    "Conquest"
+   ]
+  ],
+  "Desperate Robert's Apparition": [
+   [
+    202000,
+    "Conquest"
+   ]
+  ],
+  "Vanguard Captain Vamana": [
+   [
+    202000,
+    "Conquest"
+   ]
+  ],
+  "Prison Compound Warden Homish": [
+   [
+    375000,
+    "Conquest"
+   ]
+  ],
+  "Caretaker Sinandash": [
+   [
+    201000,
+    "Conquest"
+   ]
+  ],
+  "Fanatic Ullimus": [
+   [
+    201000,
+    "Conquest"
+   ]
+  ],
+  "Mutant Dratona": [
+   [
+    201000,
+    "Conquest"
+   ]
+  ],
+  "Fafnir's Poison Blood": [
+   [
+    59000,
+    "Conquest"
+   ],
+   [
+    1200000,
+    "Nightmare · Level 1"
+   ],
+   [
+    1400000,
+    "Nightmare · Level 2"
+   ],
+   [
+    1600000,
+    "Nightmare · Level 3"
+   ],
+   [
+    1700000,
+    "Nightmare · Level 4"
+   ],
+   [
+    1800000,
+    "Nightmare · Level 5"
+   ],
+   [
+    1900000,
+    "Nightmare · Level 6"
+   ],
+   [
+    2000000,
+    "Nightmare · Level 7"
+   ],
+   [
+    2200000,
+    "Nightmare · Level 8"
+   ]
+  ],
+  "Balhash": [
+   [
+    201000,
+    "Conquest"
+   ]
+  ],
+  "Watchdog Kwapo": [
+   [
+    2800000,
+    "Exploration"
+   ],
+   [
+    8200000,
+    "Conquest"
+   ]
+  ],
+  "Scouts Captain Nahram": [
+   [
+    201000,
+    "Conquest"
+   ]
+  ],
+  "Necromancer Duanka": [
+   [
+    2900000,
+    "Exploration"
+   ],
+   [
+    8200000,
+    "Conquest"
+   ]
+  ],
+  "Enraged Kernon": [
+   [
+    202000,
+    "Conquest"
+   ]
+  ],
+  "Daine of Tears": [
+   [
+    201000,
+    "Conquest"
+   ]
+  ],
+  "Wanted Criminal Kius": [
+   [
+    202000,
+    "Conquest"
+   ]
+  ],
+  "Lieutenant Sineora": [
+   [
+    202000,
+    "Conquest"
+   ]
+  ],
+  "Rampaging Neparan's Soul": [
+   [
+    200000,
+    "Conquest"
+   ]
+  ],
+  "Kaisinel's Nightmare": [
+   [
+    300000,
+    "Conquest"
+   ]
+  ],
+  "Venomous Insect Sram": [
+   [
+    202000,
+    "Conquest"
+   ]
+  ],
+  "Poacher Captain": [
+   [
+    202000,
+    "Conquest"
+   ]
+  ],
+  "Rampaging Tyrant Tassin": [
+   [
+    43000,
+    "Conquest"
+   ]
+  ],
+  "Oathbreaker Gartua": [
+   [
+    26000,
+    "Conquest"
+   ],
+   [
+    52000,
+    "Conquest"
+   ]
+  ],
+  "Mutated Dehinon": [
+   [
+    201000,
+    "Conquest"
+   ]
+  ],
+  "Executioner Nua": [
+   [
+    43000,
+    "Conquest"
+   ]
+  ],
+  "Captain Nagto": [
+   [
+    201000,
+    "Conquest"
+   ]
+  ],
+  "Scouts Captain Lamnah": [
+   [
+    201000,
+    "Conquest"
+   ]
+  ],
+  "Scion Behit": [
+   [
+    202000,
+    "Conquest"
+   ]
+  ],
+  "Ferocious Horn Nuakum": [
+   [
+    5700000,
+    "Exploration"
+   ],
+   [
+    15500000,
+    "Conquest"
+   ]
+  ],
+  "Trickster Boss Korhe": [
+   [
+    202000,
+    "Conquest"
+   ]
+  ],
+  "Mutated Insectoid Valka": [
+   [
+    201000,
+    "Conquest"
+   ]
+  ],
+  "Legion Outlaws Leader": [
+   [
+    201000,
+    "Conquest"
+   ]
+  ],
+  "Mature Baratuna": [
+   [
+    201000,
+    "Conquest"
+   ]
+  ],
+  "Sentinel Nuraka": [
+   [
+    201000,
+    "Conquest"
+   ]
+  ],
+  "Cruel Sumakhi": [
+   [
+    201000,
+    "Conquest"
+   ]
+  ],
+  "Sanctuary Guardian": [
+   [
+    300000,
+    "Conquest"
+   ]
+  ],
+  "Corrupted Deios": [
+   [
+    201000,
+    "Conquest"
+   ]
+  ],
+  "Sanctum Guardian Gauss": [
+   [
+    48000,
+    "Conquest"
+   ]
+  ],
+  "Wraith Giselle": [
+   [
+    1200000,
+    "Nightmare · Level 1"
+   ],
+   [
+    1400000,
+    "Nightmare · Level 2"
+   ],
+   [
+    1600000,
+    "Nightmare · Level 3"
+   ],
+   [
+    1700000,
+    "Nightmare · Level 4"
+   ],
+   [
+    1800000,
+    "Nightmare · Level 5"
+   ],
+   [
+    1900000,
+    "Nightmare · Level 6"
+   ],
+   [
+    2000000,
+    "Nightmare · Level 7"
+   ],
+   [
+    2200000,
+    "Nightmare · Level 8"
+   ]
+  ],
+  "Zikel's Nightmare": [
+   [
+    300000,
+    "Conquest"
+   ]
+  ],
+  "Toblini": [
+   [
+    202000,
+    "Conquest"
+   ]
+  ],
+  "Shining Mau Totem": [
+   [
+    259000,
+    "Exploration"
+   ],
+   [
+    312000,
+    "Conquest"
+   ]
+  ],
+  "Divided Aponos": [
+   [
+    602000,
+    "Ascension Trial Easy"
+   ],
+   [
+    752000,
+    "Ascension Trial Normal"
+   ],
+   [
+    1200000,
+    "Ascension Trial Hard"
+   ]
+  ]
+ }
+}

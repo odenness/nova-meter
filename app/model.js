@@ -11,6 +11,7 @@
 //   { t:"death",    ts, id }    { t:"revive", ts, id }
 //   { t:"kill",     ts, id }    main target died     { t:"end", killed? }   fight over
 //   { t:"net",      ping, jitter, loss, pps, health? }          connection quality
+//   { t:"zone",     ts, id }    entered a new zone    { t:"zoneinfo", id }   the zone we're in (on connect)
 // hp / maxHp / hpAfter may be null while the decoder can't read them yet.
 //
 // Value modes:
@@ -30,6 +31,7 @@ export class Fight {
   constructor(onEnd) {
     this.onEnd = onEnd;
     this.roster = new Map();      // persists across fights
+    this.zone = null;             // zone visit id from the capture service: fights sharing it make up one dungeon run
     this.reset();
   }
 
@@ -84,6 +86,11 @@ export class Fight {
       case "zone":       // new zone: ids are reused, so drop who-is-who from the old one
         this.finish(this.killedAt != null);
         this.roster.clear();
+        this.zone = e.id ?? e.ts;
+        break;
+
+      case "zoneinfo":
+        this.zone = e.id ?? null;
         break;
 
       case "player":
@@ -97,7 +104,8 @@ export class Fight {
         }
         if (e.id != null) { this.targetId = e.id; if (e.boss) this.bossIds.add(e.id); }
         this.target = { name: e.name, hp: e.hp ?? null, maxHp: e.maxHp ?? null,
-                        boss: !!e.boss, template: e.template ?? null, named: !!e.named };
+                        boss: !!e.boss, template: e.template ?? null, named: !!e.named,
+                        enrage: e.enrage ?? null };   // seconds; 0 = this boss version has none (sent with every update)
         if (typeof e.hp === "number" && e.hp <= 0 && this.start != null && this.killedAt == null) this.killedAt = e.ts;
         break;
 
@@ -118,7 +126,8 @@ export class Fight {
         s.dmg += e.dmg; s.hits++; if (e.crit) s.crits++;
         if (e.tgt != null) { s.byTgt.set(e.tgt, (s.byTgt.get(e.tgt) || 0) + e.dmg); if (e.boss) this.bossIds.add(e.tgt); }
         this.bucket(s.sec.dmg, e.ts, e.dmg);
-        const sk = skillKey(e.skill);
+        // everything a player's summons do is one "Summons" line (not a line per spirit / summoning skill)
+        const sk = / \(summon\)$/.test(e.skill || "") ? "Summons" : skillKey(e.skill);
         const k = s.skills.get(sk) || { hits: 0, crits: 0, dmg: 0, max: 0 };
         k.hits++; k.dmg += e.dmg; if (e.crit) k.crits++; k.max = Math.max(k.max, e.dmg);
         s.skills.set(sk, k);
@@ -191,7 +200,7 @@ export class Fight {
       };
     });
     return {
-      id: this.start, date: this.start, duration, killed,
+      id: this.start, date: this.start, duration, killed, zone: this.zone,
       target: this.target ? { ...this.target } : null,
       players,
       deaths: this.deaths.map(d => ({ ...d, name: this.roster.get(d.id)?.name ?? `#${d.id}` })),
@@ -257,6 +266,18 @@ export function mergeSnapshots(snaps) {
   return { id: "overall", date: snaps[snaps.length - 1]?.date, duration, killed: false, overall: true,
            target: { name: `Overall · ${snaps.length} fight${snaps.length === 1 ? "" : "s"}`, hp: null, maxHp: null },
            players: [...players.values()], deaths };
+}
+
+/** A player's skill rows with all summon damage as one "Summons" row (fights saved before 0.6.7 have a row per summon skill). */
+export function skillRows(p) {
+  const out = [], merged = { name: "Summons", hits: 0, crits: 0, dmg: 0, max: 0 };
+  for (const s of p.skills || []) {
+    if (s.name === "Summons" || / \(summon\)$/.test(s.name)) {
+      merged.hits += s.hits; merged.crits += s.crits; merged.dmg += s.dmg; merged.max = Math.max(merged.max, s.max);
+    } else out.push(s);
+  }
+  if (merged.hits) out.push(merged);
+  return out.sort((a, b) => b.dmg - a.dmg);
 }
 
 /** Damage a player did to the targets the filter allows ("all", "boss", "current"). */
