@@ -132,3 +132,10 @@ export function demoSpawns(now = Date.now()) {
     list: 1110, id: 111001 + i, name, region, portrait, level: 45, alive: inMs < 0, hp: inMs < 0 ? hp : null,
     next: inMs < 0 ? null : Math.round(now + inMs), upAt: inMs < 0 ? now - (i + 2) * m : null, seen: now - 30e3 })) }];
 }
+
+/** A sample pet collection (levels and souls as the game sends them) for the demo page and the Pet farming screen. */
+export function demoPets(now = Date.now()) {
+  return { t: "pets", at: now - 120e3, active: 1046, monsters: {},
+           owned: { 1207: 1, 1027: 1, 1013: 2, 1046: 3, 1005: 1, 1004: 1, 1006: 1, 1208: 1 },
+           souls: { 1207: 23, 1027: 3, 1013: 38, 1005: 6, 1006: 24, 1208: 11, 1002: 3 } };
+}

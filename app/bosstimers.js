@@ -11,7 +11,7 @@ export const HOURGLASS = `<svg class="icon" viewBox="0 0 24 24" fill="none" stro
 const BELL = `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a7 7 0 0 0-7 7v4l-2 3v1h18v-1l-2-3V9a7 7 0 0 0-7-7zm0 21a3 3 0 0 0 3-3H9a3 3 0 0 0 3 3z"/></svg>`;
 const NOPIC = `<span class="bt-pic bt-nopic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 4 6v6c0 5 3.4 8.6 8 10 4.6-1.4 8-5 8-10V6z"/></svg></span>`;
 
-export const state = { lists: [], webhook: null, hookMsg: "", open: null };
+export const state = { lists: [], webhook: null, guild: null, hookMsg: "", open: null };
 
 /** "12m 04s" / "1h 05m" until a time; "" once it's passed */
 export function countdown(at, now = Date.now()) {
@@ -38,7 +38,7 @@ export function screenKey(tab, now = Date.now()) {
   const l = state.lists.find(x => `map:${x.list}` === tab);
   const sp = l ? l.spawns.map(s => [s.id, s.alive, s.next, s.hp, s.name, s.next && s.next <= now]) : [];
   const ev = tab === "events" ? EVENTS.map(e => eventState(e, now).state + Math.floor(eventState(e, now).opensAt / 60e3)) : [];
-  return JSON.stringify([tab, sp, ev, reminders(), state.open, tab === "alerts" ? [state.webhook, state.hookMsg, reminderOpts()] : 0]);
+  return JSON.stringify([tab, sp, ev, reminders(), state.open, tab === "alerts" ? [state.webhook, state.guild, state.hookMsg, reminderOpts()] : 0]);
 }
 
 function bell(key) {
@@ -112,7 +112,8 @@ function alertsHtml() {
         <span class="bt-sub">${rs[k].map(m => m ? leadLabel(m) + " before" : "on spawn").join(", ")}</span></span>
         <button class="mini-btn" data-clear="${esc(k)}" title="Remove">✕</button></div>`).join("")
       : `<p class="muted">None yet. Click the bell next to any boss or event and pick when you want the pop-up.</p>`}
-    <div class="h-day">Discord dashboard</div>
+    <div class="h-day">Guild board</div>${guildHtml()}
+    <div class="h-day">Your own Discord dashboard</div>
     <p class="muted">Paste a channel webhook (Discord: channel settings → Integrations → Webhooks → Copy URL). Nova Meter keeps one
       message per map up to date there: who's up, what's next with portraits, the full schedule. Pin it. The link stays on this PC.</p>
     <div class="form bt-form">
@@ -123,6 +124,17 @@ function alertsHtml() {
         ${state.hookMsg ? `<span class="bt-msg">${esc(state.hookMsg)}</span>` : ""}</div>
     </div>
     <p class="muted run-note">Channel-wide reminders with commands (/remind Gartua 15) come with the Nova bot.</p>`;
+}
+
+function guildHtml() {
+  const g = state.guild || {};
+  if (g.state) {
+    return `<div class="form bt-form"><label>${esc(g.label)}</label><label class="check"><input type="checkbox" data-guild ${g.state === "on" ? "checked" : ""}>
+      Share the boss timers you see with your legion's Discord board (${esc(g.legion)} members only)</label></div>
+      <p class="muted">Every ${esc(g.legion)} member's meter keeps the guild board up to date: the newest timers win. Only boss timers are sent.</p>`;
+  }
+  return `<p class="muted">${g.legion ? `Your legion (${esc(g.legion)}) has no built-in board yet. You can still add your own webhook below.`
+    : "Waiting for the game to tell us your legion (it does when you enter a zone)."}</p>`;
 }
 
 /** Clicks inside the screen. → true when handled. send: websocket send; rerender: redraw now. */
@@ -162,7 +174,8 @@ export function onClick(e, { send, rerender, askText, nova }) {
   return false;
 }
 
-export function onChange(e, rerender) {
+export function onChange(e, rerender, send) {
+  if (e.target.closest("[data-guild]")) { send({ type: "settings", guild_feed: e.target.checked }); return true; }
   const opt = e.target.closest("[data-opt]");
   if (!opt) return false;
   setReminderOpts({ [opt.dataset.opt]: opt.checked });

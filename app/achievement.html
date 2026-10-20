@@ -124,6 +124,20 @@ function burst() {
 }
 
 function celebrate(d) {
+  if (d.kind === "pet") {                       // a pet reached its next level (pet farming)
+    $("kicker").textContent = d.max ? "Pet maxed out" : "Pet level up";
+    $("boss").textContent = d.name || "Pet";
+    $("dps").innerHTML = `Level ${d.level}<small>achieved</small>`;
+    $("gain").textContent = d.max ? "Max level: done farming this one" : "";
+    $("who").innerHTML = "";
+    document.documentElement.style.setProperty("--cc", "#a78bfa");
+    $("emblem").src = d.pic || "img/nova.png";
+    const st = $("stage");
+    st.classList.remove("show"); void st.offsetWidth; st.classList.add("show");
+    burst();
+    if (d.sound !== false) fanfare(d.volume ?? 0.5);
+    return;
+  }
   $("kicker").textContent = d.first ? "First kill recorded" : "New personal best";
   $("boss").textContent = d.boss || "Boss";
   $("dps").innerHTML = `${short(d.dps)}<small>DPS</small>`;

@@ -235,3 +235,9 @@ h4.sec { margin: 14px 6px 6px; color: var(--muted); font-size: 11px; letter-spac
 .bt-msg { margin-left: 8px; font-size: 12px; color: var(--muted); }
 .ok { color: #4ade80; }
 @container (max-width: 470px) { .bt-row { grid-template-columns: 34px minmax(0, 1fr) auto auto; } .bt-ren { display: none; } .bt-pic { width: 34px; height: 34px; } }
+
+/* ----- pet farming ----- */
+.pf-item { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 8px; align-items: center; margin-bottom: 4px; }
+.pf-item[hidden] { display: none; }
+.pf-tools { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin: 4px 0 10px; }
+.pf-search { flex: 1 1 180px; min-width: 0; background: #0b0d12; color: var(--text); border: 1px solid var(--line); border-radius: 6px; padding: 6px 8px; }

@@ -359,3 +359,22 @@ td > .skill-img { width: 16px; height: 16px; border-radius: 3px; vertical-align:
 .remind-toast img { width: 36px; height: 36px; border-radius: 7px; }
 .remind-toast b { display: block; font-size: 13px; }
 .remind-toast small { color: var(--muted); font-size: 11px; }
+
+/* pet farming strip (your target farm) */
+.petstrip { display: flex; flex-direction: column; gap: 3px; padding: 4px 8px 5px; border-top: 1px solid var(--line); cursor: pointer; }
+.pet-row { display: grid; grid-template-columns: 22px minmax(0, 1fr) auto; gap: 7px; align-items: center; }
+.pet-pic { width: 22px; height: 22px; border-radius: 5px; object-fit: cover; background: rgba(255,255,255,.06); }
+.pet-main { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.pet-name { font-size: 12px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.pet-bar { height: 4px; border-radius: 2px; background: rgba(255,255,255,.1); overflow: hidden; }
+.pet-bar i { display: block; height: 100%; background: linear-gradient(90deg, #7dd3fc, #a78bfa); transition: width .4s; }
+.pet-count { font: 700 13px var(--mono); text-align: right; white-space: nowrap; }
+.pet-count small { color: var(--muted); font-weight: 600; }
+.pet-count .pet-lv { display: block; font: 600 10px var(--font, inherit); }
+.pet-row.ready .pet-bar i, .pet-row.done .pet-bar i { background: #f3c25a; }
+.pet-row.ready .pet-count { color: #f3c25a; }
+.pet-row.big { grid-template-columns: 40px minmax(0, 1fr) auto; padding: 6px 8px; border-radius: 8px; background: rgba(255,255,255,.035); }
+.pet-row.big .pet-pic { width: 40px; height: 40px; border-radius: 8px; }
+.pet-row.big .pet-name { font-size: 14px; }
+.pet-row.big .pet-bar { height: 6px; }
+.pet-row.big .pet-count { font-size: 16px; }

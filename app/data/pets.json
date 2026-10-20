@@ -1,0 +1,2681 @@
+{
+"source": "gamers4.life pet database",
+"pets": [
+{
+"id": 1047,
+"name": "Aberrant Armadon",
+"genus": "Feral",
+"need": [
+25,
+75
+],
+"soulItem": 534760046,
+"farmable": true,
+"pic": "img/pets/1047.webp"
+},
+{
+"id": 1118,
+"name": "Aberrant Bee",
+"genus": "Feral",
+"need": [
+25,
+75
+],
+"soulItem": 534760149,
+"farmable": true,
+"pic": "img/pets/1118.webp"
+},
+{
+"id": 1119,
+"name": "Aberrant Coradon",
+"genus": "Feral",
+"need": [
+25,
+75
+],
+"soulItem": 534760150,
+"farmable": true,
+"pic": "img/pets/1119.webp"
+},
+{
+"id": 1021,
+"name": "Aberrant Odyle Spider",
+"genus": "Feral",
+"need": [
+25,
+75
+],
+"soulItem": 534760024,
+"farmable": true,
+"pic": "img/pets/1021.webp"
+},
+{
+"id": 1053,
+"name": "Aberrant Potcrab",
+"genus": "Feral",
+"need": [
+25,
+75
+],
+"soulItem": 534760052,
+"farmable": true,
+"pic": "img/pets/1053.webp"
+},
+{
+"id": 1089,
+"name": "Aberrant Skama",
+"genus": "Feral",
+"need": [
+25,
+75
+],
+"soulItem": 534760088,
+"farmable": true,
+"pic": "img/pets/1089.webp"
+},
+{
+"id": 1126,
+"name": "Aberrant Tog",
+"genus": "Feral",
+"need": [
+25,
+75
+],
+"soulItem": 534760157,
+"farmable": true,
+"pic": "img/pets/1126.webp"
+},
+{
+"id": 1125,
+"name": "Aberrant Zaif",
+"genus": "Feral",
+"need": [
+25,
+75
+],
+"soulItem": 534760156,
+"farmable": true,
+"pic": "img/pets/1125.webp"
+},
+{
+"id": 1193,
+"name": "Addicted Shulak Cart Worker",
+"genus": "Intelligent",
+"need": [
+25,
+75
+],
+"soulItem": 534760206,
+"farmable": true,
+"pic": "img/pets/1193.webp"
+},
+{
+"id": 1207,
+"name": "Agrint",
+"genus": "Nature",
+"need": [
+25,
+75
+],
+"soulItem": 534760196,
+"farmable": true,
+"pic": "img/pets/1207.webp"
+},
+{
+"id": 1038,
+"name": "Airon",
+"genus": "Feral",
+"need": [
+25,
+75
+],
+"soulItem": 534760037,
+"farmable": true,
+"pic": "img/pets/1038.webp"
+},
+{
+"id": 1177,
+"name": "Ancient Spirit",
+"genus": "Nature",
+"need": [
+25,
+75
+],
+"soulItem": 534760184,
+"farmable": true,
+"pic": "img/pets/1177.webp"
+},
+{
+"id": 1046,
+"name": "Armadon",
+"genus": "Feral",
+"need": [
+25,
+75
+],
+"soulItem": 534760045,
+"farmable": true,
+"pic": "img/pets/1046.webp"
+},
+{
+"id": 1208,
+"name": "Ashen Agrint",
+"genus": "Nature",
+"need": [
+25,
+75
+],
+"soulItem": 534760214,
+"farmable": true,
+"pic": "img/pets/1208.webp"
+},
+{
+"id": 1198,
+"name": "Ashen Basilisk",
+"genus": "Feral",
+"need": [
+25,
+75
+],
+"soulItem": 534760215,
+"farmable": true,
+"pic": "img/pets/1198.webp"
+},
+{
+"id": 1135,
+"name": "Ashen Dionae",
+"genus": "Nature",
+"need": [
+25,
+75
+],
+"soulItem": 534760166,
+"farmable": true,
+"pic": "img/pets/1135.webp"
+},
+{
+"id": 1132,
+"name": "Ashen Lupyllini",
+"genus": "Feral",
+"need": [
+25,
+75
+],
+"soulItem": 534760163,
+"farmable": true,
+"pic": "img/pets/1132.webp"
+},
+{
+"id": 1114,
+"name": "Ashen Spider",
+"genus": "Feral",
+"need": [
+25,
+75
+],
+"soulItem": 534760019,
+"farmable": true,
+"pic": "img/pets/1114.webp"
+},
+{
+"id": 1040,
+"name": "Aullaeu Shaman",
+"genus": "Intelligent",
+"need": [
+25,
+75
+],
+"soulItem": 534760039,
+"farmable": true,
+"pic": "img/pets/1040.webp"
+},
+{
+"id": 1044,
+"name": "Aultross's Doppelganger",
+"genus": "Intelligent",
+"need": [
+25,
+75
+],
+"soulItem": 534760043,
+"farmable": true,
+"pic": "img/pets/1044.webp"
+},
+{
+"id": 1008,
+"name": "Baby Odyle Spider",
+"genus": "Feral",
+"need": [
+25,
+75
+],
+"soulItem": 534760007,
+"farmable": true,
+"pic": "img/pets/1008.webp"
+},
+{
+"id": 1163,
+"name": "Basilisk",
+"genus": "Feral",
+"need": [
+25,
+75
+],
+"soulItem": 534760134,
+"farmable": true,
+"pic": "img/pets/1163.webp"
+},
+{
+"id": 1065,
+"name": "Biruta",
+"genus": "Intelligent",
+"need": [
+25,
+75
+],
+"soulItem": 534760064,
+"farmable": true,
+"pic": "img/pets/1065.webp"
+},
+{
+"id": 1105,
+"name": "Biruta Herbalist",
+"genus": "Intelligent",
+"need": [
+25,
+75
+],
+"soulItem": 534760104,
+"farmable": true,
+"pic": "img/pets/1105.webp"
+},
+{
+"id": 1058,
+"name": "Black Smoke Murute",
+"genus": "Nature",
+"need": [
+25,
+75
+],
+"soulItem": 534760057,
+"farmable": true,
+"pic": "img/pets/1058.webp"
+},
+{
+"id": 1214,
+"name": "Black Spirit",
+"genus": "Nature",
+"need": [
+25,
+75
+],
+"soulItem": 534760113,
+"farmable": true,
+"pic": "img/pets/1214.webp"
+},
+{
+"id": 1110,
+"name": "Blue Kalgolem",
+"genus": "Transformation",
+"need": [
+25,
+75
+],
+"soulItem": 534760109,
+"farmable": true,
+"pic": "img/pets/1110.webp"
+},
+{
+"id": 1181,
+"name": "Brax",
+"genus": "Feral",
+"need": [
+25,
+75
+],
+"soulItem": 534760197,
+"farmable": true,
+"pic": "img/pets/1181.webp"
+},
+{
+"id": 1157,
+"name": "Cadaver Cleaner",
+"genus": "Transformation",
+"need": [
+25,
+75
+],
+"soulItem": 534760188,
+"farmable": true,
+"pic": "img/pets/1157.webp"
+},
+{
+"id": 1071,
+"name": "Cadaver Insectoid",
+"genus": "Feral",
+"need": [
+25,
+75
+],
+"soulItem": 534760070,
+"farmable": true,
+"pic": "img/pets/1071.webp"
+},
+{
+"id": 1041,
+"name": "Cave Bat",
+"genus": "Feral",
+"need": [
+25,
+75
+],
+"soulItem": 534760040,
+"farmable": true,
+"pic": "img/pets/1041.webp"
+},
+{
+"id": 1217,
+"name": "Congealed Drana",
+"genus": "Transformation",
+"need": [
+25,
+75
+],
+"soulItem": 534760187,
+"farmable": true,
+"pic": "img/pets/1217.webp"
+},
+{
+"id": 1062,
+"name": "Contaminated Slime",
+"genus": "Transformation",
+"need": [
+25,
+75
+],
+"soulItem": 534760061,
+"farmable": true,
+"pic": "img/pets/1062.webp"
+},
+{
+"id": 1057,
+"name": "Coradon",
+"genus": "Feral",
+"need": [
+25,
+75
+],
+"soulItem": 534760056,
+"farmable": true,
+"pic": "img/pets/1057.webp"
+},
+{
+"id": 1022,
+"name": "Crasaur",
+"genus": "Feral",
+"need": [
+25,
+75
+],
+"soulItem": 534760021,
+"farmable": true,
+"pic": "img/pets/1022.webp"
+},
+{
+"id": 1039,
+"name": "Crestlich",
+"genus": "Feral",
+"need": [
+25,
+75
+],
+"soulItem": 534760038,
+"farmable": true,
+"pic": "img/pets/1039.webp"
+},
+{
+"id": 1216,
+"name": "Dark Spirit",
+"genus": "Transformation",
+"need": [
+25,
+75
+],
+"soulItem": 534760147,
+"farmable": true,
+"pic": "img/pets/1216.webp"
+},
+{
+"id": 1202,
+"name": "Decomposed Lupyllini",
+"genus": "Intelligent",
+"need": [
+25,
+75
+],
+"soulItem": 534760211,
+"farmable": true,
+"pic": "img/pets/1202.webp"
+},
+{
+"id": 1081,
+"name": "Dionae",
+"genus": "Nature",
+"need": [
+25,
+75
+],
+"soulItem": 534760080,
+"farmable": true,
+"pic": "img/pets/1081.webp"
+},
+{
+"id": 1142,
+"name": "Distorted Mutant",
+"genus": "Transformation",
+"need": [
+25,
+75
+],
+"soulItem": 534760173,
+"farmable": true,
+"pic": "img/pets/1142.webp"
+},
+{
+"id": 1195,
+"name": "Dracuni Herbalist",
+"genus": "Intelligent",
+"need": [
+25,
+75
+],
+"soulItem": 534760141,
+"farmable": true,
+"pic": "img/pets/1195.webp"
+},
+{
+"id": 1014,
+"name": "Drakan Guard Dog",
+"genus": "Feral",
+"need": [
+25,
+75
+],
+"soulItem": 534760013,
+"farmable": true,
+"pic": "img/pets/1014.webp"
+},
+{
+"id": 1056,
+"name": "Drakan Probe",
+"genus": "Transformation",
+"need": [
+25,
+75
+],
+"soulItem": 534760055,
+"farmable": true,
+"pic": "img/pets/1056.webp"
+},
+{
+"id": 1184,
+"name": "Drakan Watcher",
+"genus": "Intelligent",
+"need": [
+25,
+75
+],
+"soulItem": 534760140,
+"farmable": true,
+"pic": "img/pets/1184.webp"
+},
+{
+"id": 1148,
+"name": "Drakana Kalgolem",
+"genus": "Transformation",
+"need": [
+25,
+75
+],
+"soulItem": 534760179,
+"farmable": true,
+"pic": "img/pets/1148.webp"
+},
+{
+"id": 1160,
+"name": "Drana Contaminant",
+"genus": "Transformation",
+"need": [
+25,
+75
+],
+"soulItem": 534760186,
+"farmable": true,
+"pic": "img/pets/1160.webp"
+},
+{
+"id": 1179,
+"name": "Drana Mutant",
+"genus": "Transformation",
+"need": [
+25,
+75
+],
+"soulItem": 534760204,
+"farmable": true,
+"pic": "img/pets/1179.webp"
+},
+{
+"id": 1153,
+"name": "Drana Mutant Brute",
+"genus": "Transformation",
+"need": [
+25,
+75
+],
+"soulItem": 534760114,
+"farmable": true,
+"pic": "img/pets/1153.webp"
+},
+{
+"id": 1174,
+"name": "Drana Predator",
+"genus": "Transformation",
+"need": [
+25,
+75
+],
+"soulItem": 534760199,
+"farmable": true,
+"pic": "img/pets/1174.webp"
+},
+{
+"id": 1128,
+"name": "Drana Slime",
+"genus": "Transformation",
+"need": [
+25,
+75
+],
+"soulItem": 534760159,
+"farmable": true,
+"pic": "img/pets/1128.webp"
+},
+{
+"id": 1131,
+"name": "Drana Spore",
+"genus": "Nature",
+"need": [
+25,
+75
+],
+"soulItem": 534760162,
+"farmable": true,
+"pic": "img/pets/1131.webp"
+},
+{
+"id": 1129,
+"name": "Drana Swarm",
+"genus": "Transformation",
+"need": [
+25,
+75
+],
+"soulItem": 534760160,
+"farmable": true,
+"pic": "img/pets/1129.webp"
+},
+{
+"id": 1147,
+"name": "Dratona",
+"genus": "Intelligent",
+"need": [
+25,
+75
+],
+"soulItem": 534760133,
+"farmable": true,
+"pic": "img/pets/1147.webp"
+},
+{
+"id": 1185,
+"name": "Dratona Tinkerer",
+"genus": "Intelligent",
+"need": [
+25,
+75
+],
+"soulItem": 534760217,
+"farmable": true,
+"pic": "img/pets/1185.webp"
+},
+{
+"id": 1102,
+"name": "Dried Up Forest Guardian",
+"genus": "Nature",
+"need": [
+25,
+75
+],
+"soulItem": 534760101,
+"farmable": true,
+"pic": "img/pets/1102.webp"
+},
+{
+"id": 1210,
+"name": "Dry Leaf Agrint",
+"genus": "Nature",
+"need": [
+25,
+75
+],
+"soulItem": 534760222,
+"farmable": true,
+"pic": "img/pets/1210.webp"
+},
+{
+"id": 1173,
+"name": "Duduka Trebuchet Worker",
+"genus": "Transformation",
+"need": [
+25,
+75
+],
+"soulItem": 534760138,
+"farmable": true,
+"pic": "img/pets/1173.webp"
+},
+{
+"id": 1172,
+"name": "Duduka Worker",
+"genus": "Transformation",
+"need": [
+25,
+75
+],
+"soulItem": 534760137,
+"farmable": true,
+"pic": "img/pets/1172.webp"
+},
+{
+"id": 1196,
+"name": "Elite Dratona",
+"genus": "Intelligent",
+"need": [
+25,
+75
+],
+"soulItem": 534760190,
+"farmable": true,
+"pic": "img/pets/1196.webp"
+},
+{
+"id": 1206,
+"name": "Elite Guardite",
+"genus": "Transformation",
+"need": [
+25,
+75
+],
+"soulItem": 534760207,
+"farmable": true,
+"pic": "img/pets/1206.webp"
+},
+{
+"id": 1099,
+"name": "Elite Karnif",
+"genus": "Feral",
+"need": [
+25,
+75
+],
+"soulItem": 534760098,
+"farmable": true,
+"pic": "img/pets/1099.webp"
+},
+{
+"id": 1032,
+"name": "Elite Keneire",
+"genus": "Feral",
+"need": [
+25,
+75
+],
+"soulItem": 534760031,
+"farmable": true,
+"pic": "img/pets/1032.webp"
+},
+{
+"id": 1156,
+"name": "Elite Klaw",
+"genus": "Intelligent",
+"need": [
+25,
+75
+],
+"soulItem": 534760191,
+"farmable": true,
+"pic": "img/pets/1156.webp"
+},
+{
+"id": 1033,
+"name": "Elite Manduri Fighter",
+"genus": "Intelligent",
+"need": [
+25,
+75
+],
+"soulItem": 534760032,
+"farmable": true,
+"pic": "img/pets/1033.webp"
+},
+{
+"id": 1190,
+"name": "Elite Poisonous Spore Fungen",
+"genus": "Nature",
+"need": [
+25,
+75
+],
+"soulItem": 534760189,
+"farmable": true,
+"pic": "img/pets/1190.webp"
+},
+{
+"id": 1182,
+"name": "Elite Soulless Corpse Gnat",
+"genus": "Transformation",
+"need": [
+25,
+75
+],
+"soulItem": 534760136,
+"farmable": true,
+"pic": "img/pets/1182.webp"
+},
+{
+"id": 1043,
+"name": "Elite Ursus",
+"genus": "Feral",
+"need": [
+25,
+75
+],
+"soulItem": 534760042,
+"farmable": true,
+"pic": "img/pets/1043.webp"
+},
+{
+"id": 1108,
+"name": "Enhanced Krall Combatant",
+"genus": "Intelligent",
+"need": [
+25,
+75
+],
+"soulItem": 534760107,
+"farmable": true,
+"pic": "img/pets/1108.webp"
+},
+{
+"id": 1109,
+"name": "Enhanced Krall Sentry",
+"genus": "Intelligent",
+"need": [
+25,
+75
+],
+"soulItem": 534760108,
+"farmable": true,
+"pic": "img/pets/1109.webp"
+},
+{
+"id": 1134,
+"name": "Eternal Coradon",
+"genus": "Feral",
+"need": [
+25,
+75
+],
+"soulItem": 534760165,
+"farmable": true,
+"pic": "img/pets/1134.webp"
+},
+{
+"id": 1218,
+"name": "Faded Drana",
+"genus": "Transformation",
+"need": [
+25,
+75
+],
+"soulItem": 534760212,
+"farmable": true,
+"pic": "img/pets/1218.webp"
+},
+{
+"id": 1161,
+"name": "Faded Floater",
+"genus": "Transformation",
+"need": [
+25,
+75
+],
+"soulItem": 534760203,
+"farmable": true,
+"pic": "img/pets/1161.webp"
+},
+{
+"id": 1180,
+"name": "Faded Mutant",
+"genus": "Transformation",
+"need": [
+25,
+75
+],
+"soulItem": 534760201,
+"farmable": true,
+"pic": "img/pets/1180.webp"
+},
+{
+"id": 1154,
+"name": "Faded Mutant Brute",
+"genus": "Transformation",
+"need": [
+25,
+75
+],
+"soulItem": 534760202,
+"farmable": true,
+"pic": "img/pets/1154.webp"
+},
+{
+"id": 1175,
+"name": "Faded Predator",
+"genus": "Transformation",
+"need": [
+25,
+75
+],
+"soulItem": 534760200,
+"farmable": true,
+"pic": "img/pets/1175.webp"
+},
+{
+"id": 1199,
+"name": "Flame Barghest",
+"genus": "Feral",
+"need": [
+25,
+75
+],
+"soulItem": 534760129,
+"farmable": true,
+"pic": "img/pets/1199.webp"
+},
+{
+"id": 1167,
+"name": "Flame Stone Guardian Statue",
+"genus": "Transformation",
+"need": [
+25,
+75
+],
+"soulItem": 534760130,
+"farmable": true,
+"pic": "img/pets/1167.webp"
+},
+{
+"id": 1133,
+"name": "Forest Dionae",
+"genus": "Nature",
+"need": [
+25,
+75
+],
+"soulItem": 534760164,
+"farmable": true,
+"pic": "img/pets/1133.webp"
+},
+{
+"id": 1101,
+"name": "Forest Guardian",
+"genus": "Nature",
+"need": [
+25,
+75
+],
+"soulItem": 534760100,
+"farmable": true,
+"pic": "img/pets/1101.webp"
+},
+{
+"id": 1140,
+"name": "Forest Monster",
+"genus": "Transformation",
+"need": [
+25,
+75
+],
+"soulItem": 534760112,
+"farmable": true,
+"pic": "img/pets/1140.webp"
+},
+{
+"id": 1003,
+"name": "Forest Specter",
+"genus": "Nature",
+"need": [
+25,
+75
+],
+"soulItem": 534760002,
+"farmable": true,
+"pic": "img/pets/1003.webp"
+},
+{
+"id": 1048,
+"name": "Forest Spirit",
+"genus": "Nature",
+"need": [
+25,
+75
+],
+"soulItem": 534760047,
+"farmable": true,
+"pic": "img/pets/1048.webp"
+},
+{
+"id": 1004,
+"name": "Fossa",
+"genus": "Feral",
+"need": [
+25,
+75
+],
+"soulItem": 534760003,
+"farmable": true,
+"pic": "img/pets/1004.webp"
+},
+{
+"id": 1086,
+"name": "Fungen",
+"genus": "Nature",
+"need": [
+25,
+75
+],
+"soulItem": 534760085,
+"farmable": true,
+"pic": "img/pets/1086.webp"
+},
+{
+"id": 1012,
+"name": "Fungie",
+"genus": "Nature",
+"need": [
+25,
+75
+],
+"soulItem": 534760011,
+"farmable": true,
+"pic": "img/pets/1012.webp"
+},
+{
+"id": 1191,
+"name": "Furious Feruk",
+"genus": "Intelligent",
+"need": [
+25,
+75
+],
+"soulItem": 534760131,
+"farmable": true,
+"pic": "img/pets/1191.webp"
+},
+{
+"id": 1146,
+"name": "Gatekeeper Pinopi",
+"genus": "Transformation",
+"need": [
+25,
+75
+],
+"soulItem": 534760118,
+"farmable": true,
+"pic": "img/pets/1146.webp"
+},
+{
+"id": 1059,
+"name": "Giant Bee",
+"genus": "Feral",
+"need": [
+25,
+75
+],
+"soulItem": 534760058,
+"farmable": true,
+"pic": "img/pets/1059.webp"
+},
+{
+"id": 1034,
+"name": "Giant Sparkie",
+"genus": "Feral",
+"need": [
+25,
+75
+],
+"soulItem": 534760033,
+"farmable": true,
+"pic": "img/pets/1034.webp"
+},
+{
+"id": 1055,
+"name": "Grave Rat",
+"genus": "Feral",
+"need": [
+25,
+75
+],
+"soulItem": 534760054,
+"farmable": true,
+"pic": "img/pets/1055.webp"
+},
+{
+"id": 1050,
+"name": "Gravi",
+"genus": "Nature",
+"need": [
+25,
+75
+],
+"soulItem": 534760049,
+"farmable": true,
+"pic": "img/pets/1050.webp"
+},
+{
+"id": 1194,
+"name": "Guardite",
+"genus": "Transformation",
+"need": [
+25,
+75
+],
+"soulItem": 534760139,
+"farmable": true,
+"pic": "img/pets/1194.webp"
+},
+{
+"id": 1077,
+"name": "Harcon",
+"genus": "Transformation",
+"need": [
+25,
+75
+],
+"soulItem": 534760076,
+"farmable": true,
+"pic": "img/pets/1077.webp"
+},
+{
+"id": 1165,
+"name": "Intermediate Earth Spirit",
+"genus": "Nature",
+"need": [
+25,
+75
+],
+"soulItem": 534760124,
+"farmable": true,
+"pic": "img/pets/1165.webp"
+},
+{
+"id": 1187,
+"name": "Intermediate Fire Spirit",
+"genus": "Nature",
+"need": [
+25,
+75
+],
+"soulItem": 534760127,
+"farmable": true,
+"pic": "img/pets/1187.webp"
+},
+{
+"id": 1169,
+"name": "Intermediate Water Spirit",
+"genus": "Nature",
+"need": [
+25,
+75
+],
+"soulItem": 534760121,
+"farmable": true,
+"pic": "img/pets/1169.webp"
+},
+{
+"id": 1094,
+"name": "Intermediate Wind Spirit",
+"genus": "Nature",
+"need": [
+25,
+75
+],
+"soulItem": 534760093,
+"farmable": true,
+"pic": "img/pets/1094.webp"
+},
+{
+"id": 1015,
+"name": "Kailin",
+"genus": "Feral",
+"need": [
+25,
+75
+],
+"soulItem": 534760014,
+"farmable": true,
+"pic": "img/pets/1015.webp"
+},
+{
+"id": 1084,
+"name": "Kalgolem",
+"genus": "Transformation",
+"need": [
+25,
+75
+],
+"soulItem": 534760083,
+"farmable": true,
+"pic": "img/pets/1084.webp"
+},
+{
+"id": 1097,
+"name": "Karnif",
+"genus": "Feral",
+"need": [
+25,
+75
+],
+"soulItem": 534760096,
+"farmable": true,
+"pic": "img/pets/1097.webp"
+},
+{
+"id": 1009,
+"name": "Kernon",
+"genus": "Feral",
+"need": [
+25,
+75
+],
+"soulItem": 534760008,
+"farmable": true,
+"pic": "img/pets/1009.webp"
+},
+{
+"id": 1162,
+"name": "Kerubar",
+"genus": "Intelligent",
+"need": [
+25,
+75
+],
+"soulItem": 534760142,
+"farmable": true,
+"pic": "img/pets/1162.webp"
+},
+{
+"id": 1170,
+"name": "Kerubian",
+"genus": "Intelligent",
+"need": [
+25,
+75
+],
+"soulItem": 534760143,
+"farmable": true,
+"pic": "img/pets/1170.webp"
+},
+{
+"id": 1171,
+"name": "Kerubiel",
+"genus": "Intelligent",
+"need": [
+25,
+75
+],
+"soulItem": 534760209,
+"farmable": true,
+"pic": "img/pets/1171.webp"
+},
+{
+"id": 1005,
+"name": "Klaw",
+"genus": "Intelligent",
+"need": [
+25,
+75
+],
+"soulItem": 534760004,
+"farmable": true,
+"pic": "img/pets/1005.webp"
+},
+{
+"id": 1029,
+"name": "Klaw Scout",
+"genus": "Intelligent",
+"need": [
+25,
+75
+],
+"soulItem": 534760028,
+"farmable": true,
+"pic": "img/pets/1029.webp"
+},
+{
+"id": 1031,
+"name": "Konutin Worker",
+"genus": "Nature",
+"need": [
+25,
+75
+],
+"soulItem": 534760030,
+"farmable": true,
+"pic": "img/pets/1031.webp"
+},
+{
+"id": 1002,
+"name": "Krall Laborer",
+"genus": "Intelligent",
+"need": [
+25,
+75
+],
+"soulItem": 534760001,
+"farmable": true,
+"pic": "img/pets/1002.webp"
+},
+{
+"id": 1026,
+"name": "Krall Warrior",
+"genus": "Intelligent",
+"need": [
+25,
+75
+],
+"soulItem": 534760025,
+"farmable": true,
+"pic": "img/pets/1026.webp"
+},
+{
+"id": 1017,
+"name": "Krall Warshaman",
+"genus": "Intelligent",
+"need": [
+25,
+75
+],
+"soulItem": 534760016,
+"farmable": true,
+"pic": "img/pets/1017.webp"
+},
+{
+"id": 1028,
+"name": "Krao Mutant",
+"genus": "Transformation",
+"need": [
+25,
+75
+],
+"soulItem": 534760027,
+"farmable": true,
+"pic": "img/pets/1028.webp"
+},
+{
+"id": 1107,
+"name": "Krao Seal Guardian",
+"genus": "Transformation",
+"need": [
+25,
+75
+],
+"soulItem": 534760106,
+"farmable": true,
+"pic": "img/pets/1107.webp"
+},
+{
+"id": 1068,
+"name": "Krao Test Subject",
+"genus": "Transformation",
+"need": [
+25,
+75
+],
+"soulItem": 534760067,
+"farmable": true,
+"pic": "img/pets/1068.webp"
+},
+{
+"id": 1115,
+"name": "Kuru Overseer",
+"genus": "Intelligent",
+"need": [
+25,
+75
+],
+"soulItem": 534760075,
+"farmable": true,
+"pic": "img/pets/1115.webp"
+},
+{
+"id": 1075,
+"name": "Kuru Tinkerer",
+"genus": "Intelligent",
+"need": [
+25,
+75
+],
+"soulItem": 534760074,
+"farmable": true,
+"pic": "img/pets/1075.webp"
+},
+{
+"id": 1074,
+"name": "Kuru Worker",
+"genus": "Intelligent",
+"need": [
+25,
+75
+],
+"soulItem": 534760073,
+"farmable": true,
+"pic": "img/pets/1074.webp"
+},
+{
+"id": 1052,
+"name": "Large Leaf Gravi",
+"genus": "Nature",
+"need": [
+25,
+75
+],
+"soulItem": 534760051,
+"farmable": true,
+"pic": "img/pets/1052.webp"
+},
+{
+"id": 1164,
+"name": "Lesser Earth Spirit",
+"genus": "Nature",
+"need": [
+25,
+75
+],
+"soulItem": 534760123,
+"farmable": true,
+"pic": "img/pets/1164.webp"
+},
+{
+"id": 1213,
+"name": "Lesser Fire Spirit",
+"genus": "Nature",
+"need": [
+25,
+75
+],
+"soulItem": 534760126,
+"farmable": true,
+"pic": "img/pets/1213.webp"
+},
+{
+"id": 1168,
+"name": "Lesser Water Spirit",
+"genus": "Nature",
+"need": [
+25,
+75
+],
+"soulItem": 534760120,
+"farmable": true,
+"pic": "img/pets/1168.webp"
+},
+{
+"id": 1092,
+"name": "Lesser Wind Spirit",
+"genus": "Nature",
+"need": [
+25,
+75
+],
+"soulItem": 534760091,
+"farmable": true,
+"pic": "img/pets/1092.webp"
+},
+{
+"id": 1036,
+"name": "Lupyllini",
+"genus": "Feral",
+"need": [
+25,
+75
+],
+"soulItem": 534760035,
+"farmable": true,
+"pic": "img/pets/1036.webp"
+},
+{
+"id": 1051,
+"name": "Magic Gravi",
+"genus": "Nature",
+"need": [
+25,
+75
+],
+"soulItem": 534760050,
+"farmable": true,
+"pic": "img/pets/1051.webp"
+},
+{
+"id": 1037,
+"name": "Male Crestlich",
+"genus": "Feral",
+"need": [
+25,
+75
+],
+"soulItem": 534760036,
+"farmable": true,
+"pic": "img/pets/1037.webp"
+},
+{
+"id": 1010,
+"name": "Manduri Fighter",
+"genus": "Intelligent",
+"need": [
+25,
+75
+],
+"soulItem": 534760009,
+"farmable": true,
+"pic": "img/pets/1010.webp"
+},
+{
+"id": 1104,
+"name": "Manduri Trebuchet Worker",
+"genus": "Intelligent",
+"need": [
+25,
+75
+],
+"soulItem": 534760103,
+"farmable": true,
+"pic": "img/pets/1104.webp"
+},
+{
+"id": 1141,
+"name": "Marsh Targon",
+"genus": "Transformation",
+"need": [
+25,
+75
+],
+"soulItem": 534760172,
+"farmable": true,
+"pic": "img/pets/1141.webp"
+},
+{
+"id": 1098,
+"name": "Modified Karnif",
+"genus": "Feral",
+"need": [
+25,
+75
+],
+"soulItem": 534760097,
+"farmable": true,
+"pic": "img/pets/1098.webp"
+},
+{
+"id": 1201,
+"name": "Modified Lupyllini",
+"genus": "Intelligent",
+"need": [
+25,
+75
+],
+"soulItem": 534760198,
+"farmable": true,
+"pic": "img/pets/1201.webp"
+},
+{
+"id": 1176,
+"name": "Mudthorn",
+"genus": "Transformation",
+"need": [
+25,
+75
+],
+"soulItem": 534760213,
+"farmable": true,
+"pic": "img/pets/1176.webp"
+},
+{
+"id": 1138,
+"name": "Mumu Overseer",
+"genus": "Intelligent",
+"need": [
+25,
+75
+],
+"soulItem": 534760169,
+"farmable": true,
+"pic": "img/pets/1138.webp"
+},
+{
+"id": 1054,
+"name": "Mumu Warrior",
+"genus": "Intelligent",
+"need": [
+25,
+75
+],
+"soulItem": 534760053,
+"farmable": true,
+"pic": "img/pets/1054.webp"
+},
+{
+"id": 1137,
+"name": "Mumu Worker",
+"genus": "Intelligent",
+"need": [
+25,
+75
+],
+"soulItem": 534760168,
+"farmable": true,
+"pic": "img/pets/1137.webp"
+},
+{
+"id": 1025,
+"name": "Mutated Aberrant Odyle Spider",
+"genus": "Feral",
+"need": [
+25,
+75
+],
+"soulItem": 534760020,
+"farmable": true,
+"pic": "img/pets/1025.webp"
+},
+{
+"id": 1130,
+"name": "Mutated Cadaver Insectoid",
+"genus": "Feral",
+"need": [
+25,
+75
+],
+"soulItem": 534760161,
+"farmable": true,
+"pic": "img/pets/1130.webp"
+},
+{
+"id": 1144,
+"name": "Mutated Forest Guardian",
+"genus": "Nature",
+"need": [
+25,
+75
+],
+"soulItem": 534760175,
+"farmable": true,
+"pic": "img/pets/1144.webp"
+},
+{
+"id": 1049,
+"name": "Mutated Forest Spirit",
+"genus": "Nature",
+"need": [
+25,
+75
+],
+"soulItem": 534760048,
+"farmable": true,
+"pic": "img/pets/1049.webp"
+},
+{
+"id": 1145,
+"name": "Mutated Insectoid Valka",
+"genus": "Feral",
+"need": [
+25,
+75
+],
+"soulItem": 534760176,
+"farmable": true,
+"pic": "img/pets/1145.webp"
+},
+{
+"id": 1143,
+"name": "Mutated Ursus",
+"genus": "Feral",
+"need": [
+25,
+75
+],
+"soulItem": 534760174,
+"farmable": true,
+"pic": "img/pets/1143.webp"
+},
+{
+"id": 1200,
+"name": "Naga Elite Priest",
+"genus": "Intelligent",
+"need": [
+25,
+75
+],
+"soulItem": 534760117,
+"farmable": true,
+"pic": "img/pets/1200.webp"
+},
+{
+"id": 1030,
+"name": "Nagarant Guardian Warrior",
+"genus": "Intelligent",
+"need": [
+25,
+75
+],
+"soulItem": 534760029,
+"farmable": true,
+"pic": "img/pets/1030.webp"
+},
+{
+"id": 1073,
+"name": "Nepenthes",
+"genus": "Nature",
+"need": [
+25,
+75
+],
+"soulItem": 534760072,
+"farmable": true,
+"pic": "img/pets/1073.webp"
+},
+{
+"id": 1064,
+"name": "Oculazen",
+"genus": "Transformation",
+"need": [
+25,
+75
+],
+"soulItem": 534760063,
+"farmable": true,
+"pic": "img/pets/1064.webp"
+},
+{
+"id": 1127,
+"name": "Odyle Stone Spirit",
+"genus": "Nature",
+"need": [
+25,
+75
+],
+"soulItem": 534760158,
+"farmable": true,
+"pic": "img/pets/1127.webp"
+},
+{
+"id": 1066,
+"name": "Papis",
+"genus": "Feral",
+"need": [
+25,
+75
+],
+"soulItem": 534760065,
+"farmable": true,
+"pic": "img/pets/1066.webp"
+},
+{
+"id": 1159,
+"name": "Parasite Swarm",
+"genus": "Transformation",
+"need": [
+25,
+75
+],
+"soulItem": 534760110,
+"farmable": true,
+"pic": "img/pets/1159.webp"
+},
+{
+"id": 1093,
+"name": "Phantasmal Lakshmi",
+"genus": "Intelligent",
+"need": [
+25,
+75
+],
+"soulItem": 534760092,
+"farmable": true,
+"pic": "img/pets/1093.webp"
+},
+{
+"id": 1087,
+"name": "Pino",
+"genus": "Transformation",
+"need": [
+25,
+75
+],
+"soulItem": 534760086,
+"farmable": true,
+"pic": "img/pets/1087.webp"
+},
+{
+"id": 1088,
+"name": "Pino Worker",
+"genus": "Transformation",
+"need": [
+25,
+75
+],
+"soulItem": 534760087,
+"farmable": true,
+"pic": "img/pets/1088.webp"
+},
+{
+"id": 1186,
+"name": "Poison Blood",
+"genus": "Transformation",
+"need": [
+25,
+75
+],
+"soulItem": 534760185,
+"farmable": true,
+"pic": "img/pets/1186.webp"
+},
+{
+"id": 1007,
+"name": "Potcrab",
+"genus": "Feral",
+"need": [
+25,
+75
+],
+"soulItem": 534760006,
+"farmable": true,
+"pic": "img/pets/1007.webp"
+},
+{
+"id": 1215,
+"name": "Predator Saraswati",
+"genus": "Intelligent",
+"need": [
+25,
+75
+],
+"soulItem": 534760116,
+"farmable": true,
+"pic": "img/pets/1215.webp"
+},
+{
+"id": 1103,
+"name": "Pretor Veil Administrator",
+"genus": "Intelligent",
+"need": [
+25,
+75
+],
+"soulItem": 534760102,
+"farmable": true,
+"pic": "img/pets/1103.webp"
+},
+{
+"id": 1136,
+"name": "Rafflesia",
+"genus": "Nature",
+"need": [
+25,
+75
+],
+"soulItem": 534760167,
+"farmable": true,
+"pic": "img/pets/1136.webp"
+},
+{
+"id": 1091,
+"name": "Red Spark Ignus",
+"genus": "Nature",
+"need": [
+25,
+75
+],
+"soulItem": 534760090,
+"farmable": true,
+"pic": "img/pets/1091.webp"
+},
+{
+"id": 1067,
+"name": "Scorpion",
+"genus": "Feral",
+"need": [
+25,
+75
+],
+"soulItem": 534760066,
+"farmable": true,
+"pic": "img/pets/1067.webp"
+},
+{
+"id": 1080,
+"name": "Sentinel K'nash",
+"genus": "Intelligent",
+"need": [
+25,
+75
+],
+"soulItem": 534760079,
+"farmable": true,
+"pic": "img/pets/1080.webp"
+},
+{
+"id": 1192,
+"name": "Silver Blade Rotan",
+"genus": "Transformation",
+"need": [
+25,
+75
+],
+"soulItem": 534760128,
+"farmable": true,
+"pic": "img/pets/1192.webp"
+},
+{
+"id": 1035,
+"name": "Skama",
+"genus": "Feral",
+"need": [
+25,
+75
+],
+"soulItem": 534760034,
+"farmable": true,
+"pic": "img/pets/1035.webp"
+},
+{
+"id": 1011,
+"name": "Skyray",
+"genus": "Feral",
+"need": [
+25,
+75
+],
+"soulItem": 534760010,
+"farmable": true,
+"pic": "img/pets/1011.webp"
+},
+{
+"id": 1061,
+"name": "Slime",
+"genus": "Transformation",
+"need": [
+25,
+75
+],
+"soulItem": 534760060,
+"farmable": true,
+"pic": "img/pets/1061.webp"
+},
+{
+"id": 1016,
+"name": "Slink",
+"genus": "Feral",
+"need": [
+25,
+75
+],
+"soulItem": 534760015,
+"farmable": true,
+"pic": "img/pets/1016.webp"
+},
+{
+"id": 1183,
+"name": "Soulless Corpse Gnat",
+"genus": "Transformation",
+"need": [
+25,
+75
+],
+"soulItem": 534760221,
+"farmable": true,
+"pic": "img/pets/1183.webp"
+},
+{
+"id": 1006,
+"name": "Sparkie",
+"genus": "Feral",
+"need": [
+25,
+75
+],
+"soulItem": 534760005,
+"farmable": true,
+"pic": "img/pets/1006.webp"
+},
+{
+"id": 1083,
+"name": "Spider",
+"genus": "Feral",
+"need": [
+25,
+75
+],
+"soulItem": 534760082,
+"farmable": true,
+"pic": "img/pets/1083.webp"
+},
+{
+"id": 1178,
+"name": "Spirit King's Bodyguard Warrior",
+"genus": "Nature",
+"need": [
+25,
+75
+],
+"soulItem": 534760144,
+"farmable": true,
+"pic": "img/pets/1178.webp"
+},
+{
+"id": 1060,
+"name": "Starturtle",
+"genus": "Feral",
+"need": [
+25,
+75
+],
+"soulItem": 534760059,
+"farmable": true,
+"pic": "img/pets/1060.webp"
+},
+{
+"id": 1069,
+"name": "Stone Spirit",
+"genus": "Nature",
+"need": [
+25,
+75
+],
+"soulItem": 534760068,
+"farmable": true,
+"pic": "img/pets/1069.webp"
+},
+{
+"id": 1166,
+"name": "Superior Earth Spirit",
+"genus": "Nature",
+"need": [
+25,
+75
+],
+"soulItem": 534760125,
+"farmable": true,
+"pic": "img/pets/1166.webp"
+},
+{
+"id": 1096,
+"name": "Superior Fire Spirit",
+"genus": "Nature",
+"need": [
+25,
+75
+],
+"soulItem": 534760095,
+"farmable": true,
+"pic": "img/pets/1096.webp"
+},
+{
+"id": 1155,
+"name": "Superior Water Spirit",
+"genus": "Nature",
+"need": [
+25,
+75
+],
+"soulItem": 534760122,
+"farmable": true,
+"pic": "img/pets/1155.webp"
+},
+{
+"id": 1095,
+"name": "Superior Wind Spirit",
+"genus": "Nature",
+"need": [
+25,
+75
+],
+"soulItem": 534760094,
+"farmable": true,
+"pic": "img/pets/1095.webp"
+},
+{
+"id": 1139,
+"name": "Swamp Monster",
+"genus": "Transformation",
+"need": [
+25,
+75
+],
+"soulItem": 534760170,
+"farmable": true,
+"pic": "img/pets/1139.webp"
+},
+{
+"id": 1013,
+"name": "Swarm",
+"genus": "Transformation",
+"need": [
+25,
+75
+],
+"soulItem": 534760012,
+"farmable": true,
+"pic": "img/pets/1013.webp"
+},
+{
+"id": 1045,
+"name": "Sylphen",
+"genus": "Feral",
+"need": [
+25,
+75
+],
+"soulItem": 534760044,
+"farmable": true,
+"pic": "img/pets/1045.webp"
+},
+{
+"id": 1203,
+"name": "Tamed Karnif",
+"genus": "Feral",
+"need": [
+25,
+75
+],
+"soulItem": 534760216,
+"farmable": true,
+"pic": "img/pets/1203.webp"
+},
+{
+"id": 1189,
+"name": "Tamed Zaif",
+"genus": "Feral",
+"need": [
+25,
+75
+],
+"soulItem": 534760223,
+"farmable": true,
+"pic": "img/pets/1189.webp"
+},
+{
+"id": 1106,
+"name": "Tayga",
+"genus": "Feral",
+"need": [
+25,
+75
+],
+"soulItem": 534760105,
+"farmable": true,
+"pic": "img/pets/1106.webp"
+},
+{
+"id": 1209,
+"name": "Thin Agrint",
+"genus": "Nature",
+"need": [
+25,
+75
+],
+"soulItem": 534760111,
+"farmable": true,
+"pic": "img/pets/1209.webp"
+},
+{
+"id": 1072,
+"name": "Tog",
+"genus": "Feral",
+"need": [
+25,
+75
+],
+"soulItem": 534760071,
+"farmable": true,
+"pic": "img/pets/1072.webp"
+},
+{
+"id": 1100,
+"name": "Ultimate Earth Spirit",
+"genus": "Nature",
+"need": [
+25,
+75
+],
+"soulItem": 534760099,
+"farmable": true,
+"pic": "img/pets/1100.webp"
+},
+{
+"id": 1082,
+"name": "Ultimate Fire Spirit",
+"genus": "Nature",
+"need": [
+25,
+75
+],
+"soulItem": 534760081,
+"farmable": true,
+"pic": "img/pets/1082.webp"
+},
+{
+"id": 1090,
+"name": "Ultimate Water Spirit",
+"genus": "Nature",
+"need": [
+25,
+75
+],
+"soulItem": 534760089,
+"farmable": true,
+"pic": "img/pets/1090.webp"
+},
+{
+"id": 1079,
+"name": "Ultimate Wind Spirit",
+"genus": "Nature",
+"need": [
+25,
+75
+],
+"soulItem": 534760078,
+"farmable": true,
+"pic": "img/pets/1079.webp"
+},
+{
+"id": 1117,
+"name": "Unstable Spider",
+"genus": "Feral",
+"need": [
+25,
+75
+],
+"soulItem": 534760084,
+"farmable": true,
+"pic": "img/pets/1117.webp"
+},
+{
+"id": 1042,
+"name": "Ursus",
+"genus": "Feral",
+"need": [
+25,
+75
+],
+"soulItem": 534760041,
+"farmable": true,
+"pic": "img/pets/1042.webp"
+},
+{
+"id": 1078,
+"name": "Urugugu Brawler",
+"genus": "Intelligent",
+"need": [
+25,
+75
+],
+"soulItem": 534760077,
+"farmable": true,
+"pic": "img/pets/1078.webp"
+},
+{
+"id": 1018,
+"name": "Varg Berserker",
+"genus": "Intelligent",
+"need": [
+25,
+75
+],
+"soulItem": 534760017,
+"farmable": true,
+"pic": "img/pets/1018.webp"
+},
+{
+"id": 1158,
+"name": "Venomous Insect Sram",
+"genus": "Feral",
+"need": [
+25,
+75
+],
+"soulItem": 534760192,
+"farmable": true,
+"pic": "img/pets/1158.webp"
+},
+{
+"id": 1063,
+"name": "Vigilant Oculazen",
+"genus": "Transformation",
+"need": [
+25,
+75
+],
+"soulItem": 534760062,
+"farmable": true,
+"pic": "img/pets/1063.webp"
+},
+{
+"id": 1188,
+"name": "Vivel",
+"genus": "Feral",
+"need": [
+25,
+75
+],
+"soulItem": 534760132,
+"farmable": true,
+"pic": "img/pets/1188.webp"
+},
+{
+"id": 1197,
+"name": "Watcher Guardite",
+"genus": "Transformation",
+"need": [
+25,
+75
+],
+"soulItem": 534760208,
+"farmable": true,
+"pic": "img/pets/1197.webp"
+},
+{
+"id": 1027,
+"name": "Withered Agrint",
+"genus": "Nature",
+"need": [
+25,
+75
+],
+"soulItem": 534760026,
+"farmable": true,
+"pic": "img/pets/1027.webp"
+},
+{
+"id": 1116,
+"name": "Withered Branch Spider",
+"genus": "Feral",
+"need": [
+25,
+75
+],
+"soulItem": 534760023,
+"farmable": true,
+"pic": "img/pets/1116.webp"
+},
+{
+"id": 1120,
+"name": "Young Kailin",
+"genus": "Feral",
+"need": [
+25,
+75
+],
+"soulItem": 534760151,
+"farmable": true,
+"pic": "img/pets/1120.webp"
+},
+{
+"id": 1121,
+"name": "Young Slink",
+"genus": "Feral",
+"need": [
+25,
+75
+],
+"soulItem": 534760152,
+"farmable": true,
+"pic": "img/pets/1121.webp"
+},
+{
+"id": 1122,
+"name": "Young Tog",
+"genus": "Feral",
+"need": [
+25,
+75
+],
+"soulItem": 534760153,
+"farmable": true,
+"pic": "img/pets/1122.webp"
+},
+{
+"id": 1123,
+"name": "Young Ursus",
+"genus": "Feral",
+"need": [
+25,
+75
+],
+"soulItem": 534760154,
+"farmable": true,
+"pic": "img/pets/1123.webp"
+},
+{
+"id": 1124,
+"name": "Zaif",
+"genus": "Feral",
+"need": [
+25,
+75
+],
+"soulItem": 534760119,
+"farmable": true,
+"pic": "img/pets/1124.webp"
+},
+{
+"id": 1219,
+"name": "Zelophi",
+"genus": "Nature",
+"need": [
+25,
+75
+],
+"soulItem": 534760115,
+"farmable": true,
+"pic": "img/pets/1219.webp"
+},
+{
+"id": 1244,
+"name": "Aristomeow",
+"genus": "Special",
+"need": [],
+"soulItem": null,
+"farmable": false,
+"pic": "img/pets/1244.webp"
+},
+{
+"id": 1150,
+"name": "Azure Baikron",
+"genus": "Special",
+"need": [
+25,
+75
+],
+"soulItem": 534760181,
+"farmable": false,
+"pic": "img/pets/1150.webp"
+},
+{
+"id": 1243,
+"name": "Babymeow",
+"genus": "Special",
+"need": [],
+"soulItem": null,
+"farmable": false,
+"pic": "img/pets/1243.webp"
+},
+{
+"id": 1149,
+"name": "Baikron",
+"genus": "Special",
+"need": [
+25,
+75
+],
+"soulItem": 534760180,
+"farmable": false,
+"pic": "img/pets/1149.webp"
+},
+{
+"id": 1001,
+"name": "Black Dragon",
+"genus": "Special",
+"need": [
+25,
+75
+],
+"soulItem": 574760001,
+"farmable": false,
+"pic": "img/pets/1001.webp"
+},
+{
+"id": 1251,
+"name": "Chickpea",
+"genus": "Special",
+"need": [],
+"soulItem": null,
+"farmable": false,
+"pic": null
+},
+{
+"id": 1247,
+"name": "Fluffball Haechi",
+"genus": "Special",
+"need": [],
+"soulItem": null,
+"farmable": false,
+"pic": null
+},
+{
+"id": 1225,
+"name": "Frosty Snowman",
+"genus": "Special",
+"need": [],
+"soulItem": null,
+"farmable": false,
+"pic": "img/pets/1225.webp"
+},
+{
+"id": 1250,
+"name": "Glossy Pink Puppy",
+"genus": "Special",
+"need": [],
+"soulItem": null,
+"farmable": false,
+"pic": "img/pets/1250.webp"
+},
+{
+"id": 1152,
+"name": "Golden Baikron",
+"genus": "Special",
+"need": [
+25,
+75
+],
+"soulItem": 534760183,
+"farmable": false,
+"pic": "img/pets/1152.webp"
+},
+{
+"id": 1223,
+"name": "Infernal Steed",
+"genus": "Special",
+"need": [],
+"soulItem": null,
+"farmable": false,
+"pic": "img/pets/1223.webp"
+},
+{
+"id": 1236,
+"name": "Luminous Golden Unicorn",
+"genus": "Special",
+"need": [],
+"soulItem": null,
+"farmable": false,
+"pic": null
+},
+{
+"id": 1242,
+"name": "Moon",
+"genus": "Special",
+"need": [],
+"soulItem": null,
+"farmable": false,
+"pic": "img/pets/1242.webp"
+},
+{
+"id": 1204,
+"name": "Pagati",
+"genus": "Special",
+"need": [
+25,
+75
+],
+"soulItem": 534760225,
+"farmable": false,
+"pic": "img/pets/1204.webp"
+},
+{
+"id": 1246,
+"name": "Pearlescent Butterfly Kite",
+"genus": "Special",
+"need": [],
+"soulItem": null,
+"farmable": false,
+"pic": null
+},
+{
+"id": 1226,
+"name": "Pom-Pom Hat Snowman",
+"genus": "Special",
+"need": [],
+"soulItem": null,
+"farmable": false,
+"pic": "img/pets/1226.webp"
+},
+{
+"id": 1224,
+"name": "Red Horse Doll",
+"genus": "Special",
+"need": [],
+"soulItem": null,
+"farmable": false,
+"pic": "img/pets/1224.webp"
+},
+{
+"id": 1205,
+"name": "Reindeer",
+"genus": "Special",
+"need": [],
+"soulItem": null,
+"farmable": false,
+"pic": "img/pets/1205.webp"
+},
+{
+"id": 1151,
+"name": "Silver Baikron",
+"genus": "Special",
+"need": [
+25,
+75
+],
+"soulItem": 534760182,
+"farmable": false,
+"pic": "img/pets/1151.webp"
+},
+{
+"id": 1211,
+"name": "Sky Whale",
+"genus": "Special",
+"need": [
+25,
+75
+],
+"soulItem": 534760226,
+"farmable": false,
+"pic": "img/pets/1211.webp"
+},
+{
+"id": 1241,
+"name": "Star",
+"genus": "Special",
+"need": [],
+"soulItem": null,
+"farmable": false,
+"pic": "img/pets/1241.webp"
+},
+{
+"id": 1111,
+"name": "Swift Lugi",
+"genus": "Special",
+"need": [
+25,
+75
+],
+"soulItem": 534760146,
+"farmable": false,
+"pic": "img/pets/1111.webp"
+},
+{
+"id": 1253,
+"name": "Umbral Shadow Unicorn",
+"genus": "Special",
+"need": [],
+"soulItem": null,
+"farmable": false,
+"pic": null
+},
+{
+"id": 1249,
+"name": "Unicorn Plush",
+"genus": "Special",
+"need": [],
+"soulItem": null,
+"farmable": false,
+"pic": "img/pets/1249.webp"
+},
+{
+"id": 1112,
+"name": "Wandering Merchant Lugi",
+"genus": "Special",
+"need": [
+25,
+75
+],
+"soulItem": 534760148,
+"farmable": false,
+"pic": "img/pets/1112.webp"
+},
+{
+"id": 1240,
+"name": "White Bunny",
+"genus": "Special",
+"need": [
+25,
+75
+],
+"soulItem": 534760244,
+"farmable": false,
+"pic": "img/pets/1240.webp"
+},
+{
+"id": 1113,
+"name": "White Dragon",
+"genus": "Special",
+"need": [
+25,
+75
+],
+"soulItem": 574760002,
+"farmable": false,
+"pic": "img/pets/1113.webp"
+}
+]
+}

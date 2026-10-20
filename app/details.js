@@ -2,8 +2,11 @@
 // Live views follow the same event stream as the meter; history comes from the capture service (saved on disk).
 import { CLASSES, classIcon, skillIcon, UI_ICONS, makeDraggable, knownSkill, skillBase, askText } from "./icons.js";
 import { Fight, skillRows } from "./model.js";
-import { startDemo, demoSpawns } from "./demo.js";
+import { startDemo, demoSpawns, demoPets } from "./demo.js";
 import * as BT from "./bosstimers.js";
+import * as PF from "./petfarm.js";
+import * as PV from "./petview.js";
+PF.ready.then(() => view === "pets" && render(true));
 import { buildRuns, DUNGEONS, artReady, dungeonArt, bossPortrait, dungeonOfBoss, diffReady, bossDifficulty, difficultyLabel } from "./runs.js";
 artReady.then(() => render(true));
 diffReady.then(() => { runsCache.items = null; render(true); });
@@ -66,7 +69,7 @@ const fight = new Fight(() => {});
 let view = params.get("view") || "player";      // "player" | "history" | "fight"
 let pid = +params.get("pid") || null;
 let wantName = params.get("name") || "";
-let tab = view === "history" ? "runs" : view === "timers" ? "" : "skills";
+let tab = view === "history" ? "runs" : view === "timers" ? "" : view === "pets" ? "farm" : "skills";
 let report = null;                               // a saved fight being viewed (view "fight", or a player inside it)
 let historyItems = null;
 let run = null;                                  // the expedition run being viewed (view "run")
@@ -96,7 +99,8 @@ function connect() {
     if (hello && d.type === "events") { hello = false; fight.reset(); }   // a reconnect replays the fight in progress
     if (d.type === "events") d.events.forEach(e => {
       if (!e || e.t === "net") return;
-      if (e.t === "spawns") { BT.state.lists = e.lists || []; BT.state.webhook = e.webhook || null; if (view === "timers") render(true); }
+      if (e.t === "spawns") { BT.state.lists = e.lists || []; BT.state.webhook = e.webhook || null; BT.state.guild = e.guild || null; if (view === "timers") render(true); }
+      else if (e.t === "pets" || e.t === "petsoul" || e.t === "petkill") { PF.onEvent(e); if (view === "pets") render(true); }
       else if (e.t === "spawnhook") { BT.state.hookMsg = e.ok ? "Sent: check the channel." : `Failed: ${e.error}`; if (view === "timers") render(true); }
       else fight.push(e);
     });
@@ -111,6 +115,7 @@ function connect() {
 function show(info) {
   if (info.view === "history") { view = "history"; tab = "runs"; report = null; run = null; send({ type: "history_list" }); }
   else if (info.view === "timers") { view = "timers"; tab = ""; report = null; run = null; }
+  else if (info.view === "pets") { view = "pets"; tab = "farm"; report = null; run = null; }
   else { view = "player"; report = null; pid = +info.pid; wantName = info.name || ""; tab = "skills"; }
   render(true);
 }
@@ -150,6 +155,7 @@ function body(key, html, force) {
 
 function render(force = false) {
   if (view === "timers") return renderTimers(force);
+  if (view === "pets") return renderPets(force);
   if (view === "history") return renderHistory(force);
   if (view === "run") return renderRun(force);
   if (view === "live") return renderReport(force, liveSnap());
@@ -259,6 +265,18 @@ function renderTimers(force) {
   cards(BT.cardsFor());
   body(`timers|${tab}|${BT.screenKey(tab)}`, () => BT.screenHtml(tab), force);
   BT.tickCountdowns($("dbody"));
+}
+
+// ----- pet farming (petview.js) -----
+function renderPets(force) {
+  const list = PV.tabs();
+  if (!list.some(([k]) => k === tab)) tab = list[0][0];
+  setTabs(list);
+  header({ emblem: PV.PAW, name: "Pet farming", cc: settings.accent,
+           sub: "Your pets' levels and souls, live from the game. Put pets on your target farm to watch them on the meter." });
+  cards(PV.cardsFor());
+  body(`pets|${tab}|${PV.screenKey(tab)}`, () => PV.screenHtml(tab), force);
+  PV.applyFilter($("dbody"));
 }
 
 // ----- history -----
@@ -457,6 +475,7 @@ $("dbody").addEventListener("pointerdown", e => {
 });
 $("dbody").addEventListener("click", e => {
   if (view === "timers" && BT.onClick(e, { send, rerender: () => render(true), askText, nova })) return;
+  if (view === "pets" && PV.onClick(e, { rerender: () => render(true), nova })) return;
   const del = e.target.closest("[data-del]");
   if (del) { e.stopPropagation(); if (confirm("Delete this fight from your history?")) send({ type: "history_delete", id: del.dataset.del }); return; }
   const rr = e.target.closest("[data-run]");
@@ -489,15 +508,17 @@ $("dbody").addEventListener("click", e => {
     render(true);
   });
 });
-$("dbody").addEventListener("change", e => { if (view === "timers") BT.onChange(e, () => render(true)); });
+$("dbody").addEventListener("change", e => { if (view === "timers") BT.onChange(e, () => render(true), send); if (view === "pets") PV.onChange(e, () => render(true)); });
+$("dbody").addEventListener("input", e => { if (view === "pets") PV.onInput(e); });
 addEventListener("storage", e => {
   if (e.key === "nova.reminders" && view === "timers") render(true);
+  if (e.key?.startsWith("nova.pet") && view === "pets") render(true);
   if (e.key === "nova.skillNames") skillNames = store.get("skillNames", {});
   if (e.key === "nova.settings") { Object.assign(settings, store.get("settings", {})); applyLook(); }
 });
 
 if (nova) { document.body.classList.add("electron"); makeDraggable($("dhead"), nova); makeDraggable($("dgrip"), nova, "resize"); }
 applyLook();
-if (params.has("demo")) { startDemo(e => e.t !== "net" && fight.push(e)); BT.state.lists = demoSpawns(); } else connect();
+if (params.has("demo")) { startDemo(e => e.t !== "net" && fight.push(e)); BT.state.lists = demoSpawns(); PF.ready.then(() => { PF.onEvent(demoPets()); render(true); }); } else connect();
 render(true);
 setInterval(render, 500);

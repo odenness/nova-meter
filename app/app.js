@@ -4,6 +4,7 @@ import { Fight, MODES, value, cumulative, mergeSnapshots, filteredDamage, skillR
 import { EVENTS, eventState, describe, fmtWait, chime } from "./timers.js";
 import { DUNGEONS, bossPortrait, bossDifficulty } from "./runs.js";
 import { dueReminders, reminderOpts, reminderText } from "./reminders.js";
+import * as PF from "./petfarm.js";
 // Personal bests are kept per boss AND difficulty ("Vakron (Conquest)"). Bests saved before that were keyed by name
 // only; nearly all of those are Conquest kills, so they still count for Conquest (and for bosses of unknown difficulty).
 const bestKey = tg => {
@@ -16,7 +17,7 @@ function findBest(tg, who) {
   return bests[`${k}|${who}`] || bests[k] || (legacyOk ? bests[`${tg.name}|${who}`] || bests[tg.name] : null);
 }
 import { rate, ratingClass } from "./ratings.js";
-import { startDemo, demoBest } from "./demo.js";
+import { startDemo, demoBest, demoPets } from "./demo.js";
 
 const $ = id => document.getElementById(id);
 const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
@@ -202,7 +203,12 @@ function updateNet(e) {
 let source = "demo";
 let demo = null;
 let spawnLists = [];                      // field boss timers from the capture service (the map's boss list)
-const push = e => { if (e.t === "net") updateNet(e); else if (e.t === "spawns") spawnLists = e.lists || []; else if (e.t !== "spawnhook") fight.push(e); };
+const push = e => {
+  if (e.t === "net") updateNet(e);
+  else if (e.t === "spawns") spawnLists = e.lists || [];
+  else if (e.t === "pets" || e.t === "petsoul" || e.t === "petkill") { PF.onEvent(e).forEach(celebratePet); renderPets(); }
+  else if (e.t !== "spawnhook") fight.push(e);
+};
 
 function connectLive() {
   let ws;
@@ -821,6 +827,12 @@ document.addEventListener("click", e => { if (!e.target.closest("#menu")) $("men
 $("menu").onclick = e => {
   const b = e.target.closest("[data-open]");
   if (b && b.dataset.open === "help") { $("menu").hidden = true; nova ? nova.openHelp() : open("help.html", "_blank"); return; }
+  if (b && b.dataset.open === "pets") {
+    $("menu").hidden = true;
+    const ws = params.get("ws") || 8765;
+    nova ? nova.openDetails({ view: "pets", ws }) : open(`details.html?view=pets&ws=${ws}`, "_blank");
+    return;
+  }
   if (b && b.dataset.open === "timers") {
     $("menu").hidden = true;
     const ws = params.get("ws") || 8765;
@@ -960,6 +972,7 @@ if (isElectron) { document.body.classList.add("electron"); nova.onLock?.(on => w
 applySettings();
 if (!params.has("live")) {
   demo = startDemo(push);
+  PF.ready.then(() => push(demoPets()));
   if (!bests["Ancient Guardian"]) {
     const b = demoBest();
     bests["Ancient Guardian"] = { dps: { DPS: b.dps, nDPS: b.dps * .95, rDPS: b.dps }, cum: { DPS: b.cum, nDPS: b.cum.map(v => v * .95), rDPS: b.cum } };
@@ -988,3 +1001,29 @@ function popReminder(r) {
   setTimeout(() => el.remove(), 9000);
 }
 setInterval(() => { for (const r of dueReminders(spawnLists)) popReminder(r); }, 1000);
+
+// ---------- pet farming: your target farm in a strip under the rows (set up in the Pet farming window) ----------
+function renderPets() {
+  const ids = PF.targets();
+  const el = $("petstrip");
+  el.hidden = !ids.length || !PF.opts().overlay || !PF.state.pets.size;
+  if (el.hidden) return;
+  const html = ids.map(id => PF.petRow(id)).join("");
+  if (el._html !== html) { el.innerHTML = html; el._html = html; }
+}
+PF.ready.then(renderPets);
+addEventListener("storage", e => { if (e.key?.startsWith("nova.pet")) renderPets(); });   // changed in the Pet farming window
+$("petstrip").onclick = () => { const ws = params.get("ws") || 8765; nova ? nova.openDetails({ view: "pets", ws }) : open(`details.html?view=pets&ws=${ws}`, "_blank"); };
+
+function celebratePet(c) {
+  const max = c.level >= (c.pet.need?.length || 2) + 1;
+  const info = { kind: "pet", name: c.pet.name, level: c.level, pic: c.pet.pic, max, sound: PF.opts().sound, volume: +settings.pbVolume || 0.5 };
+  if (nova?.celebrate) { nova.celebrate(info); return; }
+  const el = document.createElement("div");                    // browser: a toast in the meter
+  el.className = "remind-toast";
+  el.style.setProperty("--c", "#f3c25a");
+  el.innerHTML = `${c.pet.pic ? `<img src="${esc(c.pet.pic)}" alt="">` : ""}<div><b>${esc(c.pet.name)}: Level ${c.level} achieved</b><small>${max ? "Max level: done farming" : "Pet farming"}</small></div>`;
+  document.body.append(el);
+  if (PF.opts().sound) chime();
+  setTimeout(() => el.remove(), 9000);
+}
