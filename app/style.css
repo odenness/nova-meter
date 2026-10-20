@@ -352,3 +352,10 @@ td > .skill-img { width: 16px; height: 16px; border-radius: 3px; vertical-align:
 
 /* the % and the rest of the bar text are separate pieces: space them (a leading space inside a flex item is dropped) */
 .hp-text { gap: .3em; }
+
+/* reminder toast (browser only: the desktop app shows reminders in their own banner over the game) */
+.remind-toast { position: fixed; z-index: 60; left: 50%; top: 8px; transform: translateX(-50%); display: flex; align-items: center; gap: 10px;
+  padding: 8px 14px 8px 8px; background: rgba(12, 12, 18, .96); border: 1px solid var(--c); border-radius: 10px; box-shadow: 0 0 18px rgba(0, 0, 0, .6); }
+.remind-toast img { width: 36px; height: 36px; border-radius: 7px; }
+.remind-toast b { display: block; font-size: 13px; }
+.remind-toast small { color: var(--muted); font-size: 11px; }

@@ -172,6 +172,7 @@ export class Fight {
       }
 
       case "death": {
+        if (this.start == null) break;   // between fights (e.g. a wipe): it isn't part of the next pull
         const hits = (this.incoming.get(e.id) || []).filter(h => e.ts - h.ts <= RECAP_MS);
         this.deaths.push({ id: e.id, ts: e.ts, at: this.start != null ? (e.ts - this.start) / 1000 : 0, hits });
         this.stat(e.id).dead = true;

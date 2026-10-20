@@ -2,7 +2,8 @@
 // Live views follow the same event stream as the meter; history comes from the capture service (saved on disk).
 import { CLASSES, classIcon, skillIcon, UI_ICONS, makeDraggable, knownSkill, skillBase, askText } from "./icons.js";
 import { Fight, skillRows } from "./model.js";
-import { startDemo } from "./demo.js";
+import { startDemo, demoSpawns } from "./demo.js";
+import * as BT from "./bosstimers.js";
 import { buildRuns, DUNGEONS, artReady, dungeonArt, bossPortrait, dungeonOfBoss, diffReady, bossDifficulty, difficultyLabel } from "./runs.js";
 artReady.then(() => render(true));
 diffReady.then(() => { runsCache.items = null; render(true); });
@@ -65,7 +66,7 @@ const fight = new Fight(() => {});
 let view = params.get("view") || "player";      // "player" | "history" | "fight"
 let pid = +params.get("pid") || null;
 let wantName = params.get("name") || "";
-let tab = view === "history" ? "runs" : "skills";
+let tab = view === "history" ? "runs" : view === "timers" ? "" : "skills";
 let report = null;                               // a saved fight being viewed (view "fight", or a player inside it)
 let historyItems = null;
 let run = null;                                  // the expedition run being viewed (view "run")
@@ -93,7 +94,12 @@ function connect() {
   ws.onmessage = m => {
     const d = JSON.parse(m.data);
     if (hello && d.type === "events") { hello = false; fight.reset(); }   // a reconnect replays the fight in progress
-    if (d.type === "events") d.events.forEach(e => e && e.t !== "net" && fight.push(e));
+    if (d.type === "events") d.events.forEach(e => {
+      if (!e || e.t === "net") return;
+      if (e.t === "spawns") { BT.state.lists = e.lists || []; BT.state.webhook = e.webhook || null; if (view === "timers") render(true); }
+      else if (e.t === "spawnhook") { BT.state.hookMsg = e.ok ? "Sent: check the channel." : `Failed: ${e.error}`; if (view === "timers") render(true); }
+      else fight.push(e);
+    });
     else if (d.type === "history") { historyItems = d.items; if (view === "history") render(true); }
     else if (d.type === "history_saved") { historyItems = [d.item, ...(historyItems || []).filter(x => x.id !== d.item.id)]; if (view === "history") render(true); }
     else if (d.type === "fight" && d.fight) { report = d.fight; fromRun = view === "run"; view = "fight"; tab = "damage"; render(true); }
@@ -104,6 +110,7 @@ function connect() {
 // the meter can point us at another player / view without reopening the window
 function show(info) {
   if (info.view === "history") { view = "history"; tab = "runs"; report = null; run = null; send({ type: "history_list" }); }
+  else if (info.view === "timers") { view = "timers"; tab = ""; report = null; run = null; }
   else { view = "player"; report = null; pid = +info.pid; wantName = info.name || ""; tab = "skills"; }
   render(true);
 }
@@ -142,6 +149,7 @@ function body(key, html, force) {
 }
 
 function render(force = false) {
+  if (view === "timers") return renderTimers(force);
   if (view === "history") return renderHistory(force);
   if (view === "run") return renderRun(force);
   if (view === "live") return renderReport(force, liveSnap());
@@ -239,6 +247,18 @@ function rotationHtml(p) {
     html += `<div class="cast" title="${esc(skillName(c.skill))} · ${fmt(c.dmg)}">${badge(c.skill, p.cls)}<span class="t">${fmtTime(c.t)}</span></div>`;
   });
   return html + "</div>";
+}
+
+// ----- boss timers & reminders (bosstimers.js) -----
+function renderTimers(force) {
+  const list = BT.tabs();
+  if (!list.some(([k]) => k === tab)) tab = list[0][0];
+  setTabs(list);
+  header({ emblem: BT.HOURGLASS, name: "Boss timers", cc: settings.accent,
+           sub: "Live from the game: open your world map to refresh. Click a bell to get a pop-up before a boss or event." });
+  cards(BT.cardsFor());
+  body(`timers|${tab}|${BT.screenKey(tab)}`, () => BT.screenHtml(tab), force);
+  BT.tickCountdowns($("dbody"));
 }
 
 // ----- history -----
@@ -436,6 +456,7 @@ $("dbody").addEventListener("pointerdown", e => {
   if (pr) { pid = +pr.dataset.pid; wantName = ""; view = "player"; tab = "skills"; render(true); }
 });
 $("dbody").addEventListener("click", e => {
+  if (view === "timers" && BT.onClick(e, { send, rerender: () => render(true), askText, nova })) return;
   const del = e.target.closest("[data-del]");
   if (del) { e.stopPropagation(); if (confirm("Delete this fight from your history?")) send({ type: "history_delete", id: del.dataset.del }); return; }
   const rr = e.target.closest("[data-run]");
@@ -468,13 +489,15 @@ $("dbody").addEventListener("click", e => {
     render(true);
   });
 });
+$("dbody").addEventListener("change", e => { if (view === "timers") BT.onChange(e, () => render(true)); });
 addEventListener("storage", e => {
+  if (e.key === "nova.reminders" && view === "timers") render(true);
   if (e.key === "nova.skillNames") skillNames = store.get("skillNames", {});
   if (e.key === "nova.settings") { Object.assign(settings, store.get("settings", {})); applyLook(); }
 });
 
 if (nova) { document.body.classList.add("electron"); makeDraggable($("dhead"), nova); makeDraggable($("dgrip"), nova, "resize"); }
 applyLook();
-if (params.has("demo")) startDemo(e => e.t !== "net" && fight.push(e)); else connect();
+if (params.has("demo")) { startDemo(e => e.t !== "net" && fight.push(e)); BT.state.lists = demoSpawns(); } else connect();
 render(true);
 setInterval(render, 500);

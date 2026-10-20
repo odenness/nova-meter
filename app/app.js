@@ -3,6 +3,7 @@ const CLASS_IMG_READY = cls => !!CLASS_IMG[cls];
 import { Fight, MODES, value, cumulative, mergeSnapshots, filteredDamage, skillRows } from "./model.js";
 import { EVENTS, eventState, describe, fmtWait, chime } from "./timers.js";
 import { DUNGEONS, bossPortrait, bossDifficulty } from "./runs.js";
+import { dueReminders, reminderOpts, reminderText } from "./reminders.js";
 // Personal bests are kept per boss AND difficulty ("Vakron (Conquest)"). Bests saved before that were keyed by name
 // only; nearly all of those are Conquest kills, so they still count for Conquest (and for bosses of unknown difficulty).
 const bestKey = tg => {
@@ -200,7 +201,8 @@ function updateNet(e) {
 // ---------- event intake ----------
 let source = "demo";
 let demo = null;
-const push = e => { if (e.t === "net") updateNet(e); else fight.push(e); };
+let spawnLists = [];                      // field boss timers from the capture service (the map's boss list)
+const push = e => { if (e.t === "net") updateNet(e); else if (e.t === "spawns") spawnLists = e.lists || []; else if (e.t !== "spawnhook") fight.push(e); };
 
 function connectLive() {
   let ws;
@@ -819,6 +821,12 @@ document.addEventListener("click", e => { if (!e.target.closest("#menu")) $("men
 $("menu").onclick = e => {
   const b = e.target.closest("[data-open]");
   if (b && b.dataset.open === "help") { $("menu").hidden = true; nova ? nova.openHelp() : open("help.html", "_blank"); return; }
+  if (b && b.dataset.open === "timers") {
+    $("menu").hidden = true;
+    const ws = params.get("ws") || 8765;
+    nova ? nova.openDetails({ view: "timers", ws }) : open(`details.html?view=timers&ws=${ws}`, "_blank");
+    return;
+  }
   if (b && b.dataset.open === "history" && nova) { $("menu").hidden = true; nova.openDetails({ view: "history", ws: params.get("ws") || 8765 }); return; }
   if (b) { if (b.dataset.open === "history") sendLive({ type: "history_list" }); openPanel(b.dataset.open); return; }
   const a = e.target.closest("[data-act]"); if (!a) return;
@@ -962,3 +970,21 @@ render(); renderEvents();
 new ResizeObserver(() => render()).observe($("meter"));
 setInterval(render, 250);
 setInterval(renderEvents, 1000);
+
+// ---------- your boss & event reminders (set in the Boss timers window) ----------
+function popReminder(r) {
+  const opts = reminderOpts();
+  const info = { text: reminderText(r), sub: r.sub || "", at: r.at, portrait: r.portrait, event: r.event, color: r.color,
+                 sound: opts.sound, seconds: 9 };
+  if (!opts.popup) { if (opts.sound) chime(); return; }
+  if (nova?.remind) { nova.remind(info); return; }
+  // no desktop app (browser): a toast inside the meter
+  const el = document.createElement("div");
+  el.className = "remind-toast";
+  el.style.setProperty("--c", r.color || "#f0b232");
+  el.innerHTML = `${r.portrait ? `<img src="img/spawns/${esc(r.portrait)}" alt="">` : ""}<div><b>${esc(info.text)}</b><small>${esc(info.sub)}</small></div>`;
+  document.body.append(el);
+  if (opts.sound) chime();
+  setTimeout(() => el.remove(), 9000);
+}
+setInterval(() => { for (const r of dueReminders(spawnLists)) popReminder(r); }, 1000);

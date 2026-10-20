@@ -116,3 +116,19 @@ export function demoBest() {
   const rate = PARTY[0].rate * SCALE * 1.9 * 0.97;
   return { dps: rate, cum: Array.from({ length: 400 }, (_, i) => rate * i) };
 }
+
+/** Sample field boss timers (Altgard), relative to now: for the demo page and testing the Boss timers screen. */
+export function demoSpawns(now = Date.now()) {
+  const m = 60e3;
+  const S = [
+    ["Melted Danar", "Dredgion Crash Site", "MOB_DranaVar_02_V01.webp", 11 * m], ["Black Warrior Aed", "Nameless Cemetery", "MOB_SuraWar_05_V02.webp", 16 * m],
+    ["Faithful Rajit", "Sanctum Outpost", "MOB_DracoWar_01_V03.webp", -1, 0.58], ["Berserker Vargor", "Sanctum Outpost", "MOB_Varg_03_V01.webp", 22 * m],
+    ["Predator Garsan", "Moslan Forest", "MOB_UrsussElite_01_CV01.webp", 26 * m], ["Executioner Barthien", "Western Gribade Highland", "MOB_AltKnife_07.webp", 19 * m],
+    ["Dark Shadow Vishwada", "Lagta Fortress", "MOB_BeritraD_03.webp", -1, 1], ["Sharp Shylak", "Impetusium Square", "MOB_DracoElite_01.webp", 5 * 60 * m],
+    ["Immortal Gartua", "Immortal Isle", "MOB_Gartua_01_V02.webp", 7 * 60 * m], ["High Commander Lagta", "Lagta Fortress", "MOB_Lagta_01.webp", 7.5 * 60 * m],
+    ["Soul Ruler Kashapa", "Iduns Lake", "MOB_Kashapa_01.webp", 3 * 60 * m], ["Silent Dartan", "Battlescar Mound", "MOB_BeritraD_01.webp", 2 * 60 * m],
+  ];
+  return [{ list: 1110, map: "World_D_A", label: "Altgard", spawns: S.map(([name, region, portrait, inMs, hp], i) => ({
+    list: 1110, id: 111001 + i, name, region, portrait, level: 45, alive: inMs < 0, hp: inMs < 0 ? hp : null,
+    next: inMs < 0 ? null : Math.round(now + inMs), upAt: inMs < 0 ? now - (i + 2) * m : null, seen: now - 30e3 })) }];
+}
