@@ -21,6 +21,9 @@ Installed copies update themselves.
   portrait: who's up (with HP) and the exact respawn time of the rest, straight from the game. Click the bell on any boss
   or event to get a pop-up over the game (on spawn, or 1 to 60 minutes before). It can also keep a live timer dashboard
   in your guild's Discord channel through a webhook.
+- **Pet farming:** your pets' levels and souls come straight from the game (no typing in counts). Put pets on your
+  target farm (or let target farm mode add them when a soul drops) and watch them count up under the meter:
+  "Agrint 23/25". At 25/25 and 75/75 you get a level-up celebration.
 - **Breakdowns:** skill names and icons for all nine classes (Brawler included), summons collected on one line, hits,
   rotation and damage taken, plus a fight report for every saved fight.
 
@@ -53,5 +56,6 @@ Shipped with the app and refreshed before releases:
   (class medians and top 5% from real uploaded kills)
 - dungeon artwork and boss portraits: metabot.gg
 - field boss names, map regions and portraits: the [aion2hub.com](https://aion2hub.com/maps) world map
+- pets, soul thresholds and pet portraits: [gamers4.life](https://gamers4.life/aion-2/database/en/pets/)
 
 Not affiliated with NCSOFT. Aion is a trademark of NCSOFT Corporation. Game art, class emblems and skill icons © NCSOFT.
