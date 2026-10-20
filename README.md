@@ -40,8 +40,9 @@ Nova Meter is free. If it helps your raids, you can [buy me a coffee ☕](https:
 Nova Meter only reads a copy of the game's network traffic through Npcap. It never touches the game, its files or its memory,
 and never sends anything to the game servers. Fights and settings stay on your PC (`%APPDATA%\NovaMeter`). While running it
 looks up enemy names by NPC ID from the public gamers4.life Aion 2 database, and checks this repository for updates and shared
-skill names. If you add a Discord webhook (Boss timers → Alerts & Discord), it posts the boss timers to that channel; nothing
-else is sent. No account, no telemetry.
+skill names. If you add a Discord webhook (Boss timers → Alerts & Discord), it posts the boss timers to that channel. Members of
+the NOVA legion also share the boss timers they see with the NOVA guild board (switch it off in Alerts & Discord).
+Only boss timers are sent, nothing else. No account, no telemetry.
 
 ## Data sources
 Shipped with the app and refreshed before releases:
